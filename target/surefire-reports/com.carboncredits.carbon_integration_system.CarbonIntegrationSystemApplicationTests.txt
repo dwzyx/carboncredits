@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.carboncredits.carbon_integration_system.CarbonIntegrationSystemApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.151 s - in com.carboncredits.carbon_integration_system.CarbonIntegrationSystemApplicationTests

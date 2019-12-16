@@ -1,0 +1,8 @@
+com\carboncredits\carbon_integration_system\model\UserCarbonCredits.class
+com\carboncredits\carbon_integration_system\CarbonIntegrationSystemApplication.class
+com\carboncredits\carbon_integration_system\mapper\UserMapper.class
+com\carboncredits\carbon_integration_system\config\RedisConfig.class
+com\carboncredits\carbon_integration_system\model\User.class
+com\carboncredits\carbon_integration_system\model\DailyItinerary.class
+com\carboncredits\carbon_integration_system\controller\UserController.class
+com\carboncredits\carbon_integration_system\service\UserService.class
