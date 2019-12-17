@@ -9,8 +9,8 @@
         <module name="carbon_integration_system" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="carbon_integration_system" target="1.8" />
+    <bytecodeTargetLevel target="8">
+      <module name="carbon_integration_system" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
