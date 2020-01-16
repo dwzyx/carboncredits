@@ -39,9 +39,6 @@ public class CarbonCreditsController {
         jsonObject.replace("status_msg", StatusEnum.SUCCESS.getMessage());
         jsonObject.replace("result", carBonCreditsDTO);
 
-        jsonObject.replace("status_code", StatusEnum.FAILED.getCoding());
-        jsonObject.replace("status_msg", StatusEnum.FAILED.getMessage());
-        jsonObject.replace("result", null);
         return jsonObject.toString();
     }
 
