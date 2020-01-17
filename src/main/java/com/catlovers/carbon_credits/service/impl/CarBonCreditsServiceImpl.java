@@ -3,6 +3,7 @@ package com.catlovers.carbon_credits.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.catlovers.carbon_credits.dao.CarbonCreditsDao;
+import com.catlovers.carbon_credits.enumeration.StatusEnum;
 import com.catlovers.carbon_credits.enumeration.URLEnum;
 import com.catlovers.carbon_credits.model.CarBonCreditsDTO;
 import com.catlovers.carbon_credits.model.CarbonCreditsVO;
@@ -40,9 +41,9 @@ public class CarBonCreditsServiceImpl implements CarbonCreditsService {
 
     @Cacheable(value = "cardits_info", key = "#root.methodName+':'+#userId")
     @Override
-    public CarBonCreditsDTO getCreditsInfo(int userId) {
+    public JSONObject getCreditsInfo(int userId) {
 
-
+        JSONObject jsonObject = new JSONObject();
         CarBonCreditsDTO carBonCreditsDTO = new CarBonCreditsDTO();
         MultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
         HttpHeaders httpHeaders = new HttpHeaders();
@@ -54,17 +55,16 @@ public class CarBonCreditsServiceImpl implements CarbonCreditsService {
 
         httpHeaders.add("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE+";charset=UTF-8");
         httpHeaders.add("userId", "1");
-        //HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<>(map, httpHeaders);
-        //ResponseEntity<JSONObject> exchange = restTemplate.exchange(USER_INFO_URL.getUrl(), HttpMethod.POST, request, JSONObject.class);
 
+        try {
         ResponseEntity<JSONObject> exchange = restTemplate.exchange(URLEnum.TRIP_BASE_URL.getUrl(),
                 HttpMethod.POST, new HttpEntity<>(map, httpHeaders), JSONObject.class);
 
         JSONObject result = exchange.getBody();
-        if (result!=null) {
+        if (result != null) {
             HashMap<String, Object> jsonMap = JSONObject.parseObject(result.toString(),
                     new TypeReference<HashMap<String, Object>>() {
-            });
+                    });
             UserMessageDTO userMessage = (UserMessageDTO) jsonMap.get("user");//获得用户基本信息
 
             updateUserCarbonCredits();
@@ -76,7 +76,17 @@ public class CarBonCreditsServiceImpl implements CarbonCreditsService {
             carBonCreditsDTO = null;
         }
 
-        return carBonCreditsDTO;
+        jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+        jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+
+        }catch (Exception e){
+            carBonCreditsDTO = null;
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+
+        jsonObject.put("result", carBonCreditsDTO);
+        return jsonObject;
     }
 
     private void updateUserCarbonCredits() {
