@@ -57,27 +57,27 @@ public class CarBonCreditsServiceImpl implements CarbonCreditsService {
         httpHeaders.add("userId", "1");
 
         try {
-        ResponseEntity<JSONObject> exchange = restTemplate.exchange(URLEnum.TRIP_BASE_URL.getUrl(),
-                HttpMethod.POST, new HttpEntity<>(map, httpHeaders), JSONObject.class);
+            ResponseEntity<JSONObject> exchange = restTemplate.exchange(URLEnum.TRIP_BASE_URL.getUrl(),
+                    HttpMethod.POST, new HttpEntity<>(map, httpHeaders), JSONObject.class);
 
-        JSONObject result = exchange.getBody();
-        if (result != null) {
-            HashMap<String, Object> jsonMap = JSONObject.parseObject(result.toString(),
-                    new TypeReference<HashMap<String, Object>>() {
-                    });
-            UserMessageDTO userMessage = (UserMessageDTO) jsonMap.get("user");//获得用户基本信息
+            JSONObject result = exchange.getBody();
+            if (result != null) {
+                HashMap<String, Object> jsonMap = JSONObject.parseObject(result.toString(),
+                        new TypeReference<HashMap<String, Object>>() {
+                        });
+                UserMessageDTO userMessage = (UserMessageDTO) jsonMap.get("user");//获得用户基本信息
 
-            updateUserCarbonCredits();
+                updateUserCarbonCredits();
 
-            CarbonCreditsVO carbonCreditsVO = carbonCreditsDao.getUserAllCarbonCredits(userId);
+                CarbonCreditsVO carbonCreditsVO = carbonCreditsDao.getUserAllCarbonCredits(userId);
 
-            carBonCreditsDTOToCarBonCreditsVO(carBonCreditsDTO, carbonCreditsVO);
-        } else {
-            carBonCreditsDTO = null;
-        }
+                carBonCreditsDTOToCarBonCreditsVO(carBonCreditsDTO, carbonCreditsVO);
+            } else {
+                carBonCreditsDTO = null;
+            }
 
-        jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-        jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
 
         }catch (Exception e){
             carBonCreditsDTO = null;

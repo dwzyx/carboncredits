@@ -2,7 +2,6 @@ package com.catlovers.carbon_credits.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.catlovers.carbon_credits.enumeration.StatusEnum;
-import com.catlovers.carbon_credits.model.CarBonCreditsDTO;
 import com.catlovers.carbon_credits.model.RankingDTO;
 import com.catlovers.carbon_credits.model.UserDTO;
 import com.catlovers.carbon_credits.service.UserService;
@@ -42,6 +41,9 @@ public class UserController {
 
 
         return jsonObject.toString();
+
+
+
     }
 
     @GetMapping(value = "/user/getUserRankingList", produces = "application/json;charset=UTF-8")

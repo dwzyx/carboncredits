@@ -12,32 +12,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 @RestController
 public class CarbonCreditsController {
 
     private String answer = null;
     private Gson gson = new Gson();
-    private JSONObject jsonObject = new JSONObject();
+    private JSONObject jsonObject = null;
+    public static Logger logger = Logger.getLogger(String.valueOf(UserController.class));
 
     private final
     CarbonCreditsService carbonCreditsService;
 
     public CarbonCreditsController(CarbonCreditsService carbonCreditsService) {
         this.carbonCreditsService = carbonCreditsService;
-        jsonObject.put("status_code", null);
-        jsonObject.put("status_msg", null);
-        jsonObject.put("result", null);
     }
 
 
     @GetMapping(value = "/carbonCredits/getCreditsInfo", produces = "application/json;charset=UTF-8")
     public String getCreditsInfo(@RequestParam("user_id") int userId){
-        CarBonCreditsDTO carBonCreditsDTO = carbonCreditsService.getCreditsInfo(userId);
 
-        jsonObject.replace("status_code", StatusEnum.SUCCESS.getCoding());
-        jsonObject.replace("status_msg", StatusEnum.SUCCESS.getMessage());
-        jsonObject.replace("result", carBonCreditsDTO);
+
+       JSONObject jsonObject = carbonCreditsService.getCreditsInfo(userId);
+
+
 
         return jsonObject.toString();
     }
