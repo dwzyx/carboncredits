@@ -2,6 +2,9 @@ package com.catlovers.carbon_credits;
 
 import com.alibaba.fastjson.JSONObject;
 import com.catlovers.carbon_credits.model.CarBonCreditsDTO;
+import com.catlovers.carbon_credits.model.MerchantDTO;
+import com.catlovers.carbon_credits.service.MerchantService;
+import com.catlovers.carbon_credits.service.impl.MerchantServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,6 +23,7 @@ class CarbonCreditsApplicationTests {
 
     @Autowired
     private RestTemplate restTemplate;
+    private MerchantService merchantService = new MerchantServiceImpl();
 
     @Test
     void test_01(){
@@ -44,6 +48,17 @@ class CarbonCreditsApplicationTests {
 
     @Test
     void contextLoads() {
+    }
+
+    @Test
+    void test_02(){
+        MerchantDTO merchantDTO = new MerchantDTO(0,1,"123456zyx","11111111111","738667591@qq.com","zyx","某某大街","贩卖啥啥啥","asdfgasfds.jpg");
+
+            JSONObject jsonObject = merchantService.signUp(merchantDTO);
+            System.out.println(jsonObject.toString());
+
+            System.out.println("null");
+
     }
 
 }
