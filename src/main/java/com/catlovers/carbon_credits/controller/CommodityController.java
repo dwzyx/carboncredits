@@ -2,11 +2,9 @@ package com.catlovers.carbon_credits.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.catlovers.carbon_credits.enumeration.StatusEnum;
-import com.catlovers.carbon_credits.model.CarBonCreditsDTO;
 import com.catlovers.carbon_credits.model.CommodityDTO;
 import com.catlovers.carbon_credits.service.CommodityService;
 import com.google.gson.Gson;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

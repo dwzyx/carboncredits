@@ -2,7 +2,7 @@ spring:
   datasource:
     username: root
     password: 1234
-    url: jdbc:mysql://121.36.4.52:3306/test?useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://121.36.4.52:3306/com_carbon_credits?useSSL=false&serverTimezone=GMT%2B8
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 

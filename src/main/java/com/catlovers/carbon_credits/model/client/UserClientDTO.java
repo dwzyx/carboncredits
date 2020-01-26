@@ -1,4 +1,4 @@
-package com.catlovers.carbon_credits.model;
+package com.catlovers.carbon_credits.model.client;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import java.util.Date;
  * 从八维通接口获取数据
  * 与传输关联的user实体类
  */
-public class UserMessageDTO {
+public class UserClientDTO {
 
     private int user_id;
     private String user_name;

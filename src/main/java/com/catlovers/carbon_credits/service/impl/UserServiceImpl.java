@@ -1,5 +1,6 @@
 package com.catlovers.carbon_credits.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.catlovers.carbon_credits.dao.UserDao;
 import com.catlovers.carbon_credits.model.RankingDTO;
 import com.catlovers.carbon_credits.model.UserDTO;
@@ -23,7 +24,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO getUserInfo(int userId) {
+    public JSONObject getUserInfo(int userId) {
 
         UserDTO userDTO = new UserDTO();
         userDTO.setCity_id(3302);
@@ -35,12 +36,12 @@ public class UserServiceImpl implements UserService {
         userDTO.setUser_level(1);
         userDTO.setUser_rank(1);
 
-        return userDTO;
+        return null;
     }
 
     @Override
-    public List<RankingDTO> getRankingList(int userId, int cityId) {
-        List<RankingDTO> result = new ArrayList<>();
+    public JSONObject getRankingList(int userId, int cityId) {
+        JSONObject jsonObject = new JSONObject();
 
         RankingDTO rankingDTO = new RankingDTO();
         rankingDTO.setNickname("小明");
@@ -48,7 +49,6 @@ public class UserServiceImpl implements UserService {
         rankingDTO.setUserImagePath("https://i.loli.net/2020/01/16/q9HUiEuzDrCJLOZ.jpgs");
         rankingDTO.setUserRank(1);
 
-        result.add(rankingDTO);
-        return result;
+        return jsonObject;
     }
 }

@@ -17,6 +17,7 @@ public class UserDTO {
     private int sign_in_number;
     private int carbon_credits_month;
     private int user_rank;
+    private int is_store;
 
 
 }
