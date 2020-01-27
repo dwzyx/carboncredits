@@ -30,7 +30,6 @@ public class UserController {
 
         JSONObject jsonObject = userService.getUserInfo(userId);
 
-
         return jsonObject.toString();
 
 

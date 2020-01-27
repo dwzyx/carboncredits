@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.catlovers.carbon_credits.dao.UserDao">
+
+
+    <update id="updateUserCarbonCreditsMonth">
+        UPDATE user_basic t SET
+        t.carbon_credits_month = (SELECT carbon_credits_month FROM carbon_credits_basic WHERE user_id = t.user_id),
+        t.user_level = #{level}
+        WHERE user_id = #{userId}
+    </update>
+    <select id="getUserBasicById" resultType="com.catlovers.carbon_credits.model.UserVO">
+        SELECT * FROM user_basic WHERE user_id=#{userId}
+    </select>
+    <select id="getUserBasicByRank" resultType="com.catlovers.carbon_credits.model.UserVO">
+        select b.* from (
+        SELECT t.*, @rownum := @rownum + 1 AS user_rank
+        FROM (SELECT @rownum := 0) r, (SELECT * FROM user_basic ORDER BY carbon_credits_month ASC ) AS t
+        ) as b where user_id = #{userId};
+    </select>
+</mapper>

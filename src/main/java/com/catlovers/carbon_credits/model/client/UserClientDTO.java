@@ -16,23 +16,23 @@ import java.util.Date;
  */
 public class UserClientDTO {
 
-    private int user_id;
-    private String user_name;
+    private int userId;
+    private String userName;
     private int sex;
-    private String mobile_phone;
+    private String mobilePhone;
     private String profession;
-    private String id_no;
-    private int id_type;
+    private String idNo;
+    private int idType;
     @JSONField(format="yyyy/MM/dd HH:mm:ss")
     private Date birthday;
-    private String user_image_path;
+    private String userImagePath;
     private String nickname;
-    private int city_id;
-    private String city_name;
-    private int real_name_reg;
-    private int real_name_auth ;
-    private int real_name_chk;
-    private int real_name_open;
+    private int cityId;
+    private String cityName;
+    private int realNameReg;
+    private int realNameAuth ;
+    private int realNameChk;
+    private int realNameOpen;
 
 
 }
