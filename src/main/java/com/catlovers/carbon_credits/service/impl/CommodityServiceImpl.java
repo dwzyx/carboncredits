@@ -2,7 +2,6 @@ package com.catlovers.carbon_credits.service.impl;
 
 import com.catlovers.carbon_credits.dao.CommodityDao;
 import com.catlovers.carbon_credits.model.CommodityDTO;
-import com.catlovers.carbon_credits.model.DisCountDTO;
 import com.catlovers.carbon_credits.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +13,7 @@ import java.util.*;
 @Transactional
 public class CommodityServiceImpl implements CommodityService {
 
-    final
-    CommodityDao commodityDao;
+    private final CommodityDao commodityDao;
 
     public CommodityServiceImpl(CommodityDao commodityDao) {
         this.commodityDao = commodityDao;
@@ -45,6 +43,7 @@ public class CommodityServiceImpl implements CommodityService {
         commodityDTO.setDiscount_useful(1);
         commodityDTO.setDiscount(discountList);
         result.add(commodityDTO);
+
 
         return result;
     }

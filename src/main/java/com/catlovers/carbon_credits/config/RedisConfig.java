@@ -107,6 +107,7 @@ public class RedisConfig extends CachingConfigurerSupport {
              Map<String, RedisCacheConfiguration> redisCacheConfigurationMap = new HashMap<>();
              //emailVeri进行过期时间配置
              redisCacheConfigurationMap.put("emailVeri", this.getRedisCacheConfigurationWithTtl(2*60));
+            redisCacheConfigurationMap.put("verification", this.getRedisCacheConfigurationWithTtl(2*60));
             return redisCacheConfigurationMap;
      }
 

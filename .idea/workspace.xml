@@ -1,29 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dbe175f1-dd6a-4f98-a757-f71b516ccb2c" name="Default Changelist" comment="碳积分系统">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_mail_mail_1_4_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/VerificationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/VerificationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/VerificationService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/VerificationServiceImpl.class" afterDir="false" />
+    <list default="true" id="a39915d9-bce2-4dde-926f-ccfe10e7eb63" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/enumeration/CityIdEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/enumeration/ServiceIDEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CarbonCreditsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MonthlyReportDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/UserVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/client/BaseTripClientDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/client/BaseTripListClientDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/client/ClientDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/client/UserClientDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/client/UserPortraitClientDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CodeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CodeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/EmailServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/util/ClientUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/EmailTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/UserTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/VerificationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/enumeration/CityIdEnum.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/enumeration/ServiceIDEnum.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/MonthlyReportDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/UserVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/client/BaseTripClientDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/client/BaseTripListClientDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/client/ClientDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/client/UserClientDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/client/UserPortraitClientDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/CodeService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/EmailService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CodeServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/EmailServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/util/ClientUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/catlovers/carbon_credits/CarbonCreditsApplicationTests$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/catlovers/carbon_credits/EmailTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/catlovers/carbon_credits/UserTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/catlovers/carbon_credits/VerificationTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8de33657-1301-4520-ac24-db81984a277f/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/yoveuio.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/yoveuio.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_10.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/carbon_credits.iml" beforeDir="false" afterPath="$PROJECT_DIR$/carbon_credits.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/CarbonCreditsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/CarbonCreditsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/FastJson2JsonRedisSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/FastJson2JsonRedisSerializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/RedisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CarbonCreditsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CarbonCreditsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CommodityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CommodityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/CarbonCreditsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/CarbonCreditsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/enumeration/URLEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/enumeration/URLEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CarBonCreditsDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CarbonCreditsVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CarbonCreditsVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/UserMessageDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CarbonCreditsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CarbonCreditsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/VerificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/VerificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/VerificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/VerificationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CarbonCreditsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CarbonCreditsMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/CarbonCreditsApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/CarbonCreditsApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/carbon_credits.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/carbon_credits.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/CarbonCreditsApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/CarbonCreditsApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/config/FastJson2JsonRedisSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/config/FastJson2JsonRedisSerializer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/config/RedisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/config/RedisConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/CarbonCreditsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/CarbonCreditsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/CommodityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/CommodityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/CarbonCreditsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/CarbonCreditsDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/enumeration/URLEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/enumeration/URLEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CarBonCreditsDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CarBonCreditsDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CarbonCreditsVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CarbonCreditsVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/UserDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/UserMessageDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/VerificationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/VerificationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/VerificationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/VerificationServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/CarbonCreditsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/CarbonCreditsMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/catlovers/carbon_credits/CarbonCreditsApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/catlovers/carbon_credits/CarbonCreditsApplicationTests.class" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/target/" />
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,21 +111,6 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="121.36.4.52" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="121.36.4.52" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="121.36.4.52" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="com_carbon_credits: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@121.36.4.52" type="feb32156:DbDataSourceImpl" />
       </path>
     </expand>
@@ -69,34 +122,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/RestTemplateConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/FastJson2JsonRedisSerializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="677">
-              <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/VerificationServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+            <state relative-caret-position="20">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,10 +134,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CodeServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+            <state relative-caret-position="160">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,10 +146,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.yml">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/VerificationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1160">
-              <caret line="58" column="6" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
+            <state relative-caret-position="460">
+              <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CodeService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -128,8 +169,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/VerificationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+            <state relative-caret-position="193">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,8 +181,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/RedisConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="107" column="20" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
+            <state relative-caret-position="203">
+              <caret line="105" column="35" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -150,36 +191,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CarbonCreditsDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#710#711#0" expanded="true" />
-                <element signature="e#756#757#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="140">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CarbonCreditsMapper.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CarbonCreditsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="60" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
+            <state relative-caret-position="100">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/CarbonCreditsApplicationTests.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="70" column="88" selection-start-line="70" selection-start-column="88" selection-end-line="70" selection-end-column="88" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="100">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/MerchantController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -189,8 +231,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -207,28 +250,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="D:/fanlu/apache-maven-3.6.1/conf/settings.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CarbonCreditsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/FastJson2JsonRedisSerializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/MerchantServicd.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MerchantLoginDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/MerchantController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MerchantDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/MerchantService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MerchantVO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/MerchantDao.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/MerchantMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/CarbonCreditsApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/application-dev.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/VerificationService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/CarbonCreditsApplicationTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/RedisCacheConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/EmailService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/EmailServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/VerificationServiceImol.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/VertificationService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/EmailTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/RedisConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/VerificationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/VerificationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CodeService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CodeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/VerificationTest.java" />
       </list>
     </option>
   </component>
@@ -252,17 +284,6 @@
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="carbon_credits_system" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
   </component>
   <component name="MavenRunner">
     <option name="jreName" value="1.8" />
@@ -544,27 +565,22 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="XML" />
-    <property name="database.console.LAST_STATE" value="false" />
-    <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="last_opened_file_path" value="D:/下载/压缩包/carboncredits-master" />
     <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="android.dex.compiler" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\code\Javacode\carbon_credits\src\main\java" />
-      <recent name="D:\code\Javacode\carbon_credits\src\main\java\com\catlovers\carbon_credits" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\Javacode\carbon_credits\src\main" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.catlovers.carbon_credits.config" />
       <recent name="com.catlovers.carbon_credits.enumerations" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\code\Javacode\carbon_credits\src\main" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\Javacode\carbon_credits\src\main\java" />
+      <recent name="D:\code\Javacode\carbon_credits\src\main\java\com\catlovers\carbon_credits" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -579,23 +595,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CarbonCreditsApplicationTests.test_03">
-    <configuration name="CarbonCreditsApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="carbon_credits" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.catlovers.carbon_credits.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.catlovers.carbon_credits" />
-      <option name="MAIN_CLASS_NAME" value="com.catlovers.carbon_credits.CarbonCreditsApplicationTests" />
-      <option name="METHOD_NAME" value="contextLoads" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.VerificationTest.Vtest">
     <configuration name="CarbonCreditsApplicationTests.test_01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="carbon_credits" />
       <extension name="coverage">
@@ -612,7 +612,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CarbonCreditsApplicationTests.test_02" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CarbonCreditsApplicationTests.test_getCarbonCreditsInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="carbon_credits" />
       <extension name="coverage">
         <pattern>
@@ -622,13 +622,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.catlovers.carbon_credits" />
       <option name="MAIN_CLASS_NAME" value="com.catlovers.carbon_credits.CarbonCreditsApplicationTests" />
-      <option name="METHOD_NAME" value="test_02" />
+      <option name="METHOD_NAME" value="test_getCarbonCreditsInfo" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CarbonCreditsApplicationTests.test_03" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserTest.test_getUserClientInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="carbon_credits" />
       <extension name="coverage">
         <pattern>
@@ -637,8 +637,40 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.catlovers.carbon_credits" />
-      <option name="MAIN_CLASS_NAME" value="com.catlovers.carbon_credits.CarbonCreditsApplicationTests" />
-      <option name="METHOD_NAME" value="test_03" />
+      <option name="MAIN_CLASS_NAME" value="com.catlovers.carbon_credits.UserTest" />
+      <option name="METHOD_NAME" value="test_getUserClientInfo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VerificationTest.VTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="carbon_credits" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.catlovers.carbon_credits.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.catlovers.carbon_credits" />
+      <option name="MAIN_CLASS_NAME" value="com.catlovers.carbon_credits.VerificationTest" />
+      <option name="METHOD_NAME" value="VTest2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VerificationTest.Vtest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="carbon_credits" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.catlovers.carbon_credits.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.catlovers.carbon_credits" />
+      <option name="MAIN_CLASS_NAME" value="com.catlovers.carbon_credits.VerificationTest" />
+      <option name="METHOD_NAME" value="Vtest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -653,10 +685,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CarbonCreditsApplicationTests.test_03" />
-        <item itemvalue="JUnit.CarbonCreditsApplicationTests.test_02" />
+        <item itemvalue="JUnit.VerificationTest.Vtest" />
+        <item itemvalue="JUnit.VerificationTest.VTest2" />
+        <item itemvalue="JUnit.UserTest.test_getUserClientInfo" />
         <item itemvalue="JUnit.CarbonCreditsApplicationTests.test_01" />
-        <item itemvalue="JUnit.CarbonCreditsApplicationTests.contextLoads" />
+        <item itemvalue="JUnit.CarbonCreditsApplicationTests.test_getCarbonCreditsInfo" />
       </list>
     </recent_temporary>
   </component>
@@ -665,7 +698,17 @@
       <list>
         <serviceView>
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:@121.36.4.52" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:@121.36.4.52" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@2284bb44" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
@@ -704,13 +747,14 @@
       <workItem from="1579442097989" duration="125000" />
       <workItem from="1579442609397" duration="346000" />
       <workItem from="1579442975300" duration="629000" />
-      <workItem from="1579529616827" duration="179000" />
-      <workItem from="1579586768612" duration="4021000" />
-      <workItem from="1579612714914" duration="4017000" />
-      <workItem from="1579695229464" duration="2862000" />
-      <workItem from="1579773838784" duration="4733000" />
-      <workItem from="1579922115951" duration="37404000" />
-      <workItem from="1580096190662" duration="4605000" />
+      <workItem from="1579529616827" duration="931000" />
+      <workItem from="1579612056335" duration="1979000" />
+      <workItem from="1579846912148" duration="3642000" />
+      <workItem from="1579851179265" duration="11489000" />
+      <workItem from="1579957317388" duration="3619000" />
+      <workItem from="1580002696529" duration="10475000" />
+      <workItem from="1580025382690" duration="10192000" />
+      <workItem from="1580098589071" duration="13702000" />
     </task>
     <task id="LOCAL-00001" summary="碳积分系统">
       <created>1579187121820</created>
@@ -734,54 +778,68 @@
       <updated>1579272127142</updated>
     </task>
     <task id="LOCAL-00004" summary="碳积分系统">
-      <created>1579954776627</created>
+      <created>1579529842501</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1579954776627</updated>
+      <updated>1579529842501</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="碳积分系统">
+      <created>1580046288038</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1580046288038</updated>
+    </task>
+    <task id="LOCAL-00006" summary="碳积分系统">
+      <created>1580115374321</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1580115374321</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CarbonCreditsApplicationTests_test_03 - 2020.01.27 at 12h 17m 17s.xml">
-      <configuration name="CarbonCreditsApplicationTests.test_03" configurationId="JUnit" />
+    <history-entry file="VerificationTest_Vtest - 2020.01.27 at 23h 27m 43s.xml">
+      <configuration name="VerificationTest.Vtest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CarbonCreditsApplicationTests_test_03 - 2020.01.27 at 12h 20m 09s.xml">
-      <configuration name="CarbonCreditsApplicationTests.test_03" configurationId="JUnit" />
+    <history-entry file="VerificationTest_Vtest - 2020.01.27 at 23h 28m 10s.xml">
+      <configuration name="VerificationTest.Vtest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CarbonCreditsApplicationTests_test_03 - 2020.01.27 at 12h 20m 31s.xml">
-      <configuration name="CarbonCreditsApplicationTests.test_03" configurationId="JUnit" />
+    <history-entry file="VerificationTest_VTest2 - 2020.01.27 at 23h 29m 23s.xml">
+      <configuration name="VerificationTest.VTest2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CarbonCreditsApplicationTests_test_03 - 2020.01.27 at 12h 21m 05s.xml">
-      <configuration name="CarbonCreditsApplicationTests.test_03" configurationId="JUnit" />
+    <history-entry file="VerificationTest_VTest2 - 2020.01.27 at 23h 29m 53s.xml">
+      <configuration name="VerificationTest.VTest2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CarbonCreditsApplicationTests_test_03 - 2020.01.27 at 12h 25m 44s.xml">
-      <configuration name="CarbonCreditsApplicationTests.test_03" configurationId="JUnit" />
+    <history-entry file="VerificationTest_Vtest - 2020.01.27 at 23h 30m 18s.xml">
+      <configuration name="VerificationTest.Vtest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CarbonCreditsApplicationTests_test_03 - 2020.01.27 at 12h 26m 40s.xml">
-      <configuration name="CarbonCreditsApplicationTests.test_03" configurationId="JUnit" />
+    <history-entry file="VerificationTest_VTest2 - 2020.01.27 at 23h 30m 45s.xml">
+      <configuration name="VerificationTest.VTest2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CarbonCreditsApplicationTests_test_03 - 2020.01.27 at 12h 28m 53s.xml">
-      <configuration name="CarbonCreditsApplicationTests.test_03" configurationId="JUnit" />
+    <history-entry file="VerificationTest_Vtest - 2020.01.27 at 23h 42m 45s.xml">
+      <configuration name="VerificationTest.Vtest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CarbonCreditsApplicationTests_test_03 - 2020.01.27 at 12h 29m 17s.xml">
-      <configuration name="CarbonCreditsApplicationTests.test_03" configurationId="JUnit" />
+    <history-entry file="VerificationTest_Vtest - 2020.01.27 at 23h 43m 17s.xml">
+      <configuration name="VerificationTest.Vtest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CarbonCreditsApplicationTests_test_03 - 2020.01.27 at 12h 29m 43s.xml">
-      <configuration name="CarbonCreditsApplicationTests.test_03" configurationId="JUnit" />
+    <history-entry file="VerificationTest_Vtest - 2020.01.27 at 23h 43m 40s.xml">
+      <configuration name="VerificationTest.Vtest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CarbonCreditsApplicationTests_test_03 - 2020.01.27 at 12h 31m 33s.xml">
-      <configuration name="CarbonCreditsApplicationTests.test_03" configurationId="JUnit" />
+    <history-entry file="VerificationTest_Vtest - 2020.01.27 at 23h 45m 26s.xml">
+      <configuration name="VerificationTest.Vtest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61517000" />
+    <option name="totallyTimeSpent" value="6967000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2895377" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36901864" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -792,18 +850,18 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32656828" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.055350553" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.16974169" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49882904" weight="0.3413284" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49882904" weight="0.42250922" />
       <window_info anchor="bottom" id="Spring" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49959448" weight="0.14840989" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50117093" side_tool="true" weight="0.32685512" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
-      <window_info anchor="bottom" id="Database Changes" order="14" />
+      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Console" order="15" weight="0.17896679" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -858,18 +916,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="碳积分系统" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="91" key="#Inspections" timestamp="1578835729944">
+    <state x="361" y="91" key="#Inspections" timestamp="1579936443802">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="91" key="#Inspections/0.0.1536.864@0.0.1536.864" timestamp="1578835729944" />
-    <state x="361" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579185929547">
+    <state x="361" y="91" key="#Inspections/0.0.1536.864@0.0.1536.864" timestamp="1579936443802" />
+    <state x="361" y="91" key="#SQL_Dialects" timestamp="1580109068664">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1579185929547" />
-    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser" timestamp="1579181467444">
+    <state x="361" y="91" key="#SQL_Dialects/0.0.1536.864@0.0.1536.864" timestamp="1580109068664" />
+    <state x="361" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579530548180">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1579181467444" />
+    <state x="361" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1579530548180" />
+    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser" timestamp="1580110262074">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1580110262074" />
     <state x="614" y="322" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1579442666121">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -882,58 +944,90 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="449" y="167" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.864@0.0.1536.864" timestamp="1578834094257" />
-    <state x="242" y="25" key="CommitChangelistDialog2" timestamp="1579272123753">
+    <state x="548" y="291" width="507" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1579938909458">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="242" y="25" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1579272123753" />
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1579442660775">
+    <state x="548" y="291" width="507" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1579938909458" />
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580045098838">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1579442660775" />
-    <state width="1493" height="192" key="GridCell.Tab.0.bottom" timestamp="1579263070028">
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1580045098838" />
+    <state x="242" y="25" key="CommitChangelistDialog2" timestamp="1580115369776">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1579263070028" />
-    <state width="1493" height="192" key="GridCell.Tab.0.center" timestamp="1579263070028">
+    <state x="242" y="25" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1580115369776" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1580109067749">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1579263070028" />
-    <state width="1493" height="192" key="GridCell.Tab.0.left" timestamp="1579263070028">
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1580109067749" />
+    <state width="1493" height="223" key="GridCell.Tab.0.bottom" timestamp="1580115374283">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1579263070028" />
-    <state width="1493" height="192" key="GridCell.Tab.0.right" timestamp="1579263070028">
+    <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1580115374283" />
+    <state width="1493" height="223" key="GridCell.Tab.0.center" timestamp="1580115374282">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1579263070028" />
-    <state width="1493" height="192" key="GridCell.Tab.1.bottom" timestamp="1579263070029">
+    <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1580115374282" />
+    <state width="1493" height="223" key="GridCell.Tab.0.left" timestamp="1580115374282">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1579263070029" />
-    <state width="1493" height="192" key="GridCell.Tab.1.center" timestamp="1579263070029">
+    <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1580115374282" />
+    <state width="1493" height="223" key="GridCell.Tab.0.right" timestamp="1580115374283">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1579263070029" />
-    <state width="1493" height="192" key="GridCell.Tab.1.left" timestamp="1579263070028">
+    <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1580115374283" />
+    <state width="1493" height="223" key="GridCell.Tab.1.bottom" timestamp="1580115374283">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1579263070028" />
-    <state width="1493" height="192" key="GridCell.Tab.1.right" timestamp="1579263070029">
+    <state width="1493" height="223" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1580115374283" />
+    <state width="1493" height="223" key="GridCell.Tab.1.center" timestamp="1580115374283">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1579263070029" />
-    <state width="212" height="477" key="HiddenNamespacesPopup" timestamp="1579185876041">
+    <state width="1493" height="223" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1580115374283" />
+    <state width="1493" height="223" key="GridCell.Tab.1.left" timestamp="1580115374283">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="212" height="477" key="HiddenNamespacesPopup/0.0.1536.864@0.0.1536.864" timestamp="1579185876041" />
+    <state width="1493" height="223" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1580115374283" />
+    <state width="1493" height="223" key="GridCell.Tab.1.right" timestamp="1580115374283">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="223" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1580115374283" />
+    <state width="1493" height="277" key="GridCell.Tab.2.bottom" timestamp="1580050347483">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.2.bottom/0.0.1536.864@0.0.1536.864" timestamp="1580050347483" />
+    <state width="1493" height="277" key="GridCell.Tab.2.center" timestamp="1580050347483">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.2.center/0.0.1536.864@0.0.1536.864" timestamp="1580050347483" />
+    <state width="1493" height="277" key="GridCell.Tab.2.left" timestamp="1580050347483">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.2.left/0.0.1536.864@0.0.1536.864" timestamp="1580050347483" />
+    <state width="1493" height="277" key="GridCell.Tab.2.right" timestamp="1580050347483">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1580050347483" />
+    <state width="212" height="477" key="HiddenNamespacesPopup" timestamp="1579529961522">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="212" height="477" key="HiddenNamespacesPopup/0.0.1536.864@0.0.1536.864" timestamp="1579529961522" />
     <state x="270" y="75" key="SettingsEditor" timestamp="1579442951122">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="270" y="75" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1579442951122" />
-    <state x="361" y="154" key="Vcs.Push.Dialog.v2" timestamp="1579272147326">
+    <state x="361" y="154" key="Vcs.Push.Dialog.v2" timestamp="1580115376334">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="154" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1579272147326" />
+    <state x="361" y="154" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1580115376334" />
+    <state x="499" y="238" key="com.intellij.database.dbimport.ImportUtil.MyDialog" timestamp="1580019127221">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="499" y="238" key="com.intellij.database.dbimport.ImportUtil.MyDialog/0.0.1536.864@0.0.1536.864" timestamp="1580019127221" />
+    <state x="478" y="72" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1580113235581">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="478" y="72" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.864@0.0.1536.864" timestamp="1580113235581" />
     <state x="449" y="257" key="com.intellij.ide.util.TipDialog" timestamp="1579442617572">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -942,333 +1036,38 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="562" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1579440581635" />
-    <state x="178" y="134" key="new project wizard" timestamp="1579267242343">
+    <state x="178" y="86" key="new project wizard" timestamp="1579957377376">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="178" y="134" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1579267242343" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1579176898126">
+    <state x="178" y="86" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1579957377376" />
+    <state x="511" y="60" key="refactoring.ChangeSignatureDialog" timestamp="1580113508981">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1579176898126" />
+    <state x="511" y="60" key="refactoring.ChangeSignatureDialog/0.0.1536.864@0.0.1536.864" timestamp="1580113508981" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1580048133816">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1580048133816" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1580106402574">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1580106402574" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/schema/Generate POJOs.groovy" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d0f8c63d-1cd6-457f-938e-acb0b74b5d03/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/DisCountDTO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/RestTemplateConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CarbonCreditsVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/enumeration/StatusEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="54" selection-start-line="38" selection-start-column="11" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/enumeration/URLEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MerchantDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/MerchantBasic.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CarbonCreditsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="342">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CarBonCreditsDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://d0f8c63d-1cd6-457f-938e-acb0b74b5d03/schema/com_carbon_credits/table/card_bag">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/data/extractors/CSV-Groovy.csv.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-400">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/schema.layouts/File per object with order.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/schema.layouts/File per object.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/MerchantController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/CommodityDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/data/extractors/SQL-Insert-Statements.sql.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-478" />
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/data/extractors/JSON-Groovy.json.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1020">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/CarbonCreditsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/data/extractors/XML-Groovy.xml.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-818">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carbon_credits.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1200" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MerchantLoginDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/MerchantDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MerchantVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/MerchantMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://d0f8c63d-1cd6-457f-938e-acb0b74b5d03/schema/com_carbon_credits/table/merchant_basic">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://d0f8c63d-1cd6-457f-938e-acb0b74b5d03/schema/com_carbon_credits/table/user_basic">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CommodityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/environment/repository/org/springframework/spring-context/5.2.2.RELEASE/spring-context-5.2.2.RELEASE.jar!/org/springframework/cache/interceptor/CacheExpressionRootObject.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-          <folding>
-            <element signature="e#979#980#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/MerchantService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CarbonCreditsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="55" column="26" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/CarbonCreditsApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1160">
-          <caret line="58" column="6" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CarbonCreditsMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="60" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/VerificationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/FastJson2JsonRedisSerializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="677">
-          <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1140">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1282,17 +1081,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/RedisCacheConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-33">
-          <caret line="41" column="77" selection-start-line="41" selection-start-column="77" selection-end-line="41" selection-end-column="77" />
+        <state relative-caret-position="1160">
+          <caret line="58" column="6" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/MerchantService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CarbonCreditsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="60" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        <state relative-caret-position="60">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#710#711#0" expanded="true" />
@@ -1301,30 +1121,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/UserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-195">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/CarbonCreditsApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="70" column="88" selection-start-line="70" selection-start-column="88" selection-end-line="70" selection-end-column="88" />
+        <state relative-caret-position="179">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="32" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/EmailServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1950#1951#0" expanded="true" />
+            <element signature="e#1977#1978#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/EmailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/RestTemplateConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/EmailTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/RedisConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="107" column="20" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
+        <state relative-caret-position="178">
+          <caret line="20" column="89" selection-start-line="20" selection-start-column="89" selection-end-line="20" selection-end-column="89" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1333,11 +1169,96 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/VerificationServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        <state relative-caret-position="997">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/VerificationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CodeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CodeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/VerificationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/FastJson2JsonRedisSerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/RedisConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="105" column="35" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CarbonCreditsDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CarbonCreditsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/MerchantController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>

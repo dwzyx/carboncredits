@@ -4,8 +4,28 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.catlovers.carbon_credits.dao.CarbonCreditsDao">
 
+    <update id="updateCarbonCredits">
+        UPDATE carbon_credits_basic SET
+            carbon_credits_unclaimed = #{carbonCreditsVO.carbonCreditsUnclaimed},
+            carbon_credits_total = #{carbonCreditsVO.carbonCreditsTotal},
+            carbon_credits_today = #{carbonCreditsVO.carbonCreditsToday},
+            carbon_credits_useful = #{carbonCreditsVO.carbonCreditsUseful},
+            carbon_credits_month = #{carbonCreditsVO.carbonCreditsMonth},
+            mileage_subway_today = #{carbonCreditsVO.mileageSubwayToday},
+            mileage_subway_total = #{carbonCreditsVO.mileageSubwayTotal},
+            mileage_bus_today = #{carbonCreditsVO.mileageBusToday},
+            mileage_bus_total = #{carbonCreditsVO.mileageBusTotal},
+            mileage_walk_today = #{carbonCreditsVO.mileageWalkToday},
+            mileage_walk_total = #{carbonCreditsVO.mileageWalkTotal},
+            mileage_bike_today = #{carbonCreditsVO.mileageBikeToday},
+            mileage_bike_total = #{carbonCreditsVO.mileageBikeTotal},
+            last_trip_no = #{carbonCreditsVO.lastTripNo},
+            last_page_no = #{carbonCreditsVO.lastPageNo}
+        where user_id=#{carbonCreditsVO.userId}
+    </update>
+
 
     <select id="getUserAllCarbonCredits" resultType="com.catlovers.carbon_credits.model.CarbonCreditsVO">
-        select * from carboncredits WHERE user_id = #{userId}
+        select * from carbon_credits_basic WHERE user_id = #{userId}
     </select>
 </mapper>
