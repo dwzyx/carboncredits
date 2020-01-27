@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.catlovers.carbon_credits.model.CarBonCreditsDTO;
 import com.catlovers.carbon_credits.model.MerchantDTO;
 import com.catlovers.carbon_credits.service.MerchantService;
+import com.catlovers.carbon_credits.service.VerificationService;
 import com.catlovers.carbon_credits.service.impl.MerchantServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,11 @@ class CarbonCreditsApplicationTests {
 
     @Autowired
     private RestTemplate restTemplate;
-    private MerchantService merchantService = new MerchantServiceImpl();
+    @Autowired
+    private MerchantService merchantService;
+
+    @Autowired
+    private VerificationService verificationService;
 
     @Test
     void test_01(){
@@ -59,6 +64,12 @@ class CarbonCreditsApplicationTests {
 
             System.out.println("null");
 
+    }
+
+    @Test
+    void test_03(){
+        JSONObject num = verificationService.emailVerification("1972576148@qq.com","tang");
+        System.out.println(num.toString());
     }
 
 }

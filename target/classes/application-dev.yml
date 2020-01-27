@@ -55,6 +55,13 @@ spring:
         ## 连接池中的最小空闲连接
         min-idle: 0
 
+  #QQ邮箱
+  mail:
+    host: smtp.qq.com
+    username: 738667591@qq.com
+    password: jqysjorctqfzbbib
+    port: 25
+
 mybatis:
   #config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml

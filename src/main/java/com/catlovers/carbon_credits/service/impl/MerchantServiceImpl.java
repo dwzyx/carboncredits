@@ -14,7 +14,10 @@ import java.util.TimeZone;
 @Service
 public class MerchantServiceImpl implements MerchantService {
     JSONObject jsonObject = new JSONObject();
-    MerchantDao merchantDao;
+    MerchantDao merchantDao ;
+    public MerchantServiceImpl(MerchantDao merchantDao){
+        this.merchantDao = merchantDao;
+    }
     @Override
     public JSONObject login(MerchantLoginDTO merchantLoginDTO) {
         System.out.println(merchantLoginDTO);
@@ -22,6 +25,9 @@ public class MerchantServiceImpl implements MerchantService {
         merchantVO = merchantDao.login(merchantLoginDTO);
         if(merchantVO!=null){
             jsonObject.put("merchantLoginResult","0");
+        }
+        else{
+            jsonObject.put("merchantLoginResult","1");
         }
 
         return jsonObject;
@@ -32,9 +38,6 @@ public class MerchantServiceImpl implements MerchantService {
         int result = 0;
         System.out.println(merchantDTO.getMerchantName());
 
-            if(merchantDao.ifNameExist(merchantDTO.getMerchantName())!=null){
-                result += 1;
-            }
 
         if(merchantDao.ifNameExist(merchantDTO.getMerchantName())!=null){
             result += 1;
@@ -47,7 +50,9 @@ public class MerchantServiceImpl implements MerchantService {
         }
         System.out.println(result);
         MerchantVO merchantVO = merchantDTOTomerchantVO(merchantDTO);
-        merchantDao.signUp(merchantVO);
+        if(result==0){
+            merchantDao.signUp(merchantVO);
+        }
         jsonObject.put("MerchantSignUpResult",result);
         return jsonObject;
     }
