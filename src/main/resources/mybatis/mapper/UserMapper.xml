@@ -16,8 +16,8 @@
     </select>
     <select id="getUserBasicByRank" resultType="com.catlovers.carbon_credits.model.UserVO">
         select b.* from (
-        SELECT t.*, @rownum := @rownum + 1 AS user_rank
-        FROM (SELECT @rownum := 0) r, (SELECT * FROM user_basic ORDER BY carbon_credits_month ASC ) AS t
+        SELECT t.*, @user_rank := @user_rank + 1 AS user_rank
+        FROM (SELECT @user_rank := 0) r, (SELECT * FROM user_basic ORDER BY carbon_credits_month ASC ) AS t
         ) as b where user_id = #{userId};
     </select>
 </mapper>
