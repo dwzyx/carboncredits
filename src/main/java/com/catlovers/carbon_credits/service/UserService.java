@@ -11,4 +11,5 @@ public interface UserService {
 
     JSONObject getRankingList(int userId, int cityId);
 
+    JSONObject getMonthlyReport(int userId);
 }

@@ -8,16 +8,38 @@
     <update id="updateUserCarbonCreditsMonth">
         UPDATE user_basic t SET
         t.carbon_credits_month = (SELECT carbon_credits_month FROM carbon_credits_basic WHERE user_id = t.user_id),
-        t.user_level = #{level}
+        t.user_level = #{level},
+        t.nickname = #{nickname},
+        t.city_id = #{cityId},
+        t.user_image_path = #{userImagePath}
+        WHERE user_id = #{userId}
+    </update>
+    <update id="updateUserRankThisMonth">
+        UPDATE user_basic SET
+            rank_highest_this_month = #{userRank}
         WHERE user_id = #{userId}
     </update>
     <select id="getUserBasicById" resultType="com.catlovers.carbon_credits.model.UserVO">
         SELECT * FROM user_basic WHERE user_id=#{userId}
     </select>
     <select id="getUserBasicByRank" resultType="com.catlovers.carbon_credits.model.UserVO">
-        select b.* from (
-        SELECT t.*, @user_rank := @user_rank + 1 AS user_rank
-        FROM (SELECT @user_rank := 0) r, (SELECT * FROM user_basic ORDER BY carbon_credits_month ASC ) AS t
-        ) as b where user_id = #{userId};
+        SELECT b.* FROM (
+            SELECT
+                t.*, @user_rank := @user_rank + 1 AS user_rank
+            FROM
+                (SELECT @user_rank := 0) r,
+                (SELECT * FROM user_basic ORDER BY carbon_credits_month ASC) AS t
+        ) AS b WHERE user_id = #{userId};
+    </select>
+    <select id="getRanks" resultType="com.catlovers.carbon_credits.model.RankingDTO">
+        SELECT t.nickname, t.user_image_path, t.carbon_credits_month, @user_rank := @user_rank + 1 AS user_rank
+        FROM
+            (SELECT @user_rank := 0) r,
+            (SELECT * FROM user_basic
+                WHERE city_id = #{cityId} AND user_id = #{userId}
+                ORDER BY carbon_credits_month ASC) AS t
+    </select>
+    <select id="getMonthlyReport" resultType="com.catlovers.carbon_credits.model.MonthlyReportVO">
+        SELECT * FROM report_monthly WHERE user_id = #{userId} AND `month` = #{month} AND `year` = #{year};
     </select>
 </mapper>

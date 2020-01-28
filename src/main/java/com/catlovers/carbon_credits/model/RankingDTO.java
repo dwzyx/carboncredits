@@ -14,5 +14,4 @@ public class RankingDTO {
     private int carbonCredits;
     private int userRank;
 
-
 }

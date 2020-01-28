@@ -45,4 +45,12 @@ public class UserController {
 
     }
 
+    @GetMapping(value = "/user/getMonthlyReport", produces = "application/json;charset=UTF-8")
+    public String getMonthlyReport(@RequestParam("user_id") int userId, @RequestParam("city_id") int cityId){
+
+        JSONObject jsonObject = userService.getMonthlyReport(userId);
+
+        return jsonObject.toString();
+    }
+
 }
