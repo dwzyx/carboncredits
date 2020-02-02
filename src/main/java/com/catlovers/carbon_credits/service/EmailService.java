@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Service;
 
 public interface EmailService {
-    JSONObject emailVerification(String userEmail, String userName);
-    JSONObject updateEmailVerification(String userEmail, String userName);
+    String emailVerification(String merchantEmail,String merchantName);
+    void deleteEmailVerification(String merchantName);
 
 }

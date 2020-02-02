@@ -11,8 +11,7 @@ public interface VerificationService {
     Color randomColor();
     Font randomFont();
     void drawLine(BufferedImage image);
-
     BufferedImage createImage();
-    JSONObject getImage(int userId,String str);
+    String getImage(int userId,String str);
 
 }

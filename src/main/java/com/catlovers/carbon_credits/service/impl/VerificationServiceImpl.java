@@ -81,8 +81,7 @@ public class VerificationServiceImpl implements VerificationService {
     }
 
     @Override
-    public JSONObject getImage(int userId,String str) {
-        JSONObject jsonObject = new JSONObject();
+    public String getImage(int userId,String str) {
         StringBuilder sb = new StringBuilder();
         BufferedImage image = createImage();// 创建图片缓冲区
         Graphics2D g2 = (Graphics2D) image.getGraphics();// 得到绘制环境
@@ -112,8 +111,7 @@ public class VerificationServiceImpl implements VerificationService {
         sb.append(pre);
         sb.append(png_base64);
         String result = sb.toString();
-        jsonObject.put("verificationImage",result);
-        return jsonObject;
+        return result;
 
     }
 

@@ -5,5 +5,5 @@ import com.alibaba.fastjson.JSONObject;
 public interface CodeService {
 
     char randomChar();
-    JSONObject getCode(int userId);
+    String getCode(int userId);
 }

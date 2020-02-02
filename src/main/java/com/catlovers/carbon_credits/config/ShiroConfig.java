@@ -46,7 +46,6 @@ public class ShiroConfig {
         factoryBean.setFilters(filterMap);
 
         factoryBean.setSecurityManager(securityManager);
-        factoryBean.setUnauthorizedUrl("/401");
         factoryBean.setLoginUrl("/Merchant/login");
 
         /*
@@ -54,9 +53,9 @@ public class ShiroConfig {
          */
         Map<String, String> filterRuleMap = new HashMap<>();
         // 所有请求通过我们自己的JWT Filter
-        filterRuleMap.put("/Merchant/**", "jwt");
+        filterRuleMap.put("/Merchant/home", "jwt");
         // 访问401和404页面不通过我们的Filter
-        filterRuleMap.put("/401", "anon");
+        filterRuleMap.put("/Merchant/signUp", "anon");
         factoryBean.setFilterChainDefinitionMap(filterRuleMap);
         return factoryBean;
     }

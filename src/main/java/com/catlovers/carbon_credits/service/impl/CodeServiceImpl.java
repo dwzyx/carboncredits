@@ -22,8 +22,7 @@ public class CodeServiceImpl implements CodeService {
 
     @Override
     @Cacheable(value = "verification",key = "#root.methodName+':'+#userId")
-    public JSONObject getCode(int userId) {
-        JSONObject jsonObject = new JSONObject();
+    public String getCode(int userId) {
         StringBuilder sb = new StringBuilder();// 用来装载生成的验证码文本
         for (int i = 0; i < 4; i++) {// 循环四次，每次生成一个字符
             String s = randomChar() + "";// 随机生成一个字母
@@ -31,7 +30,6 @@ public class CodeServiceImpl implements CodeService {
         };
         String str = sb.toString();
         System.out.println(str);
-        jsonObject.put("verification",str);
-        return jsonObject;
+        return str;
     }
 }

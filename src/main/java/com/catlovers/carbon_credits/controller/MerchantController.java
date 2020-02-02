@@ -1,9 +1,13 @@
 package com.catlovers.carbon_credits.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.catlovers.carbon_credits.model.CodeDTO;
 import com.catlovers.carbon_credits.model.MerchantDTO;
 import com.catlovers.carbon_credits.model.MerchantLoginDTO;
+import com.catlovers.carbon_credits.service.CodeService;
+import com.catlovers.carbon_credits.service.EmailService;
 import com.catlovers.carbon_credits.service.MerchantService;
+import com.catlovers.carbon_credits.service.VerificationService;
 import com.catlovers.carbon_credits.util.JwtUtil;
 
 import jdk.nashorn.internal.parser.Token;
@@ -22,23 +26,60 @@ import java.util.UUID;
 
 @RestController
 public class MerchantController {
-    private JSONObject jsonObject = new JSONObject();
-    private final MerchantService merchantService;
 
-    public MerchantController(MerchantService merchantService) {
+    private final MerchantService merchantService;
+    private final VerificationService verificationService;
+    private final CodeService codeService;
+    private final EmailService emailService;
+
+    public MerchantController(MerchantService merchantService,VerificationService verificationService,CodeService codeService,EmailService emailService) {
         this.merchantService = merchantService;
+        this.verificationService = verificationService;
+        this.codeService = codeService;
+        this.emailService = emailService;
     }
 
     @GetMapping(value = "/Merchant/signUp", produces = "application/json;charset=UTF-8")
-    public String merchantSignUp(@RequestBody MerchantDTO merchantDTO){
-        jsonObject = merchantService.signUp(merchantDTO);
+    public String merchantSignUp(@RequestBody MerchantDTO merchantDTO, @RequestBody CodeDTO codeDTO){
+        JSONObject jsonObject = new JSONObject();
+        if(jsonObject==null){
+            System.out.println("json null");
+        }
+        int userId = merchantDTO.getUserId();
+        String merchantName = merchantDTO.getMerchantName();
+        String imageCode = codeDTO.getImageCode();
+        String emailCode = codeDTO.getEmailCode();
+        String email = merchantDTO.getMerchantEmail();
+        if(!imageCode.equals(codeService.getCode(userId))){
+            jsonObject.put("imageResult","false");
+        }
+        if(!emailService.emailVerification(email,merchantName).equals(emailCode)){
+            jsonObject.put("emailResult","false");
+        }
+        if(jsonObject==null){
+            jsonObject = merchantService.signUp(merchantDTO);
+        }
+        return jsonObject.toString();
+    }
+
+    @GetMapping(value = "/Merchant/emailCode", produces = "application/json;charset=UTF-8")
+    public String getEmailCode(String merchantEmail,String merchantName){
+        System.out.println("email:"+merchantEmail);
+        System.out.println("name:"+merchantName);
+        JSONObject jsonObject = new JSONObject();
+        emailService.deleteEmailVerification(merchantName);
+        String code = emailService.emailVerification(merchantEmail,merchantName);
+        if(code!=null){
+            System.out.println(code);
+            jsonObject.put("emailCode","true");
+        }
         return jsonObject.toString();
     }
 
     @GetMapping(value = "/Merchant/login", produces = "application/json;charset=UTF-8")
     public String merchantLogin(@RequestBody MerchantLoginDTO merchantLoginDTO, boolean rememberMe, HttpServletRequest request) {
+        JSONObject jsonObject = new JSONObject();
         JwtUtil jwtUtil = new JwtUtil();
-
         String password = new Md5Hash(merchantLoginDTO.getMerchantPassword(), String.valueOf(merchantLoginDTO.getUserId()), 3).toString();
         merchantLoginDTO.setMerchantPassword(password);
         int i = merchantService.firstLogin(merchantLoginDTO);
@@ -68,6 +109,11 @@ public class MerchantController {
                 }
                 else {
                     jsonObject.put("result","未注册");
+                    String code = codeService.getCode(merchantLoginDTO.getUserId());
+                    System.out.println("code:"+code);
+                    String image = verificationService.getImage(merchantLoginDTO.getUserId(),code);
+                    System.out.println("image:"+image);
+                    jsonObject.put("image",image);
                 }
             }
             return jsonObject.toString();

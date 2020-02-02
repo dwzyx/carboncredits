@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.catlovers.carbon_credits.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -27,8 +28,8 @@ public class EmailServiceImpl implements EmailService {
 
     @Override
     @Cacheable(value = "emailVeri",key = "#root.methodName+':'+#merchantName")
-    public JSONObject emailVerification(String merchantEmail,String merchantName) {
-        JSONObject jsonObject = new JSONObject();
+    public String emailVerification(String merchantEmail,String merchantName) {
+
         Random random=new Random();
         int ran = (int)(random.nextDouble()*(99999-10000 + 1))+ 10000;
         String ranNum = String.valueOf(ran);
@@ -42,17 +43,14 @@ public class EmailServiceImpl implements EmailService {
             mailSender.send(mailMessage);
             System.out.println("已发送");
         }catch (Exception e){
-            ran = 0;
-            jsonObject.put("code",ran);
-            return jsonObject;
+            return null;
         }
-        jsonObject.put("code",ranNum);
-        return jsonObject;
+        return ranNum.toString();
     }
 
     @Override
-    public JSONObject updateEmailVerification(String userEmail, String userName) {
-        return null;
+    @CacheEvict(value = "emailVeri",key = "'emailVerification:'+#merchantName")
+    public void deleteEmailVerification(String merchantName) {
     }
 
 
