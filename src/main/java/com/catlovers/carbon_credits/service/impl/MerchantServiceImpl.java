@@ -5,11 +5,15 @@ import com.catlovers.carbon_credits.dao.MerchantDao;
 import com.catlovers.carbon_credits.model.MerchantDTO;
 import com.catlovers.carbon_credits.model.MerchantLoginDTO;
 import com.catlovers.carbon_credits.model.MerchantVO;
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import com.catlovers.carbon_credits.service.MerchantService;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
+import java.util.UUID;
 
 @Service
 public class MerchantServiceImpl implements MerchantService {
@@ -18,19 +22,45 @@ public class MerchantServiceImpl implements MerchantService {
     public MerchantServiceImpl(MerchantDao merchantDao){
         this.merchantDao = merchantDao;
     }
-    @Override
-    public JSONObject login(MerchantLoginDTO merchantLoginDTO) {
-        System.out.println(merchantLoginDTO);
-        MerchantVO merchantVO;
-        merchantVO = merchantDao.login(merchantLoginDTO);
-        if(merchantVO!=null){
-            jsonObject.put("merchantLoginResult","0");
-        }
-        else{
-            jsonObject.put("merchantLoginResult","1");
-        }
 
-        return jsonObject;
+    /**
+     * 创建缓存：当UUID!=NULL时， 缓存id和UUID
+     * 核实缓存：当UUID==NULL时， 如果key==id存在，则返回缓存里的UUID，否则返回NULL；
+     * @param id
+     * @param uuid
+     * @return
+     */
+    @Override
+    @Cacheable(value = "login",key = "#root.methodName+':'+#id",condition = "#uuid!=NULL")
+    public String login(int id,String uuid) {
+        System.out.println("cach:"+id+"uuid:"+uuid);
+        return uuid;
+
+    }
+
+
+    @Override
+    @CachePut(value = "login",key = "'login:'+#id")
+    public String loginAnyway(int id,String uuid){
+        System.out.println("cachAnyway:"+id+"uuid:"+uuid);
+        return uuid;
+    }
+
+    @Override
+    public boolean ifExist(int id) {
+        if(merchantDao.ifExist(id)!=null){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int firstLogin(MerchantLoginDTO merchantLoginDTO) {
+        System.out.println("firstLogin");
+        if(merchantDao.login(merchantLoginDTO)!=null){
+            return 1;
+        }
+        return 0;
     }
 
     @Override
@@ -38,8 +68,9 @@ public class MerchantServiceImpl implements MerchantService {
         int result = 0;
         System.out.println(merchantDTO.getMerchantName());
 
-
-        if(merchantDao.ifNameExist(merchantDTO.getMerchantName())!=null){
+        MerchantVO merchantVO1 =null;
+        merchantVO1 = merchantDao.ifNameExist(merchantDTO.getMerchantName());
+        if(merchantVO1!=null){
             result += 1;
         }
         if(merchantDao.ifPhoneNumberExist(merchantDTO.getMerchantPhoneNumber())!=null){
@@ -57,11 +88,18 @@ public class MerchantServiceImpl implements MerchantService {
         return jsonObject;
     }
 
+    @Override
+    public MerchantVO findById(String userId) {
+
+        return merchantDao.findById(Integer.valueOf(userId));
+    }
+
     private static MerchantVO merchantDTOTomerchantVO(MerchantDTO merchantDTO){
-        Date date = new Date();
-        System.out.println("时间"+date);
+
+        String password;
+        password = new Md5Hash(merchantDTO.getMerchantPassword(), String.valueOf(merchantDTO.getUserId()), 3).toString();
         MerchantVO merchantVO = new MerchantVO
-               (merchantDTO.getMerchantId(),merchantDTO.getUserId(),merchantDTO.getMerchantPassword(),merchantDTO.getMerchantPhoneNumber(),merchantDTO.getMerchantEmail(),merchantDTO.getMerchantName(),merchantDTO.getMerchantAddress(),merchantDTO.getMerchantIntroduce(),merchantDTO.getMerchantImage());
+               (merchantDTO.getMerchantId(),merchantDTO.getUserId(),password,merchantDTO.getMerchantPhoneNumber(),merchantDTO.getMerchantEmail(),merchantDTO.getMerchantName(),merchantDTO.getMerchantAddress(),merchantDTO.getMerchantIntroduce(),merchantDTO.getMerchantImage());
         System.out.println(merchantVO.toString());
         return  merchantVO;
     }

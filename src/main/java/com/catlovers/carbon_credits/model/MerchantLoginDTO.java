@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 public class MerchantLoginDTO {
 
-    private String userId;
+    private int userId;
     private String merchantPassword;
 
 }
