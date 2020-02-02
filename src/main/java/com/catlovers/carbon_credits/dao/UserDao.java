@@ -1,8 +1,6 @@
 package com.catlovers.carbon_credits.dao;
 
-import com.catlovers.carbon_credits.model.MonthlyReportVO;
-import com.catlovers.carbon_credits.model.RankingDTO;
-import com.catlovers.carbon_credits.model.UserVO;
+import com.catlovers.carbon_credits.model.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -24,4 +22,16 @@ public interface UserDao {
     void updateUserRankThisMonth(@Param("userRank") int userRank, @Param("userId") int userId);
 
     MonthlyReportVO getMonthlyReport(@Param("userId") int userId, @Param("year") int year, @Param("month") int month);
+
+    TeamInfoVO getTeamInfoVO(int teamId);
+
+    List<UserOfTeam> getTeamUsers(int teamId);
+
+    void addUserToTeam(@Param("teamId") int teamId,@Param("userId") int userId);
+
+    void deleteUserFromTeam(int userId);
+
+    List<CouponBagDTO> getUserCouponBag(@Param("userId") int userId, @Param("pageNo") int pageNo, @Param("pageSize") int pageSize);
+
+    int getUserCouponCountTotal(@Param("userId") int userId, @Param("pageNo") int pageNo, @Param("pageSize")int pageSize);
 }

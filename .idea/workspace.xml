@@ -2,21 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbe175f1-dd6a-4f98-a757-f71b516ccb2c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MonthlyReportVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/enumeration/GoodTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CommodityVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CouponBagDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CouponInfoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CouponInfoVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/TeamInfoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/TeamInfoVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/UserOfTeam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CommodityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/yoveuio.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/yoveuio.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/CarbonCreditsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/CarbonCreditsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CommodityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CommodityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/CommodityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/CommodityDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CarbonCreditsVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CarbonCreditsVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CarbonCreditsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CarbonCreditsDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CommodityDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CommodityDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/DisCountDTO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MonthlyReportDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MonthlyReportDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/RankingDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/RankingDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/UserDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/UserVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/UserVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CommodityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CommodityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/UserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/CarbonCreditsApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/CarbonCreditsApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/CommodityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/CommodityController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/CommodityDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/CommodityDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/enumeration/URLEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/enumeration/URLEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CarBonCreditsDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CarBonCreditsDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CarbonCreditsVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CarbonCreditsVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CommodityDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CommodityDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/DisCountDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/UserDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/CommodityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/CommodityService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/UserServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,42 +86,14 @@
         <item name="@121.36.4.52" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="com_carbon_credits: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="all_cards: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="commodity_info: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@121.36.4.52" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="com_carbon_credits: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="carbon_credits_basic: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@121.36.4.52" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="com_carbon_credits: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="card_bag: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@121.36.4.52" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="com_carbon_credits: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="merchant_basic: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@121.36.4.52" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="com_carbon_credits: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="report_monthly: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@121.36.4.52" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="com_carbon_credits: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="user_basic: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="coupon_info: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -106,8 +108,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Enum" />
         <option value="FxmlFile" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -167,7 +169,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="XML" />
-    <property name="last_opened_file_path" value="D:/下载/压缩包/carboncredits-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="android.dex.compiler" />
   </component>
   <component name="RecentsManager">
@@ -216,22 +218,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CarbonCreditsApplicationTests.test_restTemplate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="carbon_credits" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.catlovers.carbon_credits.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.catlovers.carbon_credits" />
-      <option name="MAIN_CLASS_NAME" value="com.catlovers.carbon_credits.CarbonCreditsApplicationTests" />
-      <option name="METHOD_NAME" value="test_restTemplate" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UserTest.test_getUserClientInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="carbon_credits" />
       <extension name="coverage">
@@ -264,6 +250,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserTest.test_teamInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="carbon_credits" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.catlovers.carbon_credits.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.catlovers.carbon_credits" />
+      <option name="MAIN_CLASS_NAME" value="com.catlovers.carbon_credits.UserTest" />
+      <option name="METHOD_NAME" value="test_teamInfo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CarbonCreditsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="carbon_credits" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.catlovers.carbon_credits.CarbonCreditsApplication" />
@@ -273,11 +275,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserTest.test_teamInfo" />
         <item itemvalue="JUnit.UserTest.test_monthlyReport" />
         <item itemvalue="JUnit.UserTest.test_getUserClientInfo" />
         <item itemvalue="JUnit.CarbonCreditsApplicationTests.test_01" />
         <item itemvalue="JUnit.CarbonCreditsApplicationTests.test_getCarbonCreditsInfo" />
-        <item itemvalue="JUnit.CarbonCreditsApplicationTests.test_restTemplate" />
       </list>
     </recent_temporary>
   </component>
@@ -286,17 +288,7 @@
       <list>
         <serviceView>
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:@121.36.4.52" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:@121.36.4.52" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@4ad5ef2c" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -343,7 +335,13 @@
       <workItem from="1580002696529" duration="10475000" />
       <workItem from="1580025382690" duration="10192000" />
       <workItem from="1580098589071" duration="19554000" />
-      <workItem from="1580180308661" duration="12424000" />
+      <workItem from="1580180308661" duration="20408000" />
+      <workItem from="1580222279661" duration="601000" />
+      <workItem from="1580291760090" duration="2840000" />
+      <workItem from="1580371601338" duration="3944000" />
+      <workItem from="1580524868210" duration="24247000" />
+      <workItem from="1580610043412" duration="949000" />
+      <workItem from="1580611645524" duration="5289000" />
     </task>
     <task id="LOCAL-00001" summary="碳积分系统">
       <created>1579187121820</created>
@@ -394,7 +392,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580115508040</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="碳积分系统">
+      <created>1580203369461</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1580203369461</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,18 +427,18 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="361" y="91" key="#Inspections/0.0.1536.864@0.0.1536.864" timestamp="1579936443802" />
-    <state x="361" y="91" key="#SQL_Dialects" timestamp="1580109068664">
+    <state x="361" y="91" key="#SQL_Dialects" timestamp="1580550790401">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="91" key="#SQL_Dialects/0.0.1536.864@0.0.1536.864" timestamp="1580109068664" />
+    <state x="361" y="91" key="#SQL_Dialects/0.0.1536.864@0.0.1536.864" timestamp="1580550790401" />
     <state x="361" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579530548180">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="361" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1579530548180" />
-    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser" timestamp="1580198056716">
+    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser" timestamp="1580554935671">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1580198056716" />
+    <state x="574" y="142" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1580554935671" />
     <state x="614" y="322" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1579442666121">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -450,50 +455,50 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="548" y="291" width="507" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.864@0.0.1536.864" timestamp="1579938909458" />
-    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580045098838">
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580538367356">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1580045098838" />
-    <state x="242" y="25" key="CommitChangelistDialog2" timestamp="1580115506579">
+    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1580538367356" />
+    <state x="242" y="25" key="CommitChangelistDialog2" timestamp="1580203365658">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="242" y="25" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1580115506579" />
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1580109067749">
+    <state x="242" y="25" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1580203365658" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1580550789207">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1580109067749" />
-    <state width="1493" height="223" key="GridCell.Tab.0.bottom" timestamp="1580203340104">
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1580550789207" />
+    <state width="1493" height="223" key="GridCell.Tab.0.bottom" timestamp="1580565039449">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1580203340104" />
-    <state width="1493" height="223" key="GridCell.Tab.0.center" timestamp="1580203340104">
+    <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1580565039449" />
+    <state width="1493" height="223" key="GridCell.Tab.0.center" timestamp="1580565039448">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1580203340104" />
-    <state width="1493" height="223" key="GridCell.Tab.0.left" timestamp="1580203340104">
+    <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1580565039448" />
+    <state width="1493" height="223" key="GridCell.Tab.0.left" timestamp="1580565039446">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1580203340104" />
-    <state width="1493" height="223" key="GridCell.Tab.0.right" timestamp="1580203340104">
+    <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1580565039446" />
+    <state width="1493" height="223" key="GridCell.Tab.0.right" timestamp="1580565039448">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1580203340104" />
-    <state width="1493" height="223" key="GridCell.Tab.1.bottom" timestamp="1580203340105">
+    <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1580565039448" />
+    <state width="1493" height="223" key="GridCell.Tab.1.bottom" timestamp="1580565039450">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="223" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1580203340105" />
-    <state width="1493" height="223" key="GridCell.Tab.1.center" timestamp="1580203340105">
+    <state width="1493" height="223" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1580565039450" />
+    <state width="1493" height="223" key="GridCell.Tab.1.center" timestamp="1580565039450">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="223" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1580203340105" />
-    <state width="1493" height="223" key="GridCell.Tab.1.left" timestamp="1580203340104">
+    <state width="1493" height="223" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1580565039450" />
+    <state width="1493" height="223" key="GridCell.Tab.1.left" timestamp="1580565039450">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="223" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1580203340104" />
-    <state width="1493" height="223" key="GridCell.Tab.1.right" timestamp="1580203340105">
+    <state width="1493" height="223" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1580565039450" />
+    <state width="1493" height="223" key="GridCell.Tab.1.right" timestamp="1580565039450">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="223" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1580203340105" />
+    <state width="1493" height="223" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1580565039450" />
     <state width="1493" height="277" key="GridCell.Tab.2.bottom" timestamp="1580050347483">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -518,18 +523,26 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="270" y="75" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1579442951122" />
-    <state x="361" y="154" key="Vcs.Push.Dialog.v2" timestamp="1580115510915">
+    <state x="361" y="154" key="Vcs.Push.Dialog.v2" timestamp="1580203371276">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="154" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1580115510915" />
+    <state x="361" y="154" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1580203371276" />
+    <state x="646" y="315" width="340" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1580549393912">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="646" y="315" width="340" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.864@0.0.1536.864" timestamp="1580549393912" />
+    <state x="349" y="88" key="com.intellij.database.dbimport.ImportDialog" timestamp="1580539270206">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="349" y="88" key="com.intellij.database.dbimport.ImportDialog/0.0.1536.864@0.0.1536.864" timestamp="1580539270206" />
     <state x="499" y="238" key="com.intellij.database.dbimport.ImportUtil.MyDialog" timestamp="1580019127221">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="238" key="com.intellij.database.dbimport.ImportUtil.MyDialog/0.0.1536.864@0.0.1536.864" timestamp="1580019127221" />
-    <state x="478" y="72" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1580195688927">
+    <state x="346" y="82" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1580549667263">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="478" y="72" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.864@0.0.1536.864" timestamp="1580195688927" />
+    <state x="346" y="82" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.864@0.0.1536.864" timestamp="1580549667263" />
     <state x="449" y="257" key="com.intellij.ide.util.TipDialog" timestamp="1579442617572">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -538,10 +551,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="562" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1579440581635" />
-    <state x="178" y="86" key="new project wizard" timestamp="1579957377376">
+    <state x="178" y="86" key="new project wizard" timestamp="1580613496155">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="178" y="86" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1579957377376" />
+    <state x="178" y="86" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1580613496155" />
     <state x="511" y="60" key="refactoring.ChangeSignatureDialog" timestamp="1580195971792">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -550,9 +563,9 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1580048133816" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1580198109727">
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1580542823173">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1580198109727" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1580542823173" />
   </component>
 </project>

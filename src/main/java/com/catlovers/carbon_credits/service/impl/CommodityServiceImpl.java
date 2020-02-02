@@ -1,13 +1,17 @@
 package com.catlovers.carbon_credits.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.catlovers.carbon_credits.dao.CommodityDao;
+import com.catlovers.carbon_credits.enumeration.StatusEnum;
 import com.catlovers.carbon_credits.model.CommodityDTO;
+import com.catlovers.carbon_credits.model.CouponInfoDTO;
+import com.catlovers.carbon_credits.model.CouponInfoVO;
 import com.catlovers.carbon_credits.service.CommodityService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
 
 @Service
 @Transactional
@@ -20,31 +24,132 @@ public class CommodityServiceImpl implements CommodityService {
     }
 
     @Override
-    public List<CommodityDTO> getCommodityList(int pageNo, int pageSize) {
-        List<CommodityDTO> result = new ArrayList<>();
-        List<Map<String, Object>> discountList = new ArrayList<>();
+    public JSONObject getCommodityInfo(int pageNo, int pageSize) {
+        JSONObject jsonObject = new JSONObject();
+        List<CommodityDTO> commodityDTOList = null;
+        int pageTotal = -1;
 
-        CommodityDTO commodityDTO = new CommodityDTO();
+        try{
+            commodityDTOList = commodityDao.getCommodityInfo((pageNo-1)*pageSize, pageSize);
+            pageTotal = (commodityDao.getCommodityCountTotal((pageNo-1)*pageSize, pageSize)+pageSize-1)/pageSize;
 
-        Map<String, Object> disCountMap = new HashMap<>();
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
 
-        disCountMap.put("type", 1);
-        disCountMap.put("sill", 100);
-        disCountMap.put("value", 100);
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("commodity", commodityDTOList);
+        resultMap.put("coupon", null);
+        jsonObject.put("page_total", pageTotal);
+        jsonObject.put("result", resultMap);
+        return jsonObject;
+    }
 
-        discountList.add(disCountMap);
+    @Override
+    public JSONObject getCouponInfo(int pageNo, int pageSize, int goodType) {
+        JSONObject jsonObject = new JSONObject();
+        List<CouponInfoDTO> couponInfoDTOList = null;
+        int pageTotal = -1;
 
-        commodityDTO.setCommodity_id(1);
-        commodityDTO.setCommodity_introduce("green home");
-        commodityDTO.setCommodity_picture("https://i.loli.net/2020/01/16/q65HkVWYveuXQzP.jpg");
-        commodityDTO.setCommodity_price(1);
-        commodityDTO.setCommodity_name("守护地球");
-        commodityDTO.setCommodity_price_original(1000000);
-        commodityDTO.setDiscount_useful(1);
-        commodityDTO.setDiscount(discountList);
-        result.add(commodityDTO);
+        try{
+            couponInfoDTOList = commodityDao.getCouponInfo((pageNo-1)*pageSize, pageSize, goodType);
+            pageTotal = (commodityDao.getCouponCountTotal((pageNo-1)*pageSize, pageSize, goodType)+pageSize-1)/pageSize;
+
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("commodity", null);
+        resultMap.put("coupon", couponInfoDTOList);
+        jsonObject.put("page_total", pageTotal);
+        jsonObject.put("result", resultMap);
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject searchCommodity(JSONObject commodity, int pageNo, int pageSize) {
+        JSONObject jsonObject = new JSONObject();
+        List<CommodityDTO> commodityDTOList = null;
+        int pageTotal = -1;
+
+        try{
+            String commodityName = (String) commodity.get("commodity_name");
+            int commodityType = (int) commodity.get("commodity_type");
+            commodityDTOList = commodityDao.searchCommodity((pageNo-1)*pageSize, pageSize, commodityName, commodityType);
+            pageTotal = (commodityDao.searchedCommodityCountTotal((pageNo-1)*pageSize, pageSize, commodityName, commodityType)
+                    +pageSize-1)/pageSize;
+
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
 
 
-        return result;
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("commodity", commodityDTOList);
+        resultMap.put("coupon", null);
+        jsonObject.put("page_total", pageTotal);
+        jsonObject.put("result", resultMap);
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject searchCoupon(JSONObject coupon, int pageNo, int pageSize, int goodType) {
+        JSONObject jsonObject = new JSONObject();
+        List<CouponInfoDTO> couponInfoDTOList = null;
+        int pageTotal = -1;
+
+        try{
+            int useStoreId = (int) coupon.get("use_store_id");
+            String couponName = (String) coupon.get("coupon_name");
+            int couponType = (int)coupon.get("coupon_type");
+            int useType = (int)coupon.get("use_type");
+            couponInfoDTOList = commodityDao.searchCoupon((pageNo-1)*pageSize, pageSize, goodType,
+                    useStoreId, couponName, couponType, useType);
+            pageTotal = (commodityDao.searchCouponCountTotal((pageNo-1)*pageSize, pageSize, goodType,
+                    useStoreId, couponName, couponType, useType)+pageSize-1)/pageSize;
+
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("commodity", null);
+        resultMap.put("coupon", couponInfoDTOList);
+        jsonObject.put("page_total", pageTotal);
+        jsonObject.put("result", resultMap);
+        return jsonObject;
     }
 }

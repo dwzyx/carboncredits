@@ -1,4 +1,5 @@
 spring:
+
   datasource:
     username: root
     password: 1234
@@ -63,3 +64,5 @@ mybatis:
 
 server:
   port: 8090
+  servlet:
+    context-path: /carbon_credits_system

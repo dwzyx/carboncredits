@@ -23,5 +23,6 @@ public class UserVO {
     private String userImagePath;
     private int rankHighestLastMonth;
     private int rankHighestThisMonth;
+    private int teamId;
 
 }

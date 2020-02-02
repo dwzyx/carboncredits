@@ -1,10 +1,14 @@
 package com.catlovers.carbon_credits.service;
 
-import com.catlovers.carbon_credits.model.CommodityDTO;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
+import com.alibaba.fastjson.JSONObject;
 
 public interface CommodityService {
-    List<CommodityDTO> getCommodityList(int pageNo, int pageSize);
+
+    JSONObject getCommodityInfo(int pageNo, int pageSize);
+
+    JSONObject getCouponInfo(int pageNo, int pageSize, int goodType);
+
+    JSONObject searchCommodity(JSONObject commodity, int pageNo, int pageSize);
+
+    JSONObject searchCoupon(JSONObject coupon, int pageNo, int pageSize, int goodType);
 }

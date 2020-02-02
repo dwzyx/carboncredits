@@ -5,8 +5,10 @@ import com.catlovers.carbon_credits.dao.UserDao;
 import com.catlovers.carbon_credits.enumeration.URLEnum;
 import com.catlovers.carbon_credits.model.MonthlyReportDTO;
 import com.catlovers.carbon_credits.model.MonthlyReportVO;
+import com.catlovers.carbon_credits.model.UserOfTeam;
 import com.catlovers.carbon_credits.model.client.UserClientDTO;
 import com.catlovers.carbon_credits.util.ClientUtil;
+import lombok.ToString;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +20,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @SpringBootTest
@@ -92,6 +95,13 @@ public class UserTest {
         System.out.println(monthlyReportDTO);
     }
 
+    @Test
+    void test_teamInfo(){
+        int teamId = 1;
+        List<UserOfTeam> teamUsers = userDao.getTeamUsers(1);
+        System.out.println(teamUsers.toString());
+    }
+
     private Map<String, Integer> getCO2Reduction(MonthlyReportVO monthlyReportVO, MonthlyReportDTO monthlyReportDTO) {
         Map<String, Integer> map = new HashMap<>();
         int mileageBike = monthlyReportVO.getMileageBike();
@@ -125,4 +135,5 @@ public class UserTest {
         monthlyReportVO = userDao.getMonthlyReport(userId, timeMap.get("year"), timeMap.get("month"));
         return  monthlyReportVO;
     }
+
 }

@@ -11,6 +11,7 @@ import com.catlovers.carbon_credits.model.client.UserClientDTO;
 import com.catlovers.carbon_credits.model.client.UserPortraitClientDTO;
 import com.catlovers.carbon_credits.service.UserService;
 import com.catlovers.carbon_credits.util.ClientUtil;
+import com.sun.org.apache.xpath.internal.objects.XNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,15 +37,13 @@ public class UserServiceImpl implements UserService {
 
     private final RestTemplate restTemplate;
     private final UserDao userDao;
-    private final CarbonCreditsDao carbonCreditsDao;
 
     JSONObject respond = null;
     JSONObject resultJson = null;
 
-    public UserServiceImpl(RestTemplate restTemplate, UserDao userDao, CarbonCreditsDao carbonCreditsDao) {
+    public UserServiceImpl(RestTemplate restTemplate, UserDao userDao) {
         this.restTemplate = restTemplate;
         this.userDao = userDao;
-        this.carbonCreditsDao = carbonCreditsDao;
     }
 
     @Override
@@ -128,6 +127,7 @@ public class UserServiceImpl implements UserService {
             Map<String, Integer> timeMap = new HashMap<>();
             timeMap.put("month", month);
             timeMap.put("year", year);
+
             //获取上个月的月度报告
             monthlyReportVO = getMonthlyReportVO(userId, timeMap);
             //处理月度报告
@@ -141,6 +141,8 @@ public class UserServiceImpl implements UserService {
             dateMap = getCO2Reduction(monthlyReportVO, monthlyReportDTO);
             monthlyReportDTO.setCO2ReductionLastMonth(dateMap.get("CO2Reduction"));
             monthlyReportDTO.setUserRankLastMonth(dateMap.get("userRank"));
+
+
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         }catch (Exception e){
@@ -152,6 +154,109 @@ public class UserServiceImpl implements UserService {
 
         jsonObject.put("result", monthlyReportDTO);
         return jsonObject;
+    }
+
+    @Override
+    public JSONObject getTeamInfo(int teamId) {
+        JSONObject jsonObject = new JSONObject();
+        TeamInfoDTO teamInfoDTO = new TeamInfoDTO();
+        TeamInfoVO teamInfoVO = new TeamInfoVO();
+
+        try{
+            teamInfoVO = userDao.getTeamInfoVO(teamId);
+            List<UserOfTeam> userOfTeamList = userDao.getTeamUsers(teamId);
+            teamInfoDTO = getTeamInfoDTOFromVO(teamInfoVO, userOfTeamList);
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            teamInfoDTO = null;
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            teamInfoDTO = null;
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+        jsonObject.put("result", teamInfoDTO);
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject addUserToTeam(int teamId, int userId) {
+        JSONObject jsonObject = new JSONObject();
+
+        try{
+            userDao.addUserToTeam(teamId, userId);
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject deleteUserFromTeam(int userId) {
+        JSONObject jsonObject = new JSONObject();
+
+        try{
+            userDao.deleteUserFromTeam(userId);
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject getUserCoupon(int userId, int pageNo, int pageSize) {
+        JSONObject jsonObject = new JSONObject();
+        List<CouponBagDTO> couponBagDTOList = null;
+        int pageTotal = -1;
+
+        try{
+            couponBagDTOList = userDao.getUserCouponBag(userId, (pageNo-1)*pageSize, pageSize);
+            pageTotal = (userDao.getUserCouponCountTotal(userId, (pageNo-1)*pageSize, pageSize) + pageSize-1)/pageSize;
+
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("coupon_bag", couponBagDTOList);
+        resultMap.put("page_total", pageTotal);
+        jsonObject.put("result", resultMap);
+
+        return jsonObject;
+    }
+
+    private TeamInfoDTO getTeamInfoDTOFromVO(TeamInfoVO teamInfoVO, List<UserOfTeam> userOfTeamList) {
+        return new TeamInfoDTO(teamInfoVO.getTeamId(), teamInfoVO.getTeamName(),
+                teamInfoVO.getTeamLeaderId(), teamInfoVO.getTeamRank(),
+                teamInfoVO.getTeamCarbonCredits(), userOfTeamList);
     }
 
     private Map<String, Integer> getCO2Reduction(MonthlyReportVO monthlyReportVO, MonthlyReportDTO monthlyReportDTO) {

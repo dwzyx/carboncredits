@@ -3,6 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.catlovers.carbon_credits.dao.UserDao">
+    <insert id="addUserToTeam">
+        UPDATE user_basic SET
+            team_id = #{teamId}
+        WHere user_id = #{userId}
+    </insert>
 
 
     <update id="updateUserCarbonCreditsMonth">
@@ -19,6 +24,11 @@
             rank_highest_this_month = #{userRank}
         WHERE user_id = #{userId}
     </update>
+    <update id="deleteUserFromTeam">
+        UPDATE user_basic SET
+            team_id = 0
+        WHERE user_id = #{userId}
+    </update>
     <select id="getUserBasicById" resultType="com.catlovers.carbon_credits.model.UserVO">
         SELECT * FROM user_basic WHERE user_id=#{userId}
     </select>
@@ -28,7 +38,7 @@
                 t.*, @user_rank := @user_rank + 1 AS user_rank
             FROM
                 (SELECT @user_rank := 0) r,
-                (SELECT * FROM user_basic ORDER BY carbon_credits_month ASC) AS t
+                (SELECT * FROM user_basic ORDER BY carbon_credits_month DESC ) AS t
         ) AS b WHERE user_id = #{userId};
     </select>
     <select id="getRanks" resultType="com.catlovers.carbon_credits.model.RankingDTO">
@@ -37,9 +47,35 @@
             (SELECT @user_rank := 0) r,
             (SELECT * FROM user_basic
                 WHERE city_id = #{cityId} AND user_id = #{userId}
-                ORDER BY carbon_credits_month ASC) AS t
+                ORDER BY carbon_credits_month DESC ) AS t
     </select>
     <select id="getMonthlyReport" resultType="com.catlovers.carbon_credits.model.MonthlyReportVO">
         SELECT * FROM report_monthly WHERE user_id = #{userId} AND `month` = #{month} AND `year` = #{year};
     </select>
+    <select id="getTeamInfoVO" resultType="com.catlovers.carbon_credits.model.TeamInfoVO">
+        SELECT b.* FROM (
+            SELECT t.*, @team_rank := @team_rank + 1 AS team_rank
+            FROM
+                (SELECT @team_rank := 0) AS r,
+                (SELECT * FROM team_message ORDER BY team_carbon_credits DESC ) AS t
+        ) AS b WHERE team_id = #{teamId}
+    </select>
+    <select id="getTeamUsers" resultType="com.catlovers.carbon_credits.model.UserOfTeam">
+        SELECT user_id, nickname, carbon_credits_month, user_level,
+            rank_highest_this_month AS user_rank
+        FROM  user_basic where team_id = #{teamId};
+    </select>
+    <select id="getUserCouponBag" resultType="com.catlovers.carbon_credits.model.CouponBagDTO">
+        SELECT c.* FROM coupon_bag as b
+        INNER JOIN coupon_info as c
+        on c.coupon_id = b.coupon_id where b.user_id = #{userId}
+        LIMIT #{pageNo}, #{pageSize};
+    </select>
+    <select id="getUserCouponCountTotal" resultType="java.lang.Integer">
+        select count(*)  from coupon_bag as b
+        INNER JOIN coupon_info as c
+        on c.coupon_id = b.coupon_id where b.user_id = #{userId}
+        LIMIT #{pageNo}, #{pageSize};
+    </select>
+
 </mapper>
