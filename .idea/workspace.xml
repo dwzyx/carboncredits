@@ -341,7 +341,7 @@
       <workItem from="1580371601338" duration="3944000" />
       <workItem from="1580524868210" duration="24247000" />
       <workItem from="1580610043412" duration="949000" />
-      <workItem from="1580611645524" duration="5289000" />
+      <workItem from="1580611645524" duration="5578000" />
     </task>
     <task id="LOCAL-00001" summary="碳积分系统">
       <created>1579187121820</created>
@@ -399,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580203369461</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="碳积分系统">
+      <created>1580631254992</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1580631254992</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,10 +466,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1580538367356" />
-    <state x="242" y="25" key="CommitChangelistDialog2" timestamp="1580203365658">
+    <state x="242" y="25" key="CommitChangelistDialog2" timestamp="1580631249709">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="242" y="25" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1580203365658" />
+    <state x="242" y="25" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1580631249709" />
     <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1580550789207">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -523,10 +530,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="270" y="75" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1579442951122" />
-    <state x="361" y="154" key="Vcs.Push.Dialog.v2" timestamp="1580203371276">
+    <state x="361" y="154" key="Vcs.Push.Dialog.v2" timestamp="1580631314101">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="154" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1580203371276" />
+    <state x="361" y="154" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1580631314101" />
     <state x="646" y="315" width="340" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1580549393912">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
