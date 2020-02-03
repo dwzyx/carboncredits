@@ -32,4 +32,16 @@ public interface CommodityDao {
                                @Param("goodType") int goodType, @Param("useStoreId") int useStoreId,
                                @Param("couponName") String couponName, @Param("couponType") int couponType,
                                @Param("useType") int useType);
+
+    void addCommodity(CommodityDTO commodity);
+
+    void addCoupon(CouponInfoDTO coupon);
+
+    void deleteCommodity(int commodityId);
+
+    void deleteCoupon(int couponId);
+
+    void updateCommodity(CommodityDTO commodity);
+
+    void updateCoupon(CouponInfoDTO coupon);
 }

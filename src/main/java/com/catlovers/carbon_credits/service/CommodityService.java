@@ -1,6 +1,8 @@
 package com.catlovers.carbon_credits.service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.catlovers.carbon_credits.model.CommodityDTO;
+import com.catlovers.carbon_credits.model.CouponInfoDTO;
 
 public interface CommodityService {
 
@@ -11,4 +13,16 @@ public interface CommodityService {
     JSONObject searchCommodity(JSONObject commodity, int pageNo, int pageSize);
 
     JSONObject searchCoupon(JSONObject coupon, int pageNo, int pageSize, int goodType);
+
+    JSONObject addCommodity(CommodityDTO commodity);
+
+    JSONObject addCoupon(CouponInfoDTO coupon);
+
+    JSONObject deleteCommodity(int commodityId);
+
+    JSONObject deleteCoupon(int couponId);
+
+    JSONObject updateCommodity(CommodityDTO commodity);
+
+    JSONObject updateCoupon(CouponInfoDTO coupon);
 }

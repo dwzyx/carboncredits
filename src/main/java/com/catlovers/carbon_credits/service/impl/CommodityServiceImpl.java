@@ -5,7 +5,6 @@ import com.catlovers.carbon_credits.dao.CommodityDao;
 import com.catlovers.carbon_credits.enumeration.StatusEnum;
 import com.catlovers.carbon_credits.model.CommodityDTO;
 import com.catlovers.carbon_credits.model.CouponInfoDTO;
-import com.catlovers.carbon_credits.model.CouponInfoVO;
 import com.catlovers.carbon_credits.service.CommodityService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -150,6 +149,138 @@ public class CommodityServiceImpl implements CommodityService {
         resultMap.put("coupon", couponInfoDTOList);
         jsonObject.put("page_total", pageTotal);
         jsonObject.put("result", resultMap);
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject addCommodity(CommodityDTO commodity) {
+        JSONObject jsonObject = new JSONObject();
+
+        try{
+            commodityDao.addCommodity(commodity);
+
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject addCoupon(CouponInfoDTO coupon) {
+        JSONObject jsonObject = new JSONObject();
+
+        try{
+            commodityDao.addCoupon(coupon);
+
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject deleteCommodity(int commodityId) {
+        JSONObject jsonObject = new JSONObject();
+
+        try{
+            commodityDao.deleteCommodity(commodityId);
+
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject deleteCoupon(int couponId) {
+        JSONObject jsonObject = new JSONObject();
+
+        try{
+            commodityDao.deleteCoupon(couponId);
+
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject updateCommodity(CommodityDTO commodity) {
+        JSONObject jsonObject = new JSONObject();
+
+        try{
+            commodityDao.updateCommodity(commodity);
+
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject updateCoupon(CouponInfoDTO coupon) {
+        JSONObject jsonObject = new JSONObject();
+
+        try{
+            commodityDao.updateCoupon(coupon);
+
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+
         return jsonObject;
     }
 }
