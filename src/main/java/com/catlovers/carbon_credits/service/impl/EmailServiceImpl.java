@@ -37,7 +37,7 @@ public class EmailServiceImpl implements EmailService {
         mailMessage.setSubject("‘低碳出行小程序’需要验证您的注册邮箱");
         mailMessage.setFrom("738667591@qq.com");
         mailMessage.setTo(merchantEmail);
-        mailMessage.setText("您的邮箱验证码为"+ranNum+",用于用户："+merchantName.charAt(0)+"*的注册验证,两分钟有效。");
+        mailMessage.setText("您的邮箱验证码为"+ranNum+",用于用户："+merchantName.charAt(0)+"*的注册验证,15分钟有效。");
 
         try{
             mailSender.send(mailMessage);

@@ -11,5 +11,6 @@ public class MerchantLoginDTO {
 
     private int userId;
     private String merchantPassword;
+    private String imageCode;
 
 }

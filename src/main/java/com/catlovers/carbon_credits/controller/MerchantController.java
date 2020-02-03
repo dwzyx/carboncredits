@@ -73,6 +73,9 @@ public class MerchantController {
             System.out.println(code);
             jsonObject.put("emailCode","true");
         }
+        else{
+            jsonObject.put("emailCode","false");
+        }
         return jsonObject.toString();
     }
 
@@ -85,23 +88,36 @@ public class MerchantController {
         int i = merchantService.firstLogin(merchantLoginDTO);
             if(i == 1) {
                 System.out.println(1);
-                if(rememberMe) {
-                    UUID uuid = UUID.randomUUID();
+                if(codeService.getCode(merchantLoginDTO.getUserId()).equals(merchantLoginDTO.getImageCode())){
+                    jsonObject.put("imageResult","true");
+                    if(rememberMe) {
+                        UUID uuid = UUID.randomUUID();
 
 
-                    String token = jwtUtil.createJwt(merchantLoginDTO.getUserId(), uuid);
-                    System.out.println("create token");
-                    jsonObject.put("token", token);
-                    //还要将token放到redis里面储存
-                    System.out.println("uuid:"+uuid.toString());
-                    String s = uuid.toString();
+                        String token = jwtUtil.createJwt(merchantLoginDTO.getUserId(), uuid);
+                        System.out.println("create token");
+                        jsonObject.put("token", token);
+                        jsonObject.put("result","已记住登陆");
+                        //还要将token放到redis里面储存
+                        System.out.println("uuid:" + uuid.toString());
+                        String s = uuid.toString();
 
-                    String uu = merchantService.login(5,s);
-                    System.out.println("uu:"+uu);
-                    if(s!=uu){
-                        System.out.println(merchantService.loginAnyway(5,s));
+                        String uu = merchantService.login(merchantLoginDTO.getUserId(), s);
+                        System.out.println("uu:" + uu);
+                        //如果已经有登陆信息，更新登录信息
+                        if(s != uu) {
+                            System.out.println(merchantService.loginAnyway(merchantLoginDTO.getUserId(), s));
+                        }
+
+                    }
+                    else{
+                        jsonObject.put("result","已本次登陆");
                     }
                 }
+                else {
+                    jsonObject.put("imageResult","false");
+                }
+
             }
             else{
                 if(merchantService.ifExist(merchantLoginDTO.getUserId())){
@@ -109,12 +125,12 @@ public class MerchantController {
                 }
                 else {
                     jsonObject.put("result","未注册");
-                    String code = codeService.getCode(merchantLoginDTO.getUserId());
-                    System.out.println("code:"+code);
-                    String image = verificationService.getImage(merchantLoginDTO.getUserId(),code);
-                    System.out.println("image:"+image);
-                    jsonObject.put("image",image);
                 }
+                String code = codeService.getCode(merchantLoginDTO.getUserId());
+                System.out.println("code:"+code);
+                String image = verificationService.getImage(merchantLoginDTO.getUserId(),code);
+                System.out.println("image:"+image);
+                jsonObject.put("image",image);
             }
             return jsonObject.toString();
 
@@ -122,7 +138,11 @@ public class MerchantController {
 
     //个人主页
     @RequestMapping(value = "/Merchant/home")
-    public String home() { return "访问个人主页成功"; }
+    public String home() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("result","自动登录成功");
+        return jsonObject.toString();
+    }
 
 
 }

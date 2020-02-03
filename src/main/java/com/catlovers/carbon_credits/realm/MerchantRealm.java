@@ -74,6 +74,7 @@ public class MerchantRealm extends AuthorizingRealm {
     }
     if(getUUID .equals(UUID)) {
         System.out.println("true");
+        merchantService.loginAnyway(userId,getUUID);
         return new SimpleAuthenticationInfo(token, token, "merchantRealm");
     }
     System.out.println("nooo");
