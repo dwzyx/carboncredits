@@ -23,10 +23,10 @@ public class CommodityController {
                                    @RequestParam("good_type") int goodTypes){
         JSONObject jsonObject;
         //
-        if(goodTypes == GoodTypeEnum.COMMODITY)
-            jsonObject = commodityService.getCommodityInfo(pageNo, pageSize);
-        else
-            jsonObject = commodityService.getCouponInfo(pageNo, pageSize, goodTypes);
+        if(goodTypes == GoodTypeEnum.COMMODITY){
+            jsonObject = commodityService.getCommodityInfo(pageNo, pageSize);}
+        else{
+            jsonObject = commodityService.getCouponInfo(pageNo, pageSize, goodTypes);}
         return jsonObject.toString();
     }
 
