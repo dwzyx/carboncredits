@@ -89,9 +89,9 @@ public class MerchantServiceImpl implements MerchantService {
     }
 
     @Override
-    public MerchantVO findById(String userId) {
+    public int findMerchantIdByUserId(int userId) {
 
-        return merchantDao.findById(Integer.valueOf(userId));
+        return merchantDao.findMerchantIdByUserId(userId);
     }
 
     private static MerchantVO merchantDTOTomerchantVO(MerchantDTO merchantDTO){

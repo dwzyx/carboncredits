@@ -24,8 +24,8 @@
         select * from com_carbon_credits.merchant_basic WHERE user_id = #{userId} and merchant_password = #{merchantPassword}
     </select>
 
-    <select id="findById" resultType="com.catlovers.carbon_credits.model.MerchantVO">
-        select * from com_carbon_credits.merchant_basic WHERE user_id = #{userId}
+    <select id="findMerchantIdByUserId" resultType="com.catlovers.carbon_credits.model.MerchantVO">
+        select merchant_id from com_carbon_credits.merchant_basic WHERE user_id = #{userId}
     </select>
 
     <insert id="signUp" parameterType="com.catlovers.carbon_credits.model.MerchantVO" >

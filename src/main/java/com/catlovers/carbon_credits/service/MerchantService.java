@@ -12,5 +12,5 @@ public interface MerchantService {
     boolean ifExist(int id);
     int firstLogin(MerchantLoginDTO merchantLoginDTO);
     JSONObject signUp(MerchantDTO merchantDTO);
-    MerchantVO findById(String userId);
+    int findMerchantIdByUserId(int userId);
 }

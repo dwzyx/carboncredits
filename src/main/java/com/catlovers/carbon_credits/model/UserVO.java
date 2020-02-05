@@ -18,5 +18,11 @@ public class UserVO {
     private int signInToday;
     private int isStore;
     private int userRank;
+    private String nickname;
+    private int cityId;
+    private String userImagePath;
+    private int rankHighestLastMonth;
+    private int rankHighestThisMonth;
+    private int teamId;
 
 }

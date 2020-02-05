@@ -1,13 +1,11 @@
 package com.catlovers.carbon_credits.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.catlovers.carbon_credits.enumeration.GoodTypeEnum;
 import com.catlovers.carbon_credits.model.CodeDTO;
 import com.catlovers.carbon_credits.model.MerchantDTO;
 import com.catlovers.carbon_credits.model.MerchantLoginDTO;
-import com.catlovers.carbon_credits.service.CodeService;
-import com.catlovers.carbon_credits.service.EmailService;
-import com.catlovers.carbon_credits.service.MerchantService;
-import com.catlovers.carbon_credits.service.VerificationService;
+import com.catlovers.carbon_credits.service.*;
 import com.catlovers.carbon_credits.util.JwtUtil;
 
 import jdk.nashorn.internal.parser.Token;
@@ -31,12 +29,14 @@ public class MerchantController {
     private final VerificationService verificationService;
     private final CodeService codeService;
     private final EmailService emailService;
+    private final CommodityService commodityService;
 
-    public MerchantController(MerchantService merchantService,VerificationService verificationService,CodeService codeService,EmailService emailService) {
+    public MerchantController(MerchantService merchantService,VerificationService verificationService,CodeService codeService,EmailService emailService,CommodityService commodityService) {
         this.merchantService = merchantService;
         this.verificationService = verificationService;
         this.codeService = codeService;
         this.emailService = emailService;
+        this.commodityService = commodityService;
     }
 
     @GetMapping(value = "/Merchant/signUp", produces = "application/json;charset=UTF-8")
@@ -80,7 +80,7 @@ public class MerchantController {
     }
 
     @GetMapping(value = "/Merchant/login", produces = "application/json;charset=UTF-8")
-    public String merchantLogin(@RequestBody MerchantLoginDTO merchantLoginDTO, boolean rememberMe, HttpServletRequest request) {
+    public String merchantLogin(@RequestBody MerchantLoginDTO merchantLoginDTO, @RequestParam("rememberMe") boolean rememberMe) {
         JSONObject jsonObject = new JSONObject();
         JwtUtil jwtUtil = new JwtUtil();
         String password = new Md5Hash(merchantLoginDTO.getMerchantPassword(), String.valueOf(merchantLoginDTO.getUserId()), 3).toString();
@@ -120,29 +120,38 @@ public class MerchantController {
 
             }
             else{
-                if(merchantService.ifExist(merchantLoginDTO.getUserId())){
-                    jsonObject.put("result","已注册");
-                }
-                else {
-                    jsonObject.put("result","未注册");
-                }
-                String code = codeService.getCode(merchantLoginDTO.getUserId());
-                System.out.println("code:"+code);
-                String image = verificationService.getImage(merchantLoginDTO.getUserId(),code);
-                System.out.println("image:"+image);
-                jsonObject.put("image",image);
+                    jsonObject.put("result","登陆失败");
             }
             return jsonObject.toString();
 
     }
 
-    //个人主页
-    @RequestMapping(value = "/Merchant/home")
-    public String home() {
+
+    @GetMapping(value = "/Merchant/homeFalse",produces = "application/json;charset=UTF-8")
+    public String homeFalse(@RequestParam("userId") int userId){
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("result","自动登录成功");
+        if(merchantService.ifExist(userId)){
+            jsonObject.put("result","已注册");
+        }
+        else {
+            jsonObject.put("result","未注册");
+        }
+        String code = codeService.getCode(userId);
+        System.out.println("code:"+code);
+        String image = verificationService.getImage(userId,code);
+        System.out.println("image:"+image);
+        jsonObject.put("image",image);
         return jsonObject.toString();
     }
 
+
+    @GetMapping(value = "/Merchant/home", produces = "application/json;charset=UTF-8")
+    public String getCommodityInfo(@RequestParam("page_no") int pageNo , @RequestParam("page_size") int pageSize, @RequestParam("good_type") int goodTypes,@RequestParam("userId" )int userId){
+        int merchantId = merchantService.findMerchantIdByUserId(userId);
+        JSONObject jsonObject;
+        jsonObject = commodityService.getCouponInfoById(pageNo,pageSize,goodTypes,merchantId);
+        jsonObject.put("loginResult","自动登录成功");
+        return jsonObject.toString();
+    }
 
 }

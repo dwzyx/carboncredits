@@ -28,5 +28,9 @@ public class CarbonCreditsVO {
     private Date updateTime;
     private int lastTripNo;
     private int lastPageNo;
+    private int mileageSubwayLastMonth;
+    private int mileageBusLastMonth;
+    private int mileageWalkLastMonth;
+    private int mileageBikeLastMonth;
 
 }

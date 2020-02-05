@@ -11,4 +11,13 @@ public interface UserService {
 
     JSONObject getRankingList(int userId, int cityId);
 
+    JSONObject getMonthlyReport(int userId);
+
+    JSONObject getTeamInfo(int teamId);
+
+    JSONObject addUserToTeam(int teamId, int userId);
+
+    JSONObject deleteUserFromTeam(int userId);
+
+    JSONObject getUserCoupon(int userId, int pageNo, int pageSize);
 }

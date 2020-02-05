@@ -67,10 +67,11 @@ public class JwtUtil {
     public static Integer getUserId(String token ) {
 
         System.out.println(token);
-//        DecodedJWT jwt = JWT.decode(token);
-//        Claim claim = jwt.getClaim("id");
-//        System.out.println(claim.asString());
-        return 5;
+        DecodedJWT jwt = JWT.decode(token);
+        Claim claim = jwt.getClaim("id");
+        claim.asInt();
+        System.out.println("id"+claim.asString());
+        return claim.asInt();
     }
 
     /**

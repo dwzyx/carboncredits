@@ -12,7 +12,7 @@ public interface MerchantDao {
     MerchantVO ifPhoneNumberExist(String merchantPhoneNumber);
     MerchantVO ifEmailExist(String merchantEmail);
     MerchantVO login(MerchantLoginDTO merchantLoginDTO);
-    MerchantVO findById(int userId);
+    int findMerchantIdByUserId(int userId);
     void signUp(MerchantVO merchantVO);
 
 }
