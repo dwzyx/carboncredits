@@ -152,6 +152,7 @@ public class MerchantController {
         jsonObject = commodityService.getCouponInfoById(pageNo,pageSize,goodTypes,merchantId);
         jsonObject.put("loginResult","自动登录成功");
         return jsonObject.toString();
+
     }
 
 }
