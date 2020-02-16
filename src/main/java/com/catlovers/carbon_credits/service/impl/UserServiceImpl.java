@@ -180,8 +180,7 @@ public class UserServiceImpl implements UserService {
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             teamInfoDTO = null;
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
@@ -204,8 +203,7 @@ public class UserServiceImpl implements UserService {
         } catch (NullPointerException e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
@@ -226,8 +224,7 @@ public class UserServiceImpl implements UserService {
         } catch (NullPointerException e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
@@ -275,8 +272,7 @@ public class UserServiceImpl implements UserService {
         } catch (NullPointerException e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
@@ -310,8 +306,7 @@ public class UserServiceImpl implements UserService {
             }
 
         }catch(Exception e){
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
         return jsonObject;
     }
@@ -324,8 +319,7 @@ public class UserServiceImpl implements UserService {
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         }catch(Exception e){
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         return jsonObject;
@@ -339,8 +333,7 @@ public class UserServiceImpl implements UserService {
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         }catch(Exception e){
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         return jsonObject;

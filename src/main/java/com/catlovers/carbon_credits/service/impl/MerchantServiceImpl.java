@@ -155,16 +155,13 @@ public class MerchantServiceImpl implements MerchantService {
         JSONObject jsonObject = new JSONObject();
         try {
             commodityDao.useCoupon(couponBagId,couponId,userId);
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
         }catch (NullPointerException e){
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (IndexOutOfBoundsException e) {
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         }catch(Exception e){
-            jsonObject.put("exchangeResult","false");
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
         return jsonObject;
     }

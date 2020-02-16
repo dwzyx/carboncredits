@@ -68,7 +68,9 @@ public interface CommodityDao {
 
     int addSecondHandGood(SecondHandGoodDTO secondHandGoodDTO);
 
-    SecondHandGoodDTO getSecondHandGood(int goodId);
+    SecondHandGoodDTO getSecondHandGood(int goodId,int sellerId);
+
+    void deleteSecondHandGood(int goodId);
 
     int updateSecondHandGood(int buyerId,int deliveryId,int goodId);
 

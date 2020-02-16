@@ -17,5 +17,6 @@ public interface MerchantService {
     JSONObject modify(MerchantDTO merchantDTO);
     JSONObject modifyPassword(int userId,String merchantPassword);
     String getName(int userId);
+    //商家扫描二维码使用优惠券
     JSONObject useCoupon(int couponBagId, int couponId,int userId);
 }

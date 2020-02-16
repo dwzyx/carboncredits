@@ -78,23 +78,19 @@ public class CarBonCreditsServiceImpl implements CarbonCreditsService {
             }
 
             //处理成功
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
         } catch (ChangeSetPersister.NotFoundException e){ //异常处理
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             carBonCreditsDTO = null;
-            jsonObject.put("msg_code", StatusEnum.PARAMETER_ERROR.getCoding());
-            jsonObject.put("msg_message", StatusEnum.PARAMETER_ERROR.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (IndexOutOfBoundsException e) {
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             carBonCreditsDTO = null;
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         }catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             carBonCreditsDTO = null;
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         } finally{
             jsonObject.put("result", carBonCreditsDTO);
         }

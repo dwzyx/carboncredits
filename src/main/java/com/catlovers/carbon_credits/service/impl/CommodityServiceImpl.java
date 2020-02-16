@@ -39,13 +39,11 @@ public class CommodityServiceImpl implements CommodityService {
             commodityDTOList = commodityDao.getCommodityInfo((pageNo-1)*pageSize, pageSize);
             pageTotal = (commodityDao.getCommodityCountTotal((pageNo-1)*pageSize, pageSize)+pageSize-1)/pageSize;
 
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
         } catch (NullPointerException e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
@@ -71,16 +69,13 @@ public class CommodityServiceImpl implements CommodityService {
             couponInfoDTOList = commodityDao.getCouponInfo((pageNo-1)*pageSize, pageSize, goodType);
             pageTotal = (commodityDao.getCouponCountTotal((pageNo-1)*pageSize, pageSize, goodType)+pageSize-1)/pageSize;
 
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
         } catch (NullPointerException e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         HashMap<String, Object> resultMap = new HashMap<>();
@@ -101,16 +96,13 @@ public class CommodityServiceImpl implements CommodityService {
             couponInfoDTOList = commodityDao.getCouponInfoById((pageNo-1)*pageSize, pageSize, goodType, merchantId);
             pageTotal = (commodityDao.getCouponCountTotalById((pageNo-1)*pageSize, pageSize, goodType, merchantId)+pageSize-1)/pageSize;
 
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
         } catch (NullPointerException e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         HashMap<String, Object> resultMap = new HashMap<>();
@@ -134,16 +126,13 @@ public class CommodityServiceImpl implements CommodityService {
             pageTotal = (commodityDao.searchedCommodityCountTotal((pageNo-1)*pageSize, pageSize, commodityName, commodityType)
                     +pageSize-1)/pageSize;
 
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
         } catch (NullPointerException e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
 
@@ -171,16 +160,13 @@ public class CommodityServiceImpl implements CommodityService {
             pageTotal = (commodityDao.searchCouponCountTotal((pageNo-1)*pageSize, pageSize, goodType,
                     useStoreId, couponName, couponType, useType)+pageSize-1)/pageSize;
 
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
         } catch (NullPointerException e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         HashMap<String, Object> resultMap = new HashMap<>();
@@ -198,16 +184,13 @@ public class CommodityServiceImpl implements CommodityService {
         try{
             commodityDao.addCommodity(commodity);
 
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
         } catch (NullPointerException e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         return jsonObject;
@@ -220,16 +203,13 @@ public class CommodityServiceImpl implements CommodityService {
         try{
             commodityDao.addCoupon(coupon);
 
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
         } catch (NullPointerException e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         return jsonObject;
@@ -242,16 +222,13 @@ public class CommodityServiceImpl implements CommodityService {
         try{
             commodityDao.deleteCommodity(commodityId);
 
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
         } catch (NullPointerException e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         return jsonObject;
@@ -264,16 +241,13 @@ public class CommodityServiceImpl implements CommodityService {
         try{
             commodityDao.deleteCoupon(couponId);
 
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
         } catch (NullPointerException e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         return jsonObject;
@@ -286,16 +260,13 @@ public class CommodityServiceImpl implements CommodityService {
         try{
             commodityDao.updateCommodity(commodity);
 
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
         } catch (NullPointerException e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         return jsonObject;
@@ -308,16 +279,13 @@ public class CommodityServiceImpl implements CommodityService {
         try{
             commodityDao.updateCoupon(coupon);
 
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
         } catch (NullPointerException e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         return jsonObject;
@@ -340,8 +308,7 @@ public class CommodityServiceImpl implements CommodityService {
             int needCredits = couponInfoDTO.getCouponCost();
 
             if(creditsTotal<needCredits){
-                jsonObject.put("msg_code", StatusEnum.CARBON_CREDITS_ERROR.getCoding());
-                jsonObject.put("msg_message", StatusEnum.CARBON_CREDITS_ERROR.getMessage());
+                StatusEnum.getMessageJson(StatusEnum.CARBON_CREDITS_ERROR,jsonObject);
                 return jsonObject;
             }else {
                 carbonCreditsVO.setCarbonCreditsUseful(creditsTotal-needCredits);
@@ -353,20 +320,16 @@ public class CommodityServiceImpl implements CommodityService {
                 CouponBagDTO couponBagDTO =
                         new CouponBagDTO(0,userId,couponId,couponInfoDTO.getCouponName(),couponInfoDTO.getCouponType(),couponInfoDTO.getUserType(),couponInfoDTO.getCouponCost(),data1,couponInfoDTO.getExpirationTime(),couponInfoDTO.getSill(),couponInfoDTO.getValue(),0);
                 commodityDao.addToCouponBag(couponBagDTO);
-                jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-                jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());}
+                StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);}
         }catch (NullPointerException e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (IndexOutOfBoundsException e) {
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         }catch(Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
         return jsonObject;
     }
@@ -383,8 +346,7 @@ public class CommodityServiceImpl implements CommodityService {
             int needCredits = commodityDTO.getCarbonCreditsNeed();
 
             if(creditsTotal<needCredits){
-                jsonObject.put("msg_code", StatusEnum.CARBON_CREDITS_ERROR.getCoding());
-                jsonObject.put("msg_message", StatusEnum.CARBON_CREDITS_ERROR.getMessage());
+                StatusEnum.getMessageJson(StatusEnum.CARBON_CREDITS_ERROR,jsonObject);
                 return jsonObject;
             }else {
                 carbonCreditsVO.setCarbonCreditsUseful(creditsTotal-needCredits);
@@ -393,20 +355,16 @@ public class CommodityServiceImpl implements CommodityService {
                 commodityDao.exchangeCommodity(commodityId);
                 CommodityRecordDTO commodityRecordDTO = new CommodityRecordDTO(0, commodityId, userId, commodityDTO.getCommodityPicture(), commodityDTO.getCommodityName(), commodityDTO.getCommodityType(), commodityDTO.getCommodityIntroduce(), commodityDTO.getCommodityPriceOriginal(), commodityDTO.getCommodityPrice(), commodityDTO.getCarbonCreditsNeed(), 0, null,deliveryId);
                 commodityDao.addToCommodityRecord(commodityRecordDTO);
-                jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-                jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());}
+                StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);}
         }catch (NullPointerException e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (IndexOutOfBoundsException e) {
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         }catch(Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
         return jsonObject;
     }
@@ -425,20 +383,17 @@ public class CommodityServiceImpl implements CommodityService {
                 jsonObject.put("msg_message", StatusEnum.DATE_NULL.getMessage());
             }
             else {
-                jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-                jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+                StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
             }
 
         } catch (NullPointerException e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         HashMap<String, Object> resultMap = new HashMap<>();
@@ -454,16 +409,13 @@ public class CommodityServiceImpl implements CommodityService {
         try {
             int i = commodityDao.addSecondHandGood(secondHandGoodDTO);
             if(i==1){
-                jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-                jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+                StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
             }
             else {
-                jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-                jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+                StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
             }
         }catch(Exception e){
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }finally {
             return jsonObject;
         }
@@ -471,17 +423,29 @@ public class CommodityServiceImpl implements CommodityService {
     }
 
     @Override
+    public JSONObject deleteSecondHandGood(int goodId, int sellerId) {
+        JSONObject jsonObject = new JSONObject();
+        SecondHandGoodDTO secondHandGoodDTO = commodityDao.getSecondHandGood(goodId,sellerId);
+        if(secondHandGoodDTO==null){
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
+        }
+        else {
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
+        }
+        return jsonObject;
+    }
+
+    @Override
     @Transactional(rollbackFor=Exception.class)
     public JSONObject buySecondHandGood(int buyerId, int goodId, int sellerId,int deliveryId) {
         JSONObject jsonObject = new JSONObject();
         try {
-            SecondHandGoodDTO secondHandGoodDTO = commodityDao.getSecondHandGood(goodId);
+            SecondHandGoodDTO secondHandGoodDTO = commodityDao.getSecondHandGood(goodId,sellerId);
             CarbonCreditsVO carbonCreditsVO = carbonCreditsDao.getUserAllCarbonCredits(buyerId);
             int creditsTotal = carbonCreditsVO.getCarbonCreditsUseful();
             int needCredits = secondHandGoodDTO.getGoodCarbonCredits();
             if(creditsTotal<needCredits){
-                jsonObject.put("msg_code", StatusEnum.CARBON_CREDITS_ERROR.getCoding());
-                jsonObject.put("msg_message", StatusEnum.CARBON_CREDITS_ERROR.getMessage());
+                StatusEnum.getMessageJson(StatusEnum.CARBON_CREDITS_ERROR,jsonObject);
                 return jsonObject;
             }else {
                 carbonCreditsVO.setCarbonCreditsUseful(creditsTotal-needCredits);
@@ -495,22 +459,18 @@ public class CommodityServiceImpl implements CommodityService {
                 carbonCreditsDao.updateCarbonCredits(carbonCreditsVO);
 
                 commodityDao.updateSecondHandGood(buyerId,deliveryId,goodId);
-                    jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-                    jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+                StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
             }
 
         }catch (NullPointerException e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         } catch (IndexOutOfBoundsException e) {
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
-            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
-            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
         }catch(Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
         return jsonObject;
 
