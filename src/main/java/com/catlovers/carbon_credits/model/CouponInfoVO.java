@@ -19,5 +19,6 @@ public class CouponInfoVO {
     private int sill;
     private int value;
     private Date expirationTime;
+    private int remaining;
 
 }

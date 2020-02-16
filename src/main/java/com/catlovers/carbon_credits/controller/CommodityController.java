@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.catlovers.carbon_credits.enumeration.GoodTypeEnum;
 import com.catlovers.carbon_credits.model.CommodityDTO;
 import com.catlovers.carbon_credits.model.CouponInfoDTO;
+import com.catlovers.carbon_credits.model.SecondHandGoodDTO;
 import com.catlovers.carbon_credits.service.CommodityService;
 import com.google.gson.Gson;
 import org.springframework.web.bind.annotation.*;
@@ -94,6 +95,7 @@ public class CommodityController {
         return jsonObject.toString();
 
     }
+
 
 
 }

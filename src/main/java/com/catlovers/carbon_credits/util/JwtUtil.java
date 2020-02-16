@@ -65,13 +65,17 @@ public class JwtUtil {
     * @return token中包含的用户Id
     */
     public static Integer getUserId(String token ) {
+        try {
+            System.out.println(token);
+            DecodedJWT jwt = JWT.decode(token);
+            Claim claim = jwt.getClaim("id");
+            claim.asInt();
+            System.out.println("id"+claim.asString());
+            return claim.asInt();
+        }catch(Exception e){
+            return null;
+        }
 
-        System.out.println(token);
-        DecodedJWT jwt = JWT.decode(token);
-        Claim claim = jwt.getClaim("id");
-        claim.asInt();
-        System.out.println("id"+claim.asString());
-        return claim.asInt();
     }
 
     /**

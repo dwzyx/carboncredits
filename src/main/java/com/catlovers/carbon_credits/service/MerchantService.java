@@ -10,7 +10,12 @@ public interface MerchantService {
     String login(int id,String UUID);
     String loginAnyway(int id,String uuid);
     boolean ifExist(int id);
-    int firstLogin(MerchantLoginDTO merchantLoginDTO);
-    JSONObject signUp(MerchantDTO merchantDTO);
+    int firstLogin(int userId,String merchantPassword);
+    JSONObject signUp(MerchantVO merchantVO);
     int findMerchantIdByUserId(int userId);
+    JSONObject getAll(int userId);
+    JSONObject modify(MerchantDTO merchantDTO);
+    JSONObject modifyPassword(int userId,String merchantPassword);
+    String getName(int userId);
+    JSONObject useCoupon(int couponBagId, int couponId,int userId);
 }

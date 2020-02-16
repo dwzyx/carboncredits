@@ -19,7 +19,7 @@ import java.util.Random;
 public class EmailServiceImpl implements EmailService {
 
     private final RestTemplate restTemplate;
-    @Autowired
+
     private JavaMailSender mailSender;
 
     public EmailServiceImpl(RestTemplate restTemplate){
@@ -28,16 +28,16 @@ public class EmailServiceImpl implements EmailService {
 
     @Override
     @Cacheable(value = "emailVeri",key = "#root.methodName+':'+#merchantName")
-    public String emailVerification(String merchantEmail,String merchantName) {
+    public String emailVerification(String merchantEmail,String merchantName,String context) {
 
         Random random=new Random();
         int ran = (int)(random.nextDouble()*(99999-10000 + 1))+ 10000;
         String ranNum = String.valueOf(ran);
         SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setSubject("‘低碳出行小程序’需要验证您的注册邮箱");
+        mailMessage.setSubject("‘低碳出行小程序’需要验证您的邮箱");
         mailMessage.setFrom("738667591@qq.com");
         mailMessage.setTo(merchantEmail);
-        mailMessage.setText("您的邮箱验证码为"+ranNum+",用于用户："+merchantName.charAt(0)+"*的注册验证,15分钟有效。");
+        mailMessage.setText("您的邮箱验证码为"+ranNum+",用于用户："+merchantName.charAt(0)+context);
 
         try{
             mailSender.send(mailMessage);

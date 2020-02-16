@@ -1,7 +1,9 @@
 package com.catlovers.carbon_credits.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.catlovers.carbon_credits.dao.CommodityDao;
 import com.catlovers.carbon_credits.dao.MerchantDao;
+import com.catlovers.carbon_credits.enumeration.StatusEnum;
 import com.catlovers.carbon_credits.model.MerchantDTO;
 import com.catlovers.carbon_credits.model.MerchantLoginDTO;
 import com.catlovers.carbon_credits.model.MerchantVO;
@@ -10,17 +12,17 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import com.catlovers.carbon_credits.service.MerchantService;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
-import java.util.UUID;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 @Service
 public class MerchantServiceImpl implements MerchantService {
-    JSONObject jsonObject = new JSONObject();
-    MerchantDao merchantDao ;
-    public MerchantServiceImpl(MerchantDao merchantDao){
+
+    private final MerchantDao merchantDao ;
+    private final CommodityDao commodityDao;
+    public MerchantServiceImpl(MerchantDao merchantDao,CommodityDao commodityDao){
         this.merchantDao = merchantDao;
+        this.commodityDao = commodityDao;
     }
 
     /**
@@ -55,32 +57,35 @@ public class MerchantServiceImpl implements MerchantService {
     }
 
     @Override
-    public int firstLogin(MerchantLoginDTO merchantLoginDTO) {
+    public int firstLogin(int userId,String merchantPassword) {
         System.out.println("firstLogin");
-        if(merchantDao.login(merchantLoginDTO)!=null){
+        String password = new Md5Hash(merchantPassword, String.valueOf(userId), 3).toString();
+        if(merchantDao.login(userId,password)!=null){
             return 1;
         }
         return 0;
     }
 
     @Override
-    public JSONObject signUp(MerchantDTO merchantDTO) {
+    public JSONObject signUp(MerchantVO merchantVO) {
+        JSONObject jsonObject = new JSONObject();
         int result = 0;
-        System.out.println(merchantDTO.getMerchantName());
+        System.out.println(merchantVO.getMerchantName());
 
         MerchantVO merchantVO1 =null;
-        merchantVO1 = merchantDao.ifNameExist(merchantDTO.getMerchantName());
+        merchantVO1 = merchantDao.ifNameExist(merchantVO.getMerchantName());
         if(merchantVO1!=null){
             result += 1;
         }
-        if(merchantDao.ifPhoneNumberExist(merchantDTO.getMerchantPhoneNumber())!=null){
+        if(merchantDao.ifPhoneNumberExist(merchantVO.getMerchantPhoneNumber())!=null){
             result += 10;
         }
-        if(merchantDao.ifEmailExist(merchantDTO.getMerchantEmail())!=null){
+        if(merchantDao.ifEmailExist(merchantVO.getMerchantEmail())!=null){
             result += 100;
         }
         System.out.println(result);
-        MerchantVO merchantVO = merchantDTOTomerchantVO(merchantDTO);
+        String password = new Md5Hash(merchantVO.getMerchantPassword(), String.valueOf(merchantVO.getUserId()), 3).toString();
+        merchantVO.setMerchantPassword(password);
         if(result==0){
             merchantDao.signUp(merchantVO);
         }
@@ -94,13 +99,82 @@ public class MerchantServiceImpl implements MerchantService {
         return merchantDao.findMerchantIdByUserId(userId);
     }
 
-    private static MerchantVO merchantDTOTomerchantVO(MerchantDTO merchantDTO){
-
-        String password;
-        password = new Md5Hash(merchantDTO.getMerchantPassword(), String.valueOf(merchantDTO.getUserId()), 3).toString();
-        MerchantVO merchantVO = new MerchantVO
-               (merchantDTO.getMerchantId(),merchantDTO.getUserId(),password,merchantDTO.getMerchantPhoneNumber(),merchantDTO.getMerchantEmail(),merchantDTO.getMerchantName(),merchantDTO.getMerchantAddress(),merchantDTO.getMerchantIntroduce(),merchantDTO.getMerchantImage());
-        System.out.println(merchantVO.toString());
-        return  merchantVO;
+    @Override
+    public JSONObject getAll(int userId){
+        JSONObject jsonObject = new JSONObject();
+        MerchantVO merchantVO;
+        merchantVO = merchantDao.ifExist(userId);
+        jsonObject.put("merchantPhoneNumber",merchantVO.getMerchantPhoneNumber());
+        jsonObject.put("merchantEmail",merchantVO.getMerchantEmail());
+        jsonObject.put("merchantName",merchantVO.getMerchantName());
+        jsonObject.put("merchantAddress",merchantVO.getMerchantAddress());
+        jsonObject.put("merchantIntroduce",merchantVO.getMerchantIntroduce());
+        jsonObject.put("merchantImage",merchantVO.getMerchantImage());
+        return jsonObject;
     }
+
+    @Override
+    public JSONObject modify(MerchantDTO merchantDTO) {
+        JSONObject jsonObject = new JSONObject();
+        int i = merchantDao.modify(merchantDTO);
+        if(i!=0){
+            jsonObject.put("modify_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("modify_message", StatusEnum.SUCCESS.getMessage());
+        }
+        else{
+            jsonObject.put("modify_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("modify_message", StatusEnum.FAILED.getMessage());
+        }
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject modifyPassword(int userId, String merchantPassword) {
+        JSONObject jsonObject = new JSONObject();
+        String password = new Md5Hash(merchantPassword, String.valueOf(userId), 3).toString();
+        int i = merchantDao.modifyPassword(userId,password);
+        if(i!=0){
+            jsonObject.put("modify_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("modify_message", StatusEnum.SUCCESS.getMessage());
+        }
+        else{
+            jsonObject.put("modify_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("modify_message", StatusEnum.FAILED.getMessage());
+        }
+        return jsonObject;
+    }
+
+    @Override
+    public String getName(int userId) {
+        String name = merchantDao.getName(userId);
+        return name;
+    }
+
+    @Override
+    public JSONObject useCoupon(int couponBagId,int couponId, int userId) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            commodityDao.useCoupon(couponBagId,couponId,userId);
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        }catch (NullPointerException e){
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        } catch (IndexOutOfBoundsException e) {
+            jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
+            jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
+        }catch(Exception e){
+            jsonObject.put("exchangeResult","false");
+        }
+        return jsonObject;
+    }
+
+    //    private static MerchantVO merchantDTOTomerchantVO(MerchantDTO merchantDTO){
+    ////
+    ////        String password;
+    ////                MerchantVO merchantVO = new MerchantVO
+    ////               (merchantDTO.getMerchantId(),merchantDTO.getUserId(),password,merchantDTO.getMerchantPhoneNumber(),merchantDTO.getMerchantEmail(),merchantDTO.getMerchantName(),merchantDTO.getMerchantAddress(),merchantDTO.getMerchantIntroduce(),merchantDTO.getMerchantImage());
+    ////        System.out.println(merchantVO.toString());
+    ////        return  merchantVO;
+    ////    }
 }

@@ -77,5 +77,18 @@
         on c.coupon_id = b.coupon_id where b.user_id = #{userId}
         LIMIT #{pageNo}, #{pageSize};
     </select>
+    <select id="getUserDelivery" resultType="com.catlovers.carbon_credits.model.UserDelivery">
+        select * from user_delivery where user_id = #{userId};
+    </select>
+    <update id="updateUserDelivery" parameterType="com.catlovers.carbon_credits.model.UserDelivery">
+        update user_delivery set
+        user_name = #{userName},
+        user_phone_number = #{userPhoneNumber},
+        user_address = #{userAddress} where user_id = #{userId}
+    </update>
+    <insert id="addUserDelivery" parameterType="com.catlovers.carbon_credits.model.UserDelivery">
+        insert into user_delivery(delivery_id,user_id, user_name, user_phone_number, user_address)
+        values(0,#{userId},#{userName},#{userPhoneNumber},#{userAddress});
+    </insert>
 
 </mapper>

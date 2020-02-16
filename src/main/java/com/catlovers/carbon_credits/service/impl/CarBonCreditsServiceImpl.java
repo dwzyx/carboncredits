@@ -17,6 +17,7 @@ import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
@@ -27,7 +28,7 @@ import static com.catlovers.carbon_credits.util.ClientUtil.getRespond;
 
 
 @Service
-@Transactional
+@Transactional(rollbackFor=Exception.class)
 public class CarBonCreditsServiceImpl implements CarbonCreditsService {
 
     private final static Logger logger = LoggerFactory.getLogger(CarBonCreditsServiceImpl.class);
@@ -80,14 +81,17 @@ public class CarBonCreditsServiceImpl implements CarbonCreditsService {
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         } catch (ChangeSetPersister.NotFoundException e){ //异常处理
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             carBonCreditsDTO = null;
             jsonObject.put("msg_code", StatusEnum.PARAMETER_ERROR.getCoding());
             jsonObject.put("msg_message", StatusEnum.PARAMETER_ERROR.getMessage());
         } catch (IndexOutOfBoundsException e) {
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             carBonCreditsDTO = null;
             jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
             jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
         }catch (Exception e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             carBonCreditsDTO = null;
             jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
             jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());

@@ -21,10 +21,12 @@ public enum StatusEnum {
     CITY_TEMPORARILY_CLOSED("0015", "该城市仅向内测用户开放，请选择其他城市"),
     FEATURES_TEMPORARILY_CLOSED("0016", "该功能仅向内测用户开放"),
     SYSTEM_BUSY("0017", "系统繁忙，请稍后重试"),
+    CARBON_CREDITS_ERROR("0018","碳积分不足"),
     SYSTEM_EXCEPTION("0901", "系统异常"),
     DATE_NULL("0902", "数据为空"),
     VERSION_NUMBER_NOT_SUPPORT("0088", "版本号不支持"),
     UNKNOWN_ERROR("9999", "未知错误");
+
 
     private String coding;
     private String message;

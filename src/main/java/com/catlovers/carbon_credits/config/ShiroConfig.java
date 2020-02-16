@@ -20,7 +20,7 @@ import java.util.Map;
 @Configuration
 public class ShiroConfig {
 
-    @Bean
+    @Bean("shiroFilter")
     //ShiroFilterFactoryBean
     public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier("securityManager") DefaultWebSecurityManager securityManager){
 //        //创建过滤器工厂
@@ -38,6 +38,8 @@ public class ShiroConfig {
 //        filterMap.put("/Merchant/**","authc");
 //
 //           return bean;
+
+        // 添加自己的过滤器并且取名为jwt
         ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
 
         // 添加自己的过滤器并且取名为jwt
@@ -47,14 +49,17 @@ public class ShiroConfig {
 
         factoryBean.setSecurityManager(securityManager);
         factoryBean.setLoginUrl("/Merchant/homeFalse");
+        factoryBean.setUnauthorizedUrl("/Merchant/homeFalse");
 
         /*
          * 自定义url规则
+         * http://shiro.apache.org/web.html#urls-
          */
         Map<String, String> filterRuleMap = new HashMap<>();
         // 所有请求通过我们自己的JWT Filter
         filterRuleMap.put("/Merchant/home", "jwt");
-        // 访问其他页面不通过我们的Filter
+        // 访问401和404页面不通过我们的Filter
+        filterRuleMap.put("/401", "anon");
         factoryBean.setFilterChainDefinitionMap(filterRuleMap);
         return factoryBean;
     }

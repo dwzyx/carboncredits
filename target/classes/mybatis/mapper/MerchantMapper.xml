@@ -20,17 +20,30 @@
         select * from com_carbon_credits.merchant_basic WHERE merchant_email = #{merchantEmail}
     </select>
 
-    <select id="login" parameterType="com.catlovers.carbon_credits.model.MerchantLoginDTO" resultType="com.catlovers.carbon_credits.model.MerchantVO">
+    <select id="login" resultType="com.catlovers.carbon_credits.model.MerchantVO">
         select * from com_carbon_credits.merchant_basic WHERE user_id = #{userId} and merchant_password = #{merchantPassword}
     </select>
 
-    <select id="findById" resultType="com.catlovers.carbon_credits.model.MerchantVO">
-        select * from com_carbon_credits.merchant_basic WHERE user_id = #{userId}
+    <select id="findMerchantIdByUserId" resultType="java.lang.Integer">
+        select merchant_id from com_carbon_credits.merchant_basic WHERE user_id = #{userId}
     </select>
 
     <insert id="signUp" parameterType="com.catlovers.carbon_credits.model.MerchantVO" >
         insert into com_carbon_credits.merchant_basic values
         (0,#{userId},#{merchantPassword},#{merchantPhoneNumber},#{merchantEmail},#{merchantName},#{merchantAddress},#{merchantIntroduce},#{merchantImage})
     </insert>
+
+    <update id="modify" parameterType="com.catlovers.carbon_credits.model.MerchantDTO">
+        update merchant_basic set merchant_address = #{merchantAddress},merchant_image = #{merchantImage},merchant_introduce = #{merchantIntroduce},merchant_name = #{merchantName},merchant_phone_number = #{merchantPhoneNumber} where user_id = #{userId}
+    </update>
+
+    <update id="modifyPassword" >
+        update merchant_basic set merchant_password = #{merchantPassword} where user_id = #{userId}
+    </update>
+
+    <select id="getName" resultType="java.lang.String">
+        select merchant_name
+        from merchant_basic where user_id = #{userId};
+    </select>
 
 </mapper>

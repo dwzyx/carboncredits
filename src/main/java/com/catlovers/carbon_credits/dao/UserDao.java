@@ -34,4 +34,12 @@ public interface UserDao {
     List<CouponBagDTO> getUserCouponBag(@Param("userId") int userId, @Param("pageNo") int pageNo, @Param("pageSize") int pageSize);
 
     int getUserCouponCountTotal(@Param("userId") int userId, @Param("pageNo") int pageNo, @Param("pageSize")int pageSize);
+
+    List<UserDelivery> getUserDelivery(int userId);
+
+    void updateUserDelivery(UserDelivery userDelivery);
+
+    void addUserDelivery(UserDelivery userDelivery);
+
+
 }

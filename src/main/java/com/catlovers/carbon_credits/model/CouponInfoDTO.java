@@ -26,6 +26,8 @@ public class CouponInfoDTO {
     private int sill;
     private int value;
     @JSONField(name = "expiration_time")
-    private Date expirationTime;
+    private int expirationTime;
+    @JSONField(name = "remaining")
+    private int remaining;
 
 }

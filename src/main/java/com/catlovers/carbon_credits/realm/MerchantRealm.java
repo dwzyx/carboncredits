@@ -59,26 +59,33 @@ public class MerchantRealm extends AuthorizingRealm {
     //        }
     //    //5.不一致，返回null (抛出异常)
     //        return null;
+    System.out.println("realm");
     String token = (String) auth.getCredentials();
     // 解密获得username，用于和数据库进行对比
-    int userId = JwtUtil.getUserId(token);
-    String UUID = JwtUtil.getUID(token);
-    System.out.println("userid:" + userId);
-    System.out.println("UUID" + UUID);
+    try {
+        int userId = JwtUtil.getUserId(token);
+        String UUID = JwtUtil.getUID(token);
+        System.out.println("userid:" + userId);
+        System.out.println("UUID" + UUID);
 
-    String getUUID = merchantService.login(userId, null);
-    System.out.println("getUUID:"+getUUID);
+        String getUUID = merchantService.login(userId, null);
+        System.out.println("getUUID:"+getUUID);
 
-    if(getUUID == null) {
+        if(getUUID == null) {
+            return null;
+        }
+        if(getUUID .equals(UUID)) {
+            System.out.println("true");
+            merchantService.loginAnyway(userId,getUUID);
+            return new SimpleAuthenticationInfo(token, token, "merchantRealm");
+        }
+        System.out.println("nooo");
         return null;
+    }catch(Exception e){
+        throw new AuthenticationException("token认证失败！");
     }
-    if(getUUID .equals(UUID)) {
-        System.out.println("true");
-        merchantService.loginAnyway(userId,getUUID);
-        return new SimpleAuthenticationInfo(token, token, "merchantRealm");
-    }
-    System.out.println("nooo");
-    return null;
+
+
 
 }
 

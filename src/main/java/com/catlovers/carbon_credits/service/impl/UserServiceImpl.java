@@ -2,6 +2,7 @@ package com.catlovers.carbon_credits.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.catlovers.carbon_credits.dao.CarbonCreditsDao;
+import com.catlovers.carbon_credits.dao.CommodityDao;
 import com.catlovers.carbon_credits.dao.UserDao;
 import com.catlovers.carbon_credits.enumeration.CityIdEnum;
 import com.catlovers.carbon_credits.enumeration.StatusEnum;
@@ -20,30 +21,34 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.sql.Date;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Service
-@Transactional
+@Transactional(rollbackFor=Exception.class)
 public class UserServiceImpl implements UserService {
 
     private final static Logger logger = LoggerFactory.getLogger(CarBonCreditsServiceImpl.class);
 
     private final RestTemplate restTemplate;
     private final UserDao userDao;
+    private final CommodityDao commodityDao;
 
     JSONObject respond = null;
     JSONObject resultJson = null;
 
-    public UserServiceImpl(RestTemplate restTemplate, UserDao userDao) {
+    public UserServiceImpl(RestTemplate restTemplate, UserDao userDao,CommodityDao commodityDao) {
         this.restTemplate = restTemplate;
         this.userDao = userDao;
+        this.commodityDao = commodityDao;
     }
 
     @Override
@@ -82,6 +87,7 @@ public class UserServiceImpl implements UserService {
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         } catch (Exception e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             userDTO = null;
             jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
@@ -101,6 +107,7 @@ public class UserServiceImpl implements UserService {
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         }catch (Exception e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             rankingDTOS = null;
             jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
@@ -146,6 +153,7 @@ public class UserServiceImpl implements UserService {
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         }catch (Exception e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             monthlyReportDTO = null;
             jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
@@ -169,11 +177,13 @@ public class UserServiceImpl implements UserService {
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         } catch (NullPointerException e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             teamInfoDTO = null;
             jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
             jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
         } catch (Exception e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             teamInfoDTO = null;
             jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
@@ -192,10 +202,12 @@ public class UserServiceImpl implements UserService {
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         } catch (NullPointerException e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
             jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
         } catch (Exception e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
             jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
@@ -212,10 +224,12 @@ public class UserServiceImpl implements UserService {
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         } catch (NullPointerException e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
             jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
         } catch (Exception e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
             jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
@@ -231,15 +245,40 @@ public class UserServiceImpl implements UserService {
 
         try{
             couponBagDTOList = userDao.getUserCouponBag(userId, (pageNo-1)*pageSize, pageSize);
+            for(CouponBagDTO couponBagDTO: couponBagDTOList){
+                //如果没用过
+                if(couponBagDTO.getCouponUsed()==0){
+                    java.sql.Date exchangeTime = couponBagDTO.getExchangeTime();
+                    java.util.Date utildate = new Date(exchangeTime.getTime());
+                    int expirationTime = couponBagDTO.getExpirationTime();
+                    java.util.Date today = new java.util.Date();
+
+                    Calendar c = Calendar.getInstance();
+                    c.setTime(utildate);
+                    //兑换的那一天+过期天数
+                    c.add(Calendar.DAY_OF_MONTH, expirationTime+1);
+
+                    java.util.Date nextTime = c.getTime();
+                    //如果今天超过了过期日期
+                    boolean bool = today.after(nextTime);
+                    if(bool){
+                        couponBagDTO.setCouponUsed(1);
+                        commodityDao.useCoupon(couponBagDTO.getCouponBagId(),couponBagDTO.getCouponId(),couponBagDTO.getUserId());
+                    }
+                }
+
+            }
             pageTotal = (userDao.getUserCouponCountTotal(userId, (pageNo-1)*pageSize, pageSize) + pageSize-1)/pageSize;
 
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         } catch (NullPointerException e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             jsonObject.put("msg_code", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getCoding());
             jsonObject.put("msg_message", StatusEnum.REQUIRED_PARAMETERS_INCORRECT.getMessage());
         } catch (Exception e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
             jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
@@ -249,6 +288,60 @@ public class UserServiceImpl implements UserService {
         resultMap.put("coupon_bag", couponBagDTOList);
         resultMap.put("page_total", pageTotal);
         jsonObject.put("result", resultMap);
+
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject getUserDelivery(int userId) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            List<UserDelivery> list = userDao.getUserDelivery(userId);
+
+            if(!list.isEmpty()){
+                jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+                jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+                HashMap<String, Object> resultMap = new HashMap<>();
+                resultMap.put("userDelivery", list);
+                jsonObject.put("result",resultMap);
+            }else {
+                jsonObject.put("msg_code", StatusEnum.DATE_NULL.getCoding());
+                jsonObject.put("msg_message", StatusEnum.DATE_NULL.getMessage());
+            }
+
+        }catch(Exception e){
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject updateUserDelivery(UserDelivery userDelivery) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            userDao.updateUserDelivery(userDelivery);
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        }catch(Exception e){
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject addUserDelivery(UserDelivery userDelivery) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            userDao.addUserDelivery(userDelivery);
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        }catch(Exception e){
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
 
         return jsonObject;
     }

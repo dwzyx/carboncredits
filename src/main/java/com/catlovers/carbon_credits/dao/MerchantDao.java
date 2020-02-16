@@ -11,8 +11,11 @@ public interface MerchantDao {
     MerchantVO ifNameExist(String merchantName);
     MerchantVO ifPhoneNumberExist(String merchantPhoneNumber);
     MerchantVO ifEmailExist(String merchantEmail);
-    MerchantVO login(MerchantLoginDTO merchantLoginDTO);
+    MerchantVO login(int userId,String merchantPassword);
     int findMerchantIdByUserId(int userId);
     void signUp(MerchantVO merchantVO);
+    int modify(MerchantDTO merchantDTO);
+    int modifyPassword(int userId,String merchantPassword);
+    String getName(int userId);
 
 }
