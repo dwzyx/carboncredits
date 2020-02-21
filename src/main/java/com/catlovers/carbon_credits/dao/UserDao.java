@@ -35,6 +35,11 @@ public interface UserDao {
 
     int getUserCouponCountTotal(@Param("userId") int userId, @Param("pageNo") int pageNo, @Param("pageSize")int pageSize);
 
+    List<CommodityRecordDTO> getUserCommodityRecord(@Param("userId") int userId, @Param("pageNo") int pageNo, @Param("pageSize") int pageSize);
+
+    int getUserCommodityRecordCountTotal(@Param("userId") int userId, @Param("pageNo") int pageNo, @Param("pageSize")int pageSize);
+
+
     List<UserDelivery> getUserDelivery(int userId);
 
     void updateUserDelivery(UserDelivery userDelivery);

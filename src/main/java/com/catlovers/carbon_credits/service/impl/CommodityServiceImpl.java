@@ -404,6 +404,74 @@ public class CommodityServiceImpl implements CommodityService {
     }
 
     @Override
+    public JSONObject getSecondHandGoodFromSeller(int pageNo, int pageSize, int sellerId) {
+        JSONObject jsonObject = new JSONObject();
+        List<SecondHandGoodDTO> secondHandGoodDTOList = null;
+        int pageTotal = -1;
+
+        try{
+            secondHandGoodDTOList = commodityDao.getSecondHandGoodInfoFromSeller((pageNo-1)*pageSize, pageSize,sellerId);
+            pageTotal = (commodityDao.getSecondHandGoodCountTotalFromSeller((pageNo-1)*pageSize, pageSize,sellerId)+pageSize-1)/pageSize;
+            if(secondHandGoodDTOList.isEmpty()){
+                jsonObject.put("msg_code", StatusEnum.DATE_NULL.getCoding());
+                jsonObject.put("msg_message", StatusEnum.DATE_NULL.getMessage());
+            }
+            else {
+                StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
+            }
+
+        } catch (NullPointerException e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
+            e.printStackTrace();
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
+        } catch (Exception e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
+            e.printStackTrace();
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
+        }
+
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("secondHandGood", secondHandGoodDTOList);
+        jsonObject.put("page_total", pageTotal);
+        jsonObject.put("result", resultMap);
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject getSecondHandGoodFromBuyer(int pageNo, int pageSize, int buyerId) {
+        JSONObject jsonObject = new JSONObject();
+        List<SecondHandGoodDTO> secondHandGoodDTOList = null;
+        int pageTotal = -1;
+
+        try{
+            secondHandGoodDTOList = commodityDao.getSecondHandGoodInfoFromBuyer((pageNo-1)*pageSize, pageSize,buyerId);
+            pageTotal = (commodityDao.getSecondHandGoodCountTotalFromBuyer((pageNo-1)*pageSize, pageSize,buyerId)+pageSize-1)/pageSize;
+            if(secondHandGoodDTOList.isEmpty()){
+                jsonObject.put("msg_code", StatusEnum.DATE_NULL.getCoding());
+                jsonObject.put("msg_message", StatusEnum.DATE_NULL.getMessage());
+            }
+            else {
+                StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
+            }
+
+        } catch (NullPointerException e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
+            e.printStackTrace();
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
+        } catch (Exception e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
+            e.printStackTrace();
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
+        }
+
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("secondHandGood", secondHandGoodDTOList);
+        jsonObject.put("page_total", pageTotal);
+        jsonObject.put("result", resultMap);
+        return jsonObject;
+    }
+
+    @Override
     public JSONObject addSecondHandGood(SecondHandGoodDTO secondHandGoodDTO) {
         JSONObject jsonObject = new JSONObject();
         try {
@@ -423,15 +491,23 @@ public class CommodityServiceImpl implements CommodityService {
     }
 
     @Override
-    public JSONObject deleteSecondHandGood(int goodId, int sellerId) {
+    public JSONObject deleteSecondHandGood(int goodId) {
         JSONObject jsonObject = new JSONObject();
-        SecondHandGoodDTO secondHandGoodDTO = commodityDao.getSecondHandGood(goodId,sellerId);
-        if(secondHandGoodDTO==null){
-            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
+        try {
+            SecondHandGoodDTO secondHandGoodDTO = commodityDao.getSecondHandGood(goodId);
+            if(secondHandGoodDTO==null){
+                StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
+            }
+            if(secondHandGoodDTO.getBuyerId()==0){
+                commodityDao.deleteSecondHandGood(goodId);
+                StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
+
+            }
+        }catch(Exception e){
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
-        else {
-            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
-        }
+
+
         return jsonObject;
     }
 
@@ -440,7 +516,7 @@ public class CommodityServiceImpl implements CommodityService {
     public JSONObject buySecondHandGood(int buyerId, int goodId, int sellerId,int deliveryId) {
         JSONObject jsonObject = new JSONObject();
         try {
-            SecondHandGoodDTO secondHandGoodDTO = commodityDao.getSecondHandGood(goodId,sellerId);
+            SecondHandGoodDTO secondHandGoodDTO = commodityDao.getSecondHandGood(goodId);
             CarbonCreditsVO carbonCreditsVO = carbonCreditsDao.getUserAllCarbonCredits(buyerId);
             int creditsTotal = carbonCreditsVO.getCarbonCreditsUseful();
             int needCredits = secondHandGoodDTO.getGoodCarbonCredits();

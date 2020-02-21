@@ -5,6 +5,7 @@ import com.catlovers.carbon_credits.enumeration.StatusEnum;
 import com.catlovers.carbon_credits.model.RankingDTO;
 import com.catlovers.carbon_credits.model.SecondHandGoodDTO;
 import com.catlovers.carbon_credits.model.UserDTO;
+import com.catlovers.carbon_credits.model.UserDelivery;
 import com.catlovers.carbon_credits.service.CommodityService;
 import com.catlovers.carbon_credits.service.UserService;
 import com.google.gson.Gson;
@@ -71,6 +72,13 @@ public class UserController {
         return jsonObject.toString();
     }
 
+    @GetMapping(value = "/user/getUserCommodityRecord", produces = "application/json;charset=UTF-8")
+    public String getUserCommodityRecord(@RequestParam("user_id")int userId, @RequestParam("page_no") int pageNo,
+                                @RequestParam("page_size")int pageSize){
+        JSONObject jsonObject = userService.getUserCommodityRecord(userId, pageNo, pageSize);
+        return jsonObject.toString();
+    }
+
 
     @PostMapping(value = "user/getUserDelivery", produces = "application/json;charset=UTF-8")
     public String getUserDelivery(@RequestParam("userId")int userId){
@@ -79,6 +87,19 @@ public class UserController {
         return jsonObject.toString();
     }
 
+    @PostMapping(value = "user/addUserDelivery", produces = "application/json;charset=UTF-8")
+    public String addUserDelivery(@RequestBody UserDelivery userDelivery){
+        JSONObject jsonObject;
+        jsonObject = userService.addUserDelivery(userDelivery);
+        return jsonObject.toString();
+    }
+
+    @PostMapping(value = "user/updateUserDelivery", produces = "application/json;charset=UTF-8")
+    public String updateUserDelivery(@RequestBody UserDelivery userDelivery){
+        JSONObject jsonObject;
+        jsonObject = userService.updateUserDelivery(userDelivery);
+        return jsonObject.toString();
+    }
 
 
 }

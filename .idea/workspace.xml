@@ -2,18 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="131872fc-43e1-4e21-8834-f46eef103c75" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/Welcome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CommodityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CommodityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/MerchantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/MerchantController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/CommodityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/CommodityDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/enumeration/StatusEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/enumeration/StatusEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CommodityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CommodityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/MerchantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/MerchantService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CommodityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CommodityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/CommodityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/CommodityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/CommodityDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/CommodityDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/enumeration/StatusEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/enumeration/StatusEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/CommodityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/CommodityService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/CommodityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/CommodityMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -55,7 +68,11 @@
         <item name="@121.36.4.52" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="com_carbon_credits: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="user_delivery: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="coupon_bag: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - @localhost" type="feb32156:DbDataSourceImpl" />
       </path>
     </expand>
     <select />
@@ -68,54 +85,66 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1250">
-              <caret line="122" column="51" lean-forward="true" selection-start-line="122" selection-start-column="51" selection-end-line="122" selection-end-column="51" />
+            <state relative-caret-position="-1759">
+              <caret line="334" column="26" selection-start-line="334" selection-start-column="26" selection-end-line="334" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#UserServiceImpl#0;class#UserServiceImpl#0" />
                 <element signature="method#getUserInfo#0;class#UserServiceImpl#0" />
-                <element signature="e#10805#11808#1" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/enumeration/StatusEnum.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="942">
-              <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-              <folding>
-                <element signature="e#546#547#0" expanded="true" />
-                <element signature="e#575#576#0" expanded="true" />
-                <element signature="e#619#620#0" expanded="true" />
-                <element signature="e#655#656#0" expanded="true" />
-                <element signature="e#689#690#0" expanded="true" />
-                <element signature="e#719#720#0" expanded="true" />
-                <element signature="e#765#766#0" expanded="true" />
-                <element signature="e#803#804#0" expanded="true" />
+                <element signature="method#getRankingList#0;class#UserServiceImpl#0" />
+                <element signature="method#getMonthlyReport#0;class#UserServiceImpl#0" />
+                <element signature="method#getTeamInfo#0;class#UserServiceImpl#0" />
+                <element signature="method#addUserToTeam#0;class#UserServiceImpl#0" />
+                <element signature="method#deleteUserFromTeam#0;class#UserServiceImpl#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="139" column="17" lean-forward="true" selection-start-line="139" selection-start-column="17" selection-end-line="139" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/EmailServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+            <state relative-caret-position="155">
+              <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#getRankingList#0;class#UserController#0" />
+                <element signature="method#getTeamInfo#0;class#UserController#0" />
+                <element signature="method#addUserToTeam#0;class#UserController#0" />
+                <element signature="method#deleteUserFromTeam#0;class#UserController#0" />
+                <element signature="method#getUserCoupon#0;class#UserController#0" />
+                <element signature="method#getUserCoupon#1;class#UserController#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CommodityService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5053">
+              <caret line="447" column="112" selection-start-line="447" selection-start-column="112" selection-end-line="447" selection-end-column="112" />
+              <folding>
+                <element signature="method#CommodityServiceImpl#0;class#CommodityServiceImpl#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/UserDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -123,29 +152,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="163" column="55" selection-start-line="163" selection-start-column="55" selection-end-line="163" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/MerchantService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/MerchantDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="-127">
+              <caret line="137" column="12" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -156,22 +164,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/MerchantController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-458">
-              <caret line="34" column="158" selection-start-line="34" selection-start-column="158" selection-end-line="34" selection-end-column="158" />
+            <state relative-caret-position="154">
+              <caret line="214" column="55" selection-start-line="214" selection-start-column="55" selection-end-line="214" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#merchantSignUp#0;class#MerchantController#0" />
-                <element signature="method#getEmailCode#0;class#MerchantController#0" />
                 <element signature="method#merchantLogin#0;class#MerchantController#0" />
                 <element signature="method#homeFalse#0;class#MerchantController#0" />
-                <element signature="method#getCommodityInfo#0;class#MerchantController#0" />
                 <element signature="method#getInfo#0;class#MerchantController#0" />
-                <element signature="method#modify#0;class#MerchantController#0" />
                 <element signature="method#modifyPassword#0;class#MerchantController#0" />
-                <element signature="method#emailForPassword#0;class#MerchantController#0" />
-                <element signature="method#modifyPasswordByEmail#0;class#MerchantController#0" />
-                <element signature="method#addCoupon#0;class#MerchantController#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://0c2fa49d-07b0-443a-b789-ad324e2071bf/schema/com_carbon_credits/table/coupon_bag">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="das://0c2fa49d-07b0-443a-b789-ad324e2071bf/schema/com_carbon_credits/table/commodity_record">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -179,26 +198,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CommodityController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
+            <state relative-caret-position="420">
+              <caret line="157" selection-start-line="157" selection-end-line="157" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getCommodityInfo#0;class#CommodityController#0" />
                 <element signature="method#searchGood#0;class#CommodityController#0" />
+                <element signature="method#deleteGood#0;class#CommodityController#0" />
+                <element signature="method#updateGood#0;class#CommodityController#0" />
                 <element signature="method#exchangeGood#0;class#CommodityController#0" />
-                <element signature="method#getCommodityInfo#1;class#CommodityController#0" />
-                <element signature="method#getSecondHandGoods#1;class#CommodityController#0" />
+                <element signature="method#getSecondHandGoods#0;class#CommodityController#0" />
+                <element signature="method#getSecondHandGoodsFrom#0;class#CommodityController#0" />
                 <element signature="method#addSecondHandGood#0;class#CommodityController#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/CommodityDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="62" column="21" lean-forward="true" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -242,29 +254,31 @@
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CouponInfoDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CouponBagDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/MerchantDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/MerchantController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/secondHandGoodDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/UserDilivery.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CommodityRecordDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/SecondHandGoodDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/UserDelivery.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/exchangeGoodTest.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/SecondHandGoodTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CommodityService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/CommodityDao.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CommodityMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CommodityController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/MerchantService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/enumeration/StatusEnum.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/test.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/Welcome.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CommodityService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/CommodityMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/CommodityDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CommodityController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/MerchantController.java" />
       </list>
     </option>
   </component>
@@ -313,11 +327,10 @@
   <component name="MavenRunner">
     <option name="jreName" value="1.8" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="672" />
-    <option name="y" value="42" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="826" />
     <option name="width" value="1002" />
-    <option name="height" value="1107" />
+    <option name="height" value="1106" />
   </component>
   <component name="ProjectId" id="1WF8vsLDoASwiAAbmhc2OkDt3Yv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -329,6 +342,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -554,7 +568,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -609,7 +622,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SecondHandGoodTest.test1">
+  <component name="RunManager" selected="Application.Welcome">
+    <configuration name="Welcome" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.catlovers.carbon_credits.Welcome" />
+      <module name="carbon_credits" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.catlovers.carbon_credits.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SecondHandGoodTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="carbon_credits" />
       <extension name="coverage">
@@ -621,22 +647,6 @@
       <option name="PACKAGE_NAME" value="com.catlovers.carbon_credits" />
       <option name="MAIN_CLASS_NAME" value="com.catlovers.carbon_credits.SecondHandGoodTest" />
       <option name="METHOD_NAME" value="test1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserTest.test_getUserClientInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="carbon_credits" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.catlovers.carbon_credits.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.catlovers.carbon_credits" />
-      <option name="MAIN_CLASS_NAME" value="com.catlovers.carbon_credits.UserTest" />
-      <option name="METHOD_NAME" value="test_getUserClientInfo" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -699,11 +709,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Welcome" />
         <item itemvalue="JUnit.SecondHandGoodTest.test1" />
         <item itemvalue="JUnit.exchangeGoodTest.test1" />
         <item itemvalue="JUnit.UserTest.test_teamInfo" />
         <item itemvalue="JUnit.UserTest.test_monthlyReport" />
-        <item itemvalue="JUnit.UserTest.test_getUserClientInfo" />
       </list>
     </recent_temporary>
   </component>
@@ -786,7 +796,10 @@
       <workItem from="1581316695124" duration="13981000" />
       <workItem from="1581405636770" duration="15075000" />
       <workItem from="1581599849402" duration="33886000" />
-      <workItem from="1581817110390" duration="10519000" />
+      <workItem from="1581817110390" duration="12979000" />
+      <workItem from="1582108324023" duration="593000" />
+      <workItem from="1582168547980" duration="2594000" />
+      <workItem from="1582271070126" duration="13252000" />
     </task>
     <task id="LOCAL-00001" summary="碳积分系统">
       <created>1579187121820</created>
@@ -879,7 +892,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581823458994</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="添加删除二手商品功能，修改statusEnum">
+      <created>1581854439606</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1581854439607</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -915,7 +935,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126246000" />
+    <option name="totallyTimeSpent" value="145145000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -927,9 +947,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
+    <frame x="551" y="0" width="668" height="737" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27737227" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3910891" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -940,7 +960,7 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32656828" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" visible="true" weight="0.13468635" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4971614" visible="true" weight="0.15682657" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4971614" weight="0.51476014" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.8579336" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -949,10 +969,10 @@
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49797243" weight="0.055350553" />
       <window_info anchor="bottom" id="Spring" order="10" weight="0.32841328" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49959448" weight="0.14760147" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5028386" side_tool="true" weight="0.48154983" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5028386" side_tool="true" weight="0.2896679" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32841328" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.49878347" weight="0.71771216" />
+      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.4971614" visible="true" weight="0.2123412" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -961,9 +981,45 @@
       <window_info anchor="right" id="Maven" order="5" weight="0.15328467" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info active="true" anchor="right" id="Database" order="8" visible="true" weight="0.2546634" />
+      <window_info active="true" anchor="right" id="Database" order="8" visible="true" weight="0.55775577" />
       <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33333334" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32656828" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" visible="true" weight="0.13468635" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4971614" weight="0.51476014" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.8579336" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32841328" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49797243" weight="0.055350553" />
+      <window_info anchor="bottom" id="Spring" order="10" weight="0.32841328" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49959448" weight="0.14760147" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5028386" side_tool="true" weight="0.2896679" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32841328" />
+      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.4971614" weight="0.3030888" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" weight="0.15328467" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" weight="0.23688664" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1006,7 +1062,8 @@
     <MESSAGE value="Merge branch 'branch1.1'&#10;&#10;# Conflicts:&#10;#&#9;.idea/dataSources.local.xml&#10;#&#9;.idea/inspectionProfiles/Project_Default.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;target/classes/com/catlovers/carbon_credits/config/FastJson2JsonRedisSerializer.class&#10;#&#9;target/classes/com/catlovers/carbon_credits/config/RedisConfig.class&#10;#&#9;target/classes/com/catlovers/carbon_credits/dao/UserDao.class&#10;#&#9;target/classes/com/catlovers/carbon_credits/enumeration/URLEnum.class" />
     <MESSAGE value="增加商家首页获取优惠券功能" />
     <MESSAGE value="增加用户兑换优惠券、买商品以及二手交易功能，在获取用户的优惠券时，先计算是否过期，如果过期则修改优惠券默认为失效了" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加用户兑换优惠券、买商品以及二手交易功能，在获取用户的优惠券时，先计算是否过期，如果过期则修改优惠券默认为失效了" />
+    <MESSAGE value="添加删除二手商品功能，修改statusEnum" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加删除二手商品功能，修改statusEnum" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="91" key="#Inspections" />
@@ -1082,28 +1139,7 @@
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" />
     <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/UserController.java</url>
-          <line>36</line>
-          <properties class="com.catlovers.carbon_credits.controller.UserController" method="getRankingList">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CarbonCreditsVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CodeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1115,13 +1151,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CarbonCreditsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1228,13 +1257,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CouponBagDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1266,13 +1288,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="37" column="18" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CommodityRecordDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
@@ -1287,20 +1302,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0c2fa49d-07b0-443a-b789-ad324e2071bf/schema/com_carbon_credits/table/commodity_record">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0c2fa49d-07b0-443a-b789-ad324e2071bf/schema/com_carbon_credits/table/coupon_bag">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1339,27 +1340,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="93" column="9" lean-forward="true" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
-          <folding>
-            <element signature="n#insert#0;n#mapper#0;n#!!top" />
-            <element signature="n#update#0;n#mapper#0;n#!!top" />
-            <element signature="n#update#1;n#mapper#0;n#!!top" />
-            <element signature="n#update#2;n#mapper#0;n#!!top" />
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#1;n#mapper#0;n#!!top" />
-            <element signature="n#select#2;n#mapper#0;n#!!top" />
-            <element signature="n#select#3;n#mapper#0;n#!!top" />
-            <element signature="n#select#4;n#mapper#0;n#!!top" />
-            <element signature="n#select#5;n#mapper#0;n#!!top" />
-            <element signature="n#select#6;n#mapper#0;n#!!top" />
-            <element signature="n#select#7;n#mapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/SecondHandGoodTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -1377,10 +1357,120 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="139" column="17" lean-forward="true" selection-start-line="139" selection-start-column="17" selection-end-line="139" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/EmailServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/MerchantService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/MerchantDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/Welcome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CarbonCreditsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/enumeration/StatusEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1000">
+          <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+          <folding>
+            <element signature="e#546#547#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#689#690#0" expanded="true" />
+            <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+            <element signature="e#803#804#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="78" column="13" lean-forward="true" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
+          <folding>
+            <element signature="n#insert#0;n#mapper#0;n#!!top" />
+            <element signature="n#update#0;n#mapper#0;n#!!top" />
+            <element signature="n#update#1;n#mapper#0;n#!!top" />
+            <element signature="n#update#2;n#mapper#0;n#!!top" />
+            <element signature="n#select#0;n#mapper#0;n#!!top" />
+            <element signature="n#select#1;n#mapper#0;n#!!top" />
+            <element signature="n#select#2;n#mapper#0;n#!!top" />
+            <element signature="n#select#3;n#mapper#0;n#!!top" />
+            <element signature="n#select#4;n#mapper#0;n#!!top" />
+            <element signature="n#select#5;n#mapper#0;n#!!top" />
+            <element signature="n#select#8;n#mapper#0;n#!!top" />
+            <element signature="n#update#3;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1759">
+          <caret line="334" column="26" selection-start-line="334" selection-start-column="26" selection-end-line="334" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#UserServiceImpl#0;class#UserServiceImpl#0" />
+            <element signature="method#getUserInfo#0;class#UserServiceImpl#0" />
+            <element signature="method#getRankingList#0;class#UserServiceImpl#0" />
+            <element signature="method#getMonthlyReport#0;class#UserServiceImpl#0" />
+            <element signature="method#getTeamInfo#0;class#UserServiceImpl#0" />
+            <element signature="method#addUserToTeam#0;class#UserServiceImpl#0" />
+            <element signature="method#deleteUserFromTeam#0;class#UserServiceImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
+        <state relative-caret-position="155">
+          <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getRankingList#0;class#UserController#0" />
@@ -1388,22 +1478,22 @@
             <element signature="method#addUserToTeam#0;class#UserController#0" />
             <element signature="method#deleteUserFromTeam#0;class#UserController#0" />
             <element signature="method#getUserCoupon#0;class#UserController#0" />
-            <element signature="method#getUserDelivery#0;class#UserController#0" />
+            <element signature="method#getUserCoupon#1;class#UserController#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CommodityService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="39" column="61" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="61" />
+        <state relative-caret-position="338">
+          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/CommodityMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="197" column="96" selection-start-line="197" selection-start-column="96" selection-end-line="197" selection-end-column="96" />
+        <state relative-caret-position="407">
+          <caret line="214" column="75" selection-start-line="214" selection-start-column="75" selection-end-line="214" selection-end-column="75" />
           <folding>
             <element signature="n#insert#0;n#mapper#0;n#!!top" />
             <element signature="n#insert#1;n#mapper#0;n#!!top" />
@@ -1420,62 +1510,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="310" column="86" selection-start-line="310" selection-start-column="86" selection-end-line="310" selection-end-column="86" />
-          <folding>
-            <element signature="method#CommodityServiceImpl#0;class#CommodityServiceImpl#0" />
-            <element signature="e#20323#20332#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CarBonCreditsServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="139" column="17" lean-forward="true" selection-start-line="139" selection-start-column="17" selection-end-line="139" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/EmailServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/MerchantDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/dao/CommodityDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="62" column="21" lean-forward="true" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
+        <state relative-caret-position="347">
+          <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/CommodityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5053">
+          <caret line="447" column="112" selection-start-line="447" selection-start-column="112" selection-end-line="447" selection-end-column="112" />
+          <folding>
+            <element signature="method#CommodityServiceImpl#0;class#CommodityServiceImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-127">
+          <caret line="137" column="12" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/CommodityController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
+        <state relative-caret-position="420">
+          <caret line="157" selection-start-line="157" selection-end-line="157" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getCommodityInfo#0;class#CommodityController#0" />
             <element signature="method#searchGood#0;class#CommodityController#0" />
+            <element signature="method#deleteGood#0;class#CommodityController#0" />
+            <element signature="method#updateGood#0;class#CommodityController#0" />
             <element signature="method#exchangeGood#0;class#CommodityController#0" />
-            <element signature="method#getCommodityInfo#1;class#CommodityController#0" />
-            <element signature="method#getSecondHandGoods#1;class#CommodityController#0" />
+            <element signature="method#getSecondHandGoods#0;class#CommodityController#0" />
+            <element signature="method#getSecondHandGoodsFrom#0;class#CommodityController#0" />
             <element signature="method#addSecondHandGood#0;class#CommodityController#0" />
           </folding>
         </state>
@@ -1483,69 +1564,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/MerchantController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-458">
-          <caret line="34" column="158" selection-start-line="34" selection-start-column="158" selection-end-line="34" selection-end-column="158" />
+        <state relative-caret-position="154">
+          <caret line="214" column="55" selection-start-line="214" selection-start-column="55" selection-end-line="214" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#merchantSignUp#0;class#MerchantController#0" />
-            <element signature="method#getEmailCode#0;class#MerchantController#0" />
             <element signature="method#merchantLogin#0;class#MerchantController#0" />
             <element signature="method#homeFalse#0;class#MerchantController#0" />
-            <element signature="method#getCommodityInfo#0;class#MerchantController#0" />
             <element signature="method#getInfo#0;class#MerchantController#0" />
-            <element signature="method#modify#0;class#MerchantController#0" />
             <element signature="method#modifyPassword#0;class#MerchantController#0" />
-            <element signature="method#emailForPassword#0;class#MerchantController#0" />
-            <element signature="method#modifyPasswordByEmail#0;class#MerchantController#0" />
-            <element signature="method#addCoupon#0;class#MerchantController#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/MerchantService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+    <entry file="das://0c2fa49d-07b0-443a-b789-ad324e2071bf/schema/com_carbon_credits/table/coupon_bag">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1250">
-          <caret line="122" column="51" lean-forward="true" selection-start-line="122" selection-start-column="51" selection-end-line="122" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#UserServiceImpl#0;class#UserServiceImpl#0" />
-            <element signature="method#getUserInfo#0;class#UserServiceImpl#0" />
-            <element signature="e#10805#11808#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="163" column="55" selection-start-line="163" selection-start-column="55" selection-end-line="163" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/enumeration/StatusEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="942">
-          <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-          <folding>
-            <element signature="e#546#547#0" expanded="true" />
-            <element signature="e#575#576#0" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#689#690#0" expanded="true" />
-            <element signature="e#719#720#0" expanded="true" />
-            <element signature="e#765#766#0" expanded="true" />
-            <element signature="e#803#804#0" expanded="true" />
-          </folding>
+    <entry file="das://0c2fa49d-07b0-443a-b789-ad324e2071bf/schema/com_carbon_credits/table/commodity_record">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>

@@ -99,29 +99,41 @@ public class CommodityController {
 
     //兑换券或商品
     @GetMapping(value = "/user/exchangeGood", produces = "application/json;charset=UTF-8")
-    public String exchangeGood(@RequestParam("userId") int userId, @RequestParam("commodityId") int commodityId, @RequestParam("couponId")int couponId, @RequestParam("deliveryId")int deliveryId){
+    public String exchangeGood(@RequestParam("userId") int userId,@RequestParam("goodType")int goodType, @RequestParam("commodityId") int commodityId, @RequestParam("couponId")int couponId, @RequestParam("deliveryId")int deliveryId){
         JSONObject jsonObject;
-        if(commodityId==-1){
-            jsonObject = commodityService.exchangeCoupon(couponId,userId);
+        if(goodType==GoodTypeEnum.COMMODITY){
+            jsonObject = commodityService.exchangeCommodity(commodityId,userId,deliveryId);
         }
         else {
-            jsonObject = commodityService.exchangeCommodity(commodityId,userId,deliveryId);
+            jsonObject = commodityService.exchangeCoupon(couponId,userId);
         }
         return jsonObject.toString();
     }
 
-    @GetMapping(value = "/good/getSecondHandGoods", produces = "application/json;charset=UTF-8")
-    public String getSecondHandGoods(@RequestParam("page_no") int pageNo , @RequestParam("page_size") int pageSize,
-                                   @RequestParam("good_type") int goodTypes){
+    @PostMapping(value = "/good/getSecondHandGoods", produces = "application/json;charset=UTF-8")
+    public String getSecondHandGoods(@RequestParam("page_no") int pageNo , @RequestParam("page_size") int pageSize){
         JSONObject jsonObject;
         jsonObject = commodityService.getSecondHandGood(pageNo,pageSize);
         return jsonObject.toString();
     }
 
-    @GetMapping(value = "/good/deleteSecondHandGood", produces = "application/json;charset=UTF-8")
-    public String deleteSecondHandGood(@RequestParam("goodId") int goodId , @RequestParam("sellerId") int sellerId){
+    @PostMapping(value = "/good/getSecondHandGoodsFrom", produces = "application/json;charset=UTF-8")
+    public String getSecondHandGoodsFrom(@RequestParam("page_no") int pageNo , @RequestParam("page_size") int pageSize, @RequestParam("sellerId")int sellerId, @RequestParam("buyerId")int buyerId, @RequestParam("userType")int userType){
         JSONObject jsonObject;
-        jsonObject = commodityService.deleteSecondHandGood(goodId,sellerId);
+        if(userType==1){
+            jsonObject = commodityService.getSecondHandGoodFromSeller(pageNo,pageSize,sellerId);
+        }
+        else {
+            jsonObject = commodityService.getSecondHandGoodFromBuyer(pageNo,pageSize,buyerId);
+        }
+
+        return jsonObject.toString();
+    }
+
+    @PostMapping(value = "/good/deleteSecondHandGood", produces = "application/json;charset=UTF-8")
+    public String deleteSecondHandGood(@RequestParam("goodId") int goodId ){
+        JSONObject jsonObject;
+        jsonObject = commodityService.deleteSecondHandGood(goodId);
         return jsonObject.toString();
     }
 
@@ -134,9 +146,9 @@ public class CommodityController {
     }
 
     @PostMapping(value = "user/buySecondHandGood", produces = "application/json;charset=UTF-8")
-    public String buySecondHandGood(@RequestParam("buyerId")int buyerId,@RequestParam("goodId")int goodId,@RequestParam("sellerId")int seller_id,@RequestParam("deliveryId")int deliveryId){
+    public String buySecondHandGood(@RequestParam("buyerId")int buyerId,@RequestParam("goodId")int goodId,@RequestParam("sellerId")int sellerId,@RequestParam("deliveryId")int deliveryId){
         JSONObject jsonObject;
-        jsonObject = commodityService.buySecondHandGood(buyerId,goodId,seller_id,deliveryId);
+        jsonObject = commodityService.buySecondHandGood(buyerId,goodId,sellerId,deliveryId);
         return jsonObject.toString();
     }
 

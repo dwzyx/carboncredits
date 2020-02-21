@@ -22,6 +22,8 @@ public interface UserService {
 
     JSONObject getUserCoupon(int userId, int pageNo, int pageSize);
 
+    JSONObject getUserCommodityRecord(int userId, int pageNo, int pageSize);
+
     JSONObject getUserDelivery(int userId);
 
     JSONObject updateUserDelivery(UserDelivery userDelivery);

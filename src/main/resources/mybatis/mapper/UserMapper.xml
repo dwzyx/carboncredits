@@ -77,6 +77,20 @@
         on c.coupon_id = b.coupon_id where b.user_id = #{userId}
         LIMIT #{pageNo}, #{pageSize};
     </select>
+
+    <select id="getUserCommodityRecord" resultType="com.catlovers.carbon_credits.model.CommodityRecordDTO">
+        SELECT c.* FROM commodity_record as b
+        INNER JOIN commodity_info as c
+        on c.commodity_id = b.commodity_id where b.user_id = #{userId}
+        LIMIT #{pageNo}, #{pageSize};
+    </select>
+    <select id="getUserCommodityRecordCountTotal" resultType="java.lang.Integer">
+        select count(*)  from commodity_record as b
+        INNER JOIN commodity_info as c
+        on c.commodity_id = b.commodity_id where b.user_id = #{userId}
+        LIMIT #{pageNo}, #{pageSize};
+    </select>
+
     <select id="getUserDelivery" resultType="com.catlovers.carbon_credits.model.UserDelivery">
         select * from user_delivery where user_id = #{userId};
     </select>

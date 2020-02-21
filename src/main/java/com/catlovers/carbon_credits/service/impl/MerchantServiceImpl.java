@@ -118,12 +118,10 @@ public class MerchantServiceImpl implements MerchantService {
         JSONObject jsonObject = new JSONObject();
         int i = merchantDao.modify(merchantDTO);
         if(i!=0){
-            jsonObject.put("modify_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("modify_message", StatusEnum.SUCCESS.getMessage());
+            jsonObject.put("modifyResult", "true");
         }
         else{
-            jsonObject.put("modify_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("modify_message", StatusEnum.FAILED.getMessage());
+            jsonObject.put("modifyResult", "false");
         }
         return jsonObject;
     }
@@ -134,12 +132,10 @@ public class MerchantServiceImpl implements MerchantService {
         String password = new Md5Hash(merchantPassword, String.valueOf(userId), 3).toString();
         int i = merchantDao.modifyPassword(userId,password);
         if(i!=0){
-            jsonObject.put("modify_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("modify_message", StatusEnum.SUCCESS.getMessage());
+            jsonObject.put("modifyResult","true");
         }
         else{
-            jsonObject.put("modify_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("modify_message", StatusEnum.FAILED.getMessage());
+            jsonObject.put("modifyResult","false");
         }
         return jsonObject;
     }

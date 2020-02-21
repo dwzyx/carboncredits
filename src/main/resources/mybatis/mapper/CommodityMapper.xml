@@ -195,8 +195,27 @@
         VALUES(0,0,#{sellerId},#{goodName},#{goodCash},#{goodCarbonCredits},#{goodCity},#{goodIntroduce},0)
     </insert>
     <select id="getSecondHandGood" resultType="com.catlovers.carbon_credits.model.SecondHandGoodDTO">
-        select * from second_hand_good_info where good_id = #{goodId} and seller_id = #{sellerId};
+        select * from second_hand_good_info where good_id = #{goodId}
     </select>
+
+    <select id="getSecondHandGoodInfoFromSeller" resultType="com.catlovers.carbon_credits.model.SecondHandGoodDTO">
+        select * from second_hand_good_info where seller_id = #{sellerId}
+        LIMIT #{i}, #{pageSize};
+    </select>
+    <select id="getSecondHandGoodCountTotalFromSeller" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM second_hand_good_info where seller_id = #{sellerId}
+        LIMIT #{i}, #{pageSize}
+    </select>
+
+    <select id="getSecondHandGoodInfoFromBuyer" resultType="com.catlovers.carbon_credits.model.SecondHandGoodDTO">
+        select * from second_hand_good_info where buyer_id = #{buyerId}
+        LIMIT #{i}, #{pageSize};
+    </select>
+    <select id="getSecondHandGoodCountTotalFromBuyer" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM second_hand_good_info where buyer_id = #{buyerId}
+        LIMIT #{i}, #{pageSize}
+    </select>
+
     <update id="updateSecondHandGood">
         update second_hand_good_info set
         buyer_id = #{buyerId} and
