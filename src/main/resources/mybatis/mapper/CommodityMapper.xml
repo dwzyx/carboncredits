@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.catlovers.carbon_credits.dao.CommodityDao">
+    <insert id="addCommodity">
+        INSERT INTO com_carbon_credits.commodity_info (commodity_picture, commodity_name, commodity_type,
+            commodity_introduce, commodity_price_original, commodity_price, carbon_credits_need, remaining)
+        VALUES (#{commodityPicture}, #{commodityName}, #{commodityType}, #{commodityIntroduce},
+            #{commodityPriceOriginal}, #{commodityPrice}, #{carbonCreditsNeed}, #{remaining})
+
+    </insert>
+    <insert id="addCoupon">
+        INSERT INTO com_carbon_credits.coupon_info (coupon_name, use_store_id, coupon_type, user_type,
+            coupon_cost, sill, `value`, expiration_time,remaining)
+        VALUES (#{couponName}, #{useStoreId}, #{couponType}, #{useType}, #{couponCost}, #{sill}, #{value},
+            #{expirationTime},#{remaining})
+
+    </insert>
+    <update id="updateCommodity">
+        UPDATE commodity_info 
+        <set>
+            <if test="commodityPicture!=null">
+                commodity_picture = #{commodityPicture},
+            </if>
+            <if test="commodityName!=null">
+                commodity_name = #{commodityName},
+            </if>
+            <if test="commodityIntroduce!=null">
+                commodity_introduce = #{commodityIntroduce},
+            </if>
+            <if test="commodityPriceOriginal!=-1">
+                commodity_price_original = #{commodityPriceOriginal},
+            </if>
+            <if test="commodityPrice!=-1">
+                commodity_price = #{commodityPrice},
+            </if>
+            <if test="carbonCreditsNeed!=-1">
+                carbon_credits_need = #{carbonCreditsNeed},
+            </if>
+            <if test="remaining!=-1">
+                remaining = #{remaining},
+            </if>
+        </set>
+        WHERE commodity_id = #{commodityId}
+    </update>
+    <update id="updateCoupon">
+        UPDATE coupon_info
+        <set>
+            <if test="couponName!=null">
+                coupon_name = #{couponName}
+            </if>
+            <if test="couponCost!=-1">
+                coupon_cost = #{couponCost}
+            </if>
+            <if test="sill!=-1">
+                sill = #{sill}
+            </if>
+            <if test="value">
+                `value` = #{value}
+            </if>
+            <if test="expirationTime">
+                expiration_time = #{expirationTime}
+            </if>
+            <if test="remaining!=-1">
+                remaining = #{remaining}
+            </if>
+        </set>
+        WHERE coupon_id = #{couponId}
+    </update>
+    <delete id="deleteCommodity">
+        DELETE FROM commodity_info WHERE commodity_id = #{commodityId}
+    </delete>
+    <delete id="deleteCoupon">
+        DELETE FROM coupon_info WHERE coupon_id = #{couponId}
+    </delete>
+
+    <select id="getCommodityInfo" resultType="com.catlovers.carbon_credits.model.CommodityDTO">
+        SELECT * FROM commodity_info
+        LIMIT #{i}, #{pageSize};
+    </select>
+
+    <select id="getCommodityCountTotal" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM commodity_info
+        LIMIT #{i}, #{pageSize}
+    </select>
+    <select id="getCouponInfo" resultType="com.catlovers.carbon_credits.model.CouponInfoDTO">
+        SELECT * FROM coupon_info
+        WHERE coupon_type = #{goodType}
+        LIMIT #{i}, #{pageSize}
+    </select>
+    <select id="getCouponInfoById" resultType="com.catlovers.carbon_credits.model.CouponInfoDTO">
+        SELECT * FROM coupon_info
+        WHERE coupon_type = #{goodType} and use_store_id = #{merchantId}
+        LIMIT #{i}, #{pageSize}
+    </select>
+    <select id="getCouponCountTotal" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM coupon_info
+        WHERE coupon_type = #{goodType}
+        LIMIT #{i}, #{pageSize}
+    </select>
+    <select id="searchCommodity" resultType="com.catlovers.carbon_credits.model.CommodityDTO">
+        SELECT * FROM commodity_info
+        <where>
+            <if test="commodityName != null">
+                AND commodity_name LIKE CONCAT('%', #{commodityName}, '%')
+            </if>
+            <if test="commodityType != -1">
+                AND commodity_type = #{commodityType}
+            </if>
+        </where>
+        LIMIT #{i}, #{pageSize}
+    </select>
+    <select id="searchedCommodityCountTotal" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM commodity_info
+        <where>
+            <if test="commodityName != null">
+                AND commodity_name LIKE CONCAT('%', #{commodityName}, '%')
+            </if>
+            <if test="commodityType != -1">
+                AND commodity_type = #{commodityType}
+            </if>
+        </where>
+        LIMIT #{i}, #{pageSize}
+    </select>
+    <select id="searchCoupon" resultType="com.catlovers.carbon_credits.model.CouponInfoDTO">
+        SELECT * FROM coupon_info
+        <where>
+            <if test="couponName!=null">
+                AND coupon_name LIKE CONCAT('%', #{couponName}, '%')
+            </if>
+            <if test="couponType!=-1">
+                AND coupon_type = #{couponType}
+            </if>
+            <if test="useType!=-1">
+                AND use_type = #{useType}
+            </if>
+            <if test="useStoreId">
+                AND use_store_id = #{useStoreId}
+            </if>
+        </where>
+        LIMIT #{i}, #{pageSize}
+    </select>
+    <select id="searchCouponCountTotal" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM coupon_info
+        <where>
+            <if test="couponName!=null">
+                AND coupon_name LIKE CONCAT('%', #{couponName}, '%')
+            </if>
+            <if test="couponType!=-1">
+                AND coupon_type = #{couponType}
+            </if>
+            <if test="useType!=-1">
+                AND use_type = #{useType}
+            </if>
+            <if test="useStoreId">
+                AND use_store_id = #{useStoreId}
+            </if>
+        </where>
+        LIMIT #{i}, #{pageSize}
+    </select>
+    <update id="exchangeCommodity" >
+        update commodity_info set remaining = remaining-1 where commodity_id = #{commodityId}
+    </update>
+    <select id="getCommodityForRecord" resultType="com.catlovers.carbon_credits.model.CommodityDTO">
+        select * from commodity_info where commodity_id = #{commodityId};
+    </select>
+    <insert id="addToCommodityRecord" parameterType="com.catlovers.carbon_credits.model.CommodityRecordDTO">
+        insert into commodity_record (record_id,commodity_id, user_id, commodity_picture, commodity_name, commodity_type, commodity_introduce, commodity_price_original, commodity_price, carbon_credits_need, delivery_schedule, express_number,delivery_id)
+        values (0,#{commodityId},#{userId},#{commodityPicture},#{commodityName},#{commodityType},#{commodityIntroduce},#{commodityPriceOriginal},#{commodityPrice},#{carbonCreditsNeed},0,null,#{deliveryId})
+    </insert>
+    <update id="exchangeCoupon" >
+        update coupon_info set remaining = remaining-1 where coupon_id = #{couponId}
+    </update>
+    <select id="getCouponForBag" resultType="com.catlovers.carbon_credits.model.CouponInfoDTO">
+        select * from coupon_info where coupon_id = #{couponId}
+    </select>
+    <insert id="addToCouponBag">
+        insert into coupon_bag (coupon_bag_id, user_id, coupon_id, coupon_name, coupon_type, user_type, coupon_cost, exchange_time, expiration_time, sill, coupon_value,coupon_used)
+        VALUES (0,#{userId},#{couponId},#{couponName},#{couponType},#{userType},#{couponCost},#{exchangeTime},#{expirationTime},#{sill},#{couponValue},1)
+    </insert>
+    <update id="useCoupon">
+        update coupon_bag set coupon_used = 1 where coupon_bag_id = #{couponBagId} and coupon_id = #{couponId} and user_id = #{userId}
+    </update>
+    <select id="getSecondHandGoodInfo" resultType="com.catlovers.carbon_credits.model.SecondHandGoodDTO">
+        select * from second_hand_good_info
+        LIMIT #{i}, #{pageSize};
+    </select>
+    <select id="getSecondHandGoodCountTotal" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM second_hand_good_info
+        LIMIT #{i}, #{pageSize}
+    </select>
+    <insert id="addSecondHandGood" parameterType="com.catlovers.carbon_credits.model.SecondHandGoodDTO">
+        insert into second_hand_good_info(good_id, buyer_id, seller_id, good_name, good_cash, good_carbon_credits, good_city, good_introduce, delivery_id)
+        VALUES(0,0,#{sellerId},#{goodName},#{goodCash},#{goodCarbonCredits},#{goodCity},#{goodIntroduce},0)
+    </insert>
+    <select id="getSecondHandGood" resultType="com.catlovers.carbon_credits.model.SecondHandGoodDTO">
+        select * from second_hand_good_info where good_id = #{goodId};
+    </select>
+    <select id="getCouponCountTotalById" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM coupon_info
+        WHERE coupon_type = #{goodType} and use_store_id = #{merchantId}
+        LIMIT #{i}, #{pageSize}
+    </select>
+    <update id="updateSecondHandGood">
+        update second_hand_good_info set
+        buyer_id = #{buyerId} and
+        delivery_id = #{deliveryId}
+        where good_id = #{goodId}
+    </update>
+
+</mapper>

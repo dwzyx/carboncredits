@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.catlovers.carbon_credits.dao.UserDao">
+    <insert id="addUserToTeam">
+        UPDATE user_basic SET
+            team_id = #{teamId}
+        WHere user_id = #{userId}
+    </insert>
+
+
+    <update id="updateUserCarbonCreditsMonth">
+        UPDATE user_basic t SET
+        t.carbon_credits_month = (SELECT carbon_credits_month FROM carbon_credits_basic WHERE user_id = t.user_id),
+        t.user_level = #{level},
+        t.nickname = #{nickname},
+        t.city_id = #{cityId},
+        t.user_image_path = #{userImagePath}
+        WHERE user_id = #{userId}
+    </update>
+    <update id="updateUserRankThisMonth">
+        UPDATE user_basic SET
+            rank_highest_this_month = #{userRank}
+        WHERE user_id = #{userId}
+    </update>
+    <update id="deleteUserFromTeam">
+        UPDATE user_basic SET
+            team_id = 0
+        WHERE user_id = #{userId}
+    </update>
+    <select id="getUserBasicById" resultType="com.catlovers.carbon_credits.model.UserVO">
+        SELECT * FROM user_basic WHERE user_id=#{userId}
+    </select>
+    <select id="getUserBasicByRank" resultType="com.catlovers.carbon_credits.model.UserVO">
+        SELECT b.* FROM (
+            SELECT
+                t.*, @user_rank := @user_rank + 1 AS user_rank
+            FROM
+                (SELECT @user_rank := 0) r,
+                (SELECT * FROM user_basic ORDER BY carbon_credits_month DESC ) AS t
+        ) AS b WHERE user_id = #{userId}
+    </select>
+    <select id="getRanks" resultType="com.catlovers.carbon_credits.model.RankingDTO">
+        SELECT t.nickname, t.user_image_path, t.carbon_credits_month, @user_rank := @user_rank + 1 AS user_rank
+        FROM
+            (SELECT @user_rank := 0) r,
+            (SELECT * FROM user_basic
+                WHERE city_id = #{cityId} AND user_id = #{userId}
+                ORDER BY carbon_credits_month DESC ) AS t
+    </select>
+    <select id="getMonthlyReport" resultType="com.catlovers.carbon_credits.model.MonthlyReportVO">
+        SELECT * FROM report_monthly WHERE user_id = #{userId}
+            AND DATE_FORMAT(update_month, '%Y-%m') &gt;= #{startMonth}
+            AND DATE_FORMAT(update_month, '%Y-%m') &lt;= #{endMonth}
+        ;
+    </select>
+    <select id="getTeamInfoVO" resultType="com.catlovers.carbon_credits.model.TeamInfoVO">
+        SELECT b.* FROM (
+            SELECT t.*, @team_rank := @team_rank + 1 AS team_rank
+            FROM
+                (SELECT @team_rank := 0) AS r,
+                (SELECT * FROM team_message ORDER BY team_carbon_credits DESC ) AS t
+        ) AS b WHERE team_id = #{teamId}
+    </select>
+    <select id="getTeamUsers" resultType="com.catlovers.carbon_credits.model.UserOfTeam">
+        SELECT user_id, nickname, carbon_credits_month, user_level,
+            rank_highest_this_month AS user_rank
+        FROM  user_basic where team_id = #{teamId}
+    </select>
+    <select id="getUserCouponBag" resultType="com.catlovers.carbon_credits.model.CouponBagDTO">
+        SELECT * FROM coupon_bag
+        where user_id = #{userId}
+        LIMIT #{pageNo}, #{pageSize}
+    </select>
+    <select id="getUserCouponCountTotal" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM coupon_bag
+        where user_id = #{userId}
+        LIMIT #{pageNo}, #{pageSize}
+    </select>
+    <select id="getUserDelivery" resultType="com.catlovers.carbon_credits.model.UserDelivery">
+        select * from user_delivery where user_id = #{userId}
+    </select>
+    <select id="searchUserCarbonCreditsUseful" resultType="java.lang.Integer">
+        SELECT carbon_credits_useful FROM carbon_credits WHERE user_id = #{userId}
+    </select>
+    <select id="getCarbonCredits" resultType="java.lang.Integer">
+        SELECT carbon_credits_total FROM carbon_credits WHERE user_id = #{user_id}
+    </select>
+    <update id="updateUserDelivery" parameterType="com.catlovers.carbon_credits.model.UserDelivery">
+        update user_delivery set
+        user_name = #{userName},
+        user_phone_number = #{userPhoneNumber},
+        user_address = #{userAddress} where user_id = #{userId}
+    </update>
+    <update id="signIn">
+        UPDATE user_basic SET
+        sign_in_today = 1 where user_id = #{userId}
+    </update>
+    <update id="updateUserCarbonCreditsUseful">
+        UPDATE carbon_credits_basic SET
+        carbon_credits_useful = #{carbonCredits}
+        WHERE user_id = #{userId}
+    </update>
+    <insert id="addUserDelivery" parameterType="com.catlovers.carbon_credits.model.UserDelivery">
+        insert into user_delivery(delivery_id,user_id, user_name, user_phone_number, user_address)
+        values(0,#{userId},#{userName},#{userPhoneNumber},#{userAddress})
+    </insert>
+
+</mapper>
