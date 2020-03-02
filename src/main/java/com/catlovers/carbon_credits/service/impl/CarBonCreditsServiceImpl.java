@@ -97,6 +97,29 @@ public class CarBonCreditsServiceImpl implements CarbonCreditsService {
         return jsonObject;
     }
 
+    @Override
+    public JSONObject receiveCarbonCredits(int userId) {
+        JSONObject jsonObject = new JSONObject();
+
+        try{
+
+            CarbonCreditsVO userAllCarbonCredits = carbonCreditsDao.getUserAllCarbonCredits(userId);
+            int carbonCreditsUnclaimed = userAllCarbonCredits.getCarbonCreditsUnclaimed();
+            userAllCarbonCredits.setCarbonCreditsUnclaimed(0);
+            userAllCarbonCredits.setCarbonCreditsUseful(carbonCreditsUnclaimed+userAllCarbonCredits.getCarbonCreditsUseful());
+            userAllCarbonCredits.setCarbonCreditsTotal(carbonCreditsUnclaimed+userAllCarbonCredits.getCarbonCreditsTotal());
+            userAllCarbonCredits.setCarbonCreditsMonth(carbonCreditsUnclaimed+userAllCarbonCredits.getCarbonCreditsMonth());
+            userAllCarbonCredits.setCarbonCreditsToday(carbonCreditsUnclaimed+userAllCarbonCredits.getCarbonCreditsToday());
+            carbonCreditsDao.updateCarbonCredits(userAllCarbonCredits);
+
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS, jsonObject);
+        } catch (Exception e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
+        }
+        return jsonObject;
+    }
+
     //通过行程，更新数据库
     private CarbonCreditsDTO updateUserCarbonCredits(BaseTripListClientDTO baseTripListClientDTO,
                                                      CarbonCreditsVO carbonCreditsVO, MultiValueMap<String, Object> map,

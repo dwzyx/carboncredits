@@ -41,19 +41,17 @@
                 (SELECT * FROM user_basic ORDER BY carbon_credits_month DESC ) AS t
         ) AS b WHERE user_id = #{userId}
     </select>
-    <select id="getRanks" resultType="com.catlovers.carbon_credits.model.RankingDTO">
+    <select id="getMonthRanks" resultType="com.catlovers.carbon_credits.model.RankingDTO">
         SELECT t.nickname, t.user_image_path, t.carbon_credits_month, @user_rank := @user_rank + 1 AS user_rank
         FROM
             (SELECT @user_rank := 0) r,
             (SELECT * FROM user_basic
-                WHERE city_id = #{cityId} AND user_id = #{userId}
                 ORDER BY carbon_credits_month DESC ) AS t
     </select>
     <select id="getMonthlyReport" resultType="com.catlovers.carbon_credits.model.MonthlyReportVO">
         SELECT * FROM report_monthly WHERE user_id = #{userId}
             AND DATE_FORMAT(update_month, '%Y-%m') &gt;= #{startMonth}
             AND DATE_FORMAT(update_month, '%Y-%m') &lt;= #{endMonth}
-        ;
     </select>
     <select id="getTeamInfoVO" resultType="com.catlovers.carbon_credits.model.TeamInfoVO">
         SELECT b.* FROM (
@@ -86,6 +84,17 @@
     </select>
     <select id="getCarbonCredits" resultType="java.lang.Integer">
         SELECT carbon_credits_total FROM carbon_credits WHERE user_id = #{user_id}
+    </select>
+    <select id="getRanks" resultType="com.catlovers.carbon_credits.model.RankingDTO">
+        SELECT t.*, @user_rank := @user_rank + 1 AS user_rank
+        FROM
+            (SELECT @user_rank := 0) r,
+            (SELECT u.nickname, u.user_image_path, c.carbon_credits_total
+            FROM user_basic u
+            INNER JOIN carbon_credits_basic c
+            on u.user_id = c.user_id
+            ORDER BY carbon_credits_total DESC) AS t;
+
     </select>
     <update id="updateUserDelivery" parameterType="com.catlovers.carbon_credits.model.UserDelivery">
         update user_delivery set

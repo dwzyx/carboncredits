@@ -17,7 +17,7 @@ public interface UserDao {
 
     UserVO getUserBasicByRank(int userId);
 
-    List<RankingDTO> getRanks(@Param("userId") int userId, @Param("cityId") int cityId);
+    List<RankingDTO> getMonthRanks(@Param("userId") int userId, @Param("cityId") int cityId);
 
     void updateUserRankThisMonth(@Param("userRank") int userRank, @Param("userId") int userId);
 
@@ -49,4 +49,6 @@ public interface UserDao {
     int searchUserCarbonCreditsUseful(int userId);
 
     int getCarbonCredits(int userId);
+
+    List<RankingDTO> getRanks(int userId, int cityId);
 }

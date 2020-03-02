@@ -23,7 +23,8 @@ public class UserDTO {
     private int isStore;                //是否是商家
     private int signInToday;            //今日是否签到
 
-
+    public UserDTO() {
+    }
 
     public UserDTO(String nickname, String userImagePath, int cityId, String cityName,
                    int userLevel, int signInNumber, int carbonCreditsMonth, int userRank,

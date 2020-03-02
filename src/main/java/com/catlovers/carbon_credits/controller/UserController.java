@@ -26,17 +26,32 @@ public class UserController {
         this.commodityService = commodityService;
     }
 
-    //获取用户信息
+    /**
+     * 获取用户信息
+     * @param userId 用户id
+     * @return
+     */
     @GetMapping(value = "/user/getUserInfo", produces = "application/json;charset=UTF-8")
     public String getUserInfo(@RequestParam("user_id") int userId){
         JSONObject jsonObject = userService.getUserInfo(userId);
         return jsonObject.toString();
     }
 
-    //获取排行榜信息
+    /**
+     * 获取排行榜信息
+     * @param userId
+     * @param cityId
+     * @return
+     */
     @GetMapping(value = "/user/getUserRankingList", produces = "application/json;charset=UTF-8")
-    public String getRankingList(@RequestParam("user_id") int userId, @RequestParam("city_id") int cityId){
-        JSONObject jsonObject = userService.getRankingList(userId, cityId);
+    public String getRankingList(@RequestParam("user_id") int userId, @RequestParam("city_id") int cityId,
+                                 @RequestParam("rank_type") int rankType){
+        JSONObject jsonObject = null;
+        if (rankType == 0) {
+            jsonObject = userService.getMonthRankingList(userId, cityId);
+        } else {
+            jsonObject = userService.getTotalRankingList(userId, cityId);
+        }
         return jsonObject.toString();
     }
 

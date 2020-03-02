@@ -6,8 +6,6 @@ import com.catlovers.carbon_credits.model.UserDelivery;
 public interface UserService {
     JSONObject getUserInfo(int userId);
 
-    JSONObject getRankingList(int userId, int cityId);
-
     JSONObject getMonthlyReport(int userId, int cityId, String startMonth, String endMonth);
 
     JSONObject getTeamInfo(int teamId);
@@ -40,4 +38,7 @@ public interface UserService {
      */
     JSONObject giveAway(int userId, int granteeId, int carbonCredits);
 
+    JSONObject getMonthRankingList(int userId, int cityId);
+
+    JSONObject getTotalRankingList(int userId, int cityId);
 }

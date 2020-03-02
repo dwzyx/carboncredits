@@ -92,20 +92,36 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public JSONObject getRankingList(int userId, int cityId) {
+    public JSONObject getMonthRankingList(int userId, int cityId) {
+        JSONObject jsonObject = new JSONObject();
+        List<RankingDTO> rankingDTOS;
+
+        try{
+            rankingDTOS = userDao.getMonthRanks(userId, cityId);
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS, jsonObject);
+        }catch (Exception e){
+            e.printStackTrace();
+            rankingDTOS = null;
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
+        }
+        Map<String, Object> usersMap = new HashMap<>();
+        usersMap.put("user_list", rankingDTOS);
+        jsonObject.put("result", usersMap);
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject getTotalRankingList(int userId, int cityId) {
         JSONObject jsonObject = new JSONObject();
         List<RankingDTO> rankingDTOS;
 
         try{
             rankingDTOS = userDao.getRanks(userId, cityId);
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS, jsonObject);
         }catch (Exception e){
-            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             rankingDTOS = null;
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
         }
         Map<String, Object> usersMap = new HashMap<>();
         usersMap.put("user_list", rankingDTOS);
@@ -325,7 +341,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public JSONObject addUserDelivery(UserDelivery userDelivery) {
         JSONObject jsonObject = new JSONObject();
-        try {
+        try{
             userDao.addUserDelivery(userDelivery);
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
