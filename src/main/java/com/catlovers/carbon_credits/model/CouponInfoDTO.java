@@ -19,8 +19,8 @@ public class CouponInfoDTO {
     private int userStoreId;
     @JSONField(name = "coupon__type")
     private int couponType;
-    @JSONField(name = "user_type")
-    private int userType;
+    @JSONField(name = "use_type")
+    private int useType;
     @JSONField(name = "coupon_cost")
     private int couponCost;
     private int sill;

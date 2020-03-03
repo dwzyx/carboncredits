@@ -65,11 +65,11 @@ public class MerchantRealm extends AuthorizingRealm {
     try {
         int userId = JwtUtil.getUserId(token);
         String UUID = JwtUtil.getUID(token);
-        System.out.println("userid:" + userId);
-        System.out.println("UUID" + UUID);
+//        System.out.println("userid:" + userId);
+//        System.out.println("UUID" + UUID);
 
         String getUUID = merchantService.login(userId, null);
-        System.out.println("getUUID:"+getUUID);
+//        System.out.println("getUUID:"+getUUID);
 
         if(getUUID == null) {
             return null;

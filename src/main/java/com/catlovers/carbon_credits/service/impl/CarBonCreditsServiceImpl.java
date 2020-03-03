@@ -43,7 +43,7 @@ public class CarBonCreditsServiceImpl implements CarbonCreditsService {
 
     @Cacheable(value = "cardits_info", key = "#root.methodName+':'+#userId")
     @Override
-    public JSONObject getCreditsInfo(int userId) {
+    public JSONObject getCreditsInfo(int userId, int mileageWalkToday) {
         JSONObject jsonObject = new JSONObject();
         CarbonCreditsDTO carBonCreditsDTO = new CarbonCreditsDTO();
         MultiValueMap<String, Object> map = new LinkedMultiValueMap<>();   //请求体信息
@@ -72,25 +72,24 @@ public class CarBonCreditsServiceImpl implements CarbonCreditsService {
                 logger.info(jsonObject.toString());
                 BaseTripListClientDTO baseTripListClientDTO = resultJson.getObject("page", BaseTripListClientDTO.class);
                 //获取并更新碳积分
+                //将今日步行里程加入carbonCreditsVO
+                carbonCreditsVO.setMileageWalkToday(mileageWalkToday);
                 carBonCreditsDTO = updateUserCarbonCredits(baseTripListClientDTO, carbonCreditsVO, map, httpHeaders);
             } else {
                 throw new ChangeSetPersister.NotFoundException();
             }
 
             //处理成功
-            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
-        } catch (ChangeSetPersister.NotFoundException e){ //异常处理
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS, jsonObject);
+
+        } catch (ChangeSetPersister.NotFoundException | IndexOutOfBoundsException e){ //异常处理
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             carBonCreditsDTO = null;
-            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
-        } catch (IndexOutOfBoundsException e) {
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR, jsonObject);
+        } catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             carBonCreditsDTO = null;
-            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
-        }catch (Exception e){
-            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
-            carBonCreditsDTO = null;
-            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
         } finally{
             jsonObject.put("result", carBonCreditsDTO);
         }
@@ -98,8 +97,33 @@ public class CarBonCreditsServiceImpl implements CarbonCreditsService {
         return jsonObject;
     }
 
+    @Override
+    public JSONObject receiveCarbonCredits(int userId) {
+        JSONObject jsonObject = new JSONObject();
+
+        try{
+
+            CarbonCreditsVO userAllCarbonCredits = carbonCreditsDao.getUserAllCarbonCredits(userId);
+            int carbonCreditsUnclaimed = userAllCarbonCredits.getCarbonCreditsUnclaimed();
+            userAllCarbonCredits.setCarbonCreditsUnclaimed(0);
+            userAllCarbonCredits.setCarbonCreditsUseful(carbonCreditsUnclaimed+userAllCarbonCredits.getCarbonCreditsUseful());
+            userAllCarbonCredits.setCarbonCreditsTotal(carbonCreditsUnclaimed+userAllCarbonCredits.getCarbonCreditsTotal());
+            userAllCarbonCredits.setCarbonCreditsMonth(carbonCreditsUnclaimed+userAllCarbonCredits.getCarbonCreditsMonth());
+            userAllCarbonCredits.setCarbonCreditsToday(carbonCreditsUnclaimed+userAllCarbonCredits.getCarbonCreditsToday());
+            carbonCreditsDao.updateCarbonCredits(userAllCarbonCredits);
+
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS, jsonObject);
+        } catch (Exception e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
+        }
+        return jsonObject;
+    }
+
+    //通过行程，更新数据库
     private CarbonCreditsDTO updateUserCarbonCredits(BaseTripListClientDTO baseTripListClientDTO,
-                                                     CarbonCreditsVO carbonCreditsVO, MultiValueMap<String, Object> map, HttpHeaders httpHeaders) {
+                                                     CarbonCreditsVO carbonCreditsVO, MultiValueMap<String, Object> map,
+                                                     HttpHeaders httpHeaders) {
 
         //获取上次最后记录的行程
         int pageNo = carbonCreditsVO.getLastPageNo();
@@ -114,7 +138,6 @@ public class CarBonCreditsServiceImpl implements CarbonCreditsService {
         int mileageSubway = 0;
         int mileageBus = 0;
         int mileageBike = 0;
-        int mileageWalk = 0;
 
         //使用二重循环遍历所有未记录的行程，while循环遍历每一页，for循环遍历一页中所有行程
         while(pageNo<=pageTotal){
@@ -152,27 +175,28 @@ public class CarBonCreditsServiceImpl implements CarbonCreditsService {
 
         //统计从新增的里程和碳积分
         //增加可用碳积分
-        carbonCreditsVO.setCarbonCreditsUnclaimed((carbonCreditsVO.getCarbonCreditsUnclaimed()+carbonCredits)/100);
+        carbonCreditsVO.setCarbonCreditsUnclaimed(carbonCreditsVO.getCarbonCreditsUnclaimed()+carbonCredits);
         //增加各个出行方式的里程
         carbonCreditsVO.setMileageBikeToday(carbonCreditsVO.getMileageBikeToday()+mileageBike);
-        carbonCreditsVO.setMileageBikeTotal(carbonCreditsVO.getMileageBikeTotal()+mileageBike);
         carbonCreditsVO.setMileageBusToday(carbonCreditsVO.getMileageBusToday()+mileageBus);
-        carbonCreditsVO.setMileageBusTotal(carbonCreditsVO.getMileageBusTotal()+mileageBus);
         carbonCreditsVO.setMileageSubwayToday(carbonCreditsVO.getMileageSubwayToday()+mileageSubway);
-        carbonCreditsVO.setMileageSubwayTotal(carbonCreditsVO.getMileageSubwayTotal()+mileageSubway);
-        carbonCreditsVO.setMileageWalkToday(carbonCreditsVO.getMileageWalkToday()+mileageWalk);
-        carbonCreditsVO.setMileageWalkTotal(carbonCreditsVO.getMileageWalkTotal());
         carbonCreditsVO.setLastPageNo(--pageNo);
         carbonCreditsVO.setLastTripNo(lastTripNo);
 
         carbonCreditsDao.updateCarbonCredits(carbonCreditsVO);
 
+        /*
+         *  total总有之前所有的里程加上今日里程，今日里程每日24点又数据库函数转移到总里程后清零
+         */
         return new CarbonCreditsDTO(carbonCreditsVO.getCarbonCreditsUnclaimed(), carbonCreditsVO.getCarbonCreditsTotal(), carbonCreditsVO.getCarbonCreditsToday(),
                 carbonCreditsVO.getCarbonCreditsUseful(), carbonCreditsVO.getMileageSubwayToday(),
-                carbonCreditsVO.getMileageSubwayTotal(), carbonCreditsVO.getMileageBusToday(),
-                carbonCreditsVO.getMileageBusTotal(), carbonCreditsVO.getMileageWalkToday(),
-                carbonCreditsVO.getMileageWalkTotal(), carbonCreditsVO.getMileageBikeToday(),
-                carbonCreditsVO.getMileageBikeTotal());
+                carbonCreditsVO.getMileageSubwayTotal()+carbonCreditsVO.getMileageSubwayToday(),
+                carbonCreditsVO.getMileageBusToday(),
+                carbonCreditsVO.getMileageBusTotal()+carbonCreditsVO.getMileageBusToday(),
+                carbonCreditsVO.getMileageWalkToday(),
+                carbonCreditsVO.getMileageWalkTotal()+carbonCreditsVO.getMileageWalkToday(),
+                carbonCreditsVO.getMileageBikeToday(),
+                carbonCreditsVO.getMileageBikeTotal()+carbonCreditsVO.getMileageBikeToday());
     }
 
 

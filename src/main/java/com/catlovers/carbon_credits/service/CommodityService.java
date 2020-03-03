@@ -35,13 +35,7 @@ public interface CommodityService {
 
     JSONObject getSecondHandGood(int pageNo, int pageSize);
 
-    JSONObject getSecondHandGoodFromSeller(int pageNo, int pageSize,int sellerId);
-
-    JSONObject getSecondHandGoodFromBuyer(int pageNo, int pageSize,int buyerId);
-
     JSONObject addSecondHandGood(SecondHandGoodDTO secondHandGoodDTO);
-
-    JSONObject deleteSecondHandGood(int goodId);
 
     JSONObject buySecondHandGood(int buyerId,int goodId,int sellerId,int deliveryId);
 }

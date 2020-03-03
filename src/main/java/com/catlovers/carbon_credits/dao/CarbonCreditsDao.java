@@ -11,4 +11,7 @@ public interface CarbonCreditsDao {
     CarbonCreditsVO getUserAllCarbonCredits(int userId);
 
     void updateCarbonCredits(@Param("carbonCreditsVO")CarbonCreditsVO carbonCreditsVO);
+
+
+    int getCarbonCreditsUnclaimed(int userId);
 }

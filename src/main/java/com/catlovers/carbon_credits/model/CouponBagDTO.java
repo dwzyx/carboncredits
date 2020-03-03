@@ -17,8 +17,11 @@ public class CouponBagDTO {
     private int couponId;
     private String couponName;
     private int couponType;
-    private int userType;
+    @JSONField(name = "use_type")
+    private int useType;
+    @JSONField(name = "coupon_cost")
     private int couponCost;
+    @JSONField(name = "exchange_time", format="yyyy/MM/dd HH:mm:ss")
     private Date exchangeTime;
     private int expirationTime;
     private int sill;

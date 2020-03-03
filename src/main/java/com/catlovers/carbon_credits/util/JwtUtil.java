@@ -9,6 +9,7 @@ import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.*;
 
@@ -32,13 +33,12 @@ public class JwtUtil {
         Date expiresDate=nowTime.getTime();//过期时间
         Algorithm algorithm = Algorithm.HMAC256(key);
 
-        String token= JWT.create()
+        return JWT.create()
                 .withClaim("id",id)
                 .withClaim("UUID",uuid.toString())
                 .withIssuedAt(iatDate)
                 .withExpiresAt(expiresDate)
                 .sign(algorithm);
-        return token;
     }
 
     /**

@@ -67,10 +67,12 @@ public class MerchantController {
         code = emailService.emailVerification(merchantEmail,merchantName,"*的注册验证,15分钟有效。");
         if(code!=null){
 //            System.out.println(code);
-            jsonObject.put("emailCode", "true");
+            jsonObject.put("email_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("email_message", StatusEnum.SUCCESS.getMessage());
         }
         else{
-            jsonObject.put("emailCode", "false");
+            jsonObject.put("email_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("email_message", StatusEnum.FAILED.getMessage());
         }
         return jsonObject.toString();
     }
@@ -171,11 +173,14 @@ public class MerchantController {
         if(i==1){
 
             jsonObject = merchantService.modifyPassword(userId,merchantPassword);
-            jsonObject.put("verifyResult", "true");
+            jsonObject.put("verify_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("verify_message", StatusEnum.SUCCESS.getMessage());
         }
         else {
-            jsonObject.put("modifyResult", "false");
-            jsonObject.put("verifyResult", "false");
+            jsonObject.put("modify_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("modify_message", StatusEnum.FAILED.getMessage());
+            jsonObject.put("verify_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("verify_message", StatusEnum.FAILED.getMessage());
         }
 
         return jsonObject.toString();
@@ -188,10 +193,12 @@ public class MerchantController {
         String code = emailService.emailVerification(email,name,"*的密码修改验证,15分钟有效。");
         if(code!=null){
             //            System.out.println(code);
-            jsonObject.put("emailCode", "true");
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         }
         else{
-            jsonObject.put("emailCode", "false");
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
         }
         return jsonObject.toString();
     }
@@ -201,19 +208,22 @@ public class MerchantController {
         JSONObject jsonObject = new JSONObject();
         String name = merchantService.getName(userId);
         if(emailService.emailVerification(email,name,null).equals(code)){
-            jsonObject.put("emailCode", "true");
+            jsonObject.put("email_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("email_message", StatusEnum.SUCCESS.getMessage());
             jsonObject = merchantService.modifyPassword(userId,merchantPassword);
         }
         else {
-            jsonObject.put("modifyResult","false");
-            jsonObject.put("emailCode", "false");
+            jsonObject.put("modify_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("modify_message", StatusEnum.FAILED.getMessage());
+            jsonObject.put("email_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("email_message", StatusEnum.FAILED.getMessage());
         }
         return jsonObject.toString();
     }
 
     @PostMapping(value = "/Merchant/addCoupon",produces = "application/json;charset=UTF-8")
     public String addCoupon(@RequestBody CouponInfoDTO couponInfoDTO){
-        JSONObject jsonObject;
+        JSONObject jsonObject = new JSONObject();
         jsonObject = commodityService.addCoupon(couponInfoDTO);
         return jsonObject.toString();
     }

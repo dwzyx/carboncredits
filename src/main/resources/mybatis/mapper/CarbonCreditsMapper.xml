@@ -28,4 +28,7 @@
     <select id="getUserAllCarbonCredits" resultType="com.catlovers.carbon_credits.model.CarbonCreditsVO">
         select * from carbon_credits_basic WHERE user_id = #{userId}
     </select>
+    <select id="getCarbonCreditsUnclaimed" resultType="java.lang.Integer">
+        SELECT * FROM carbon_credits_basic WHERE user_id = #{userId}
+    </select>
 </mapper>

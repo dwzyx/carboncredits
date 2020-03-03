@@ -1,7 +1,9 @@
 package com.catlovers.carbon_credits;
 
 import com.alibaba.fastjson.JSONObject;
+import com.catlovers.carbon_credits.dao.CommodityDao;
 import com.catlovers.carbon_credits.dao.UserDao;
+import com.catlovers.carbon_credits.model.CouponInfoDTO;
 import com.catlovers.carbon_credits.model.UserDelivery;
 import com.catlovers.carbon_credits.service.CommodityService;
 import com.catlovers.carbon_credits.service.UserService;
@@ -15,6 +17,9 @@ import java.util.List;
 
 @SpringBootTest
 public class exchangeGoodTest {
+
+    @Autowired
+    CommodityDao commodityDao;
 
     @Autowired
     RestTemplate restTemplate;
@@ -61,4 +66,10 @@ public class exchangeGoodTest {
 //        System.out.println(jsonObject.get("exchangeResult"));
     }
 
+
+    @Test
+    void test_01(){
+        List<CouponInfoDTO> couponInfo = commodityDao.getCouponInfo(1, 5, 0);
+        System.out.println(couponInfo);
+    }
 }

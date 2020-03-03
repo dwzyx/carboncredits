@@ -39,18 +39,19 @@
             FROM
                 (SELECT @user_rank := 0) r,
                 (SELECT * FROM user_basic ORDER BY carbon_credits_month DESC ) AS t
-        ) AS b WHERE user_id = #{userId};
+        ) AS b WHERE user_id = #{userId}
     </select>
-    <select id="getRanks" resultType="com.catlovers.carbon_credits.model.RankingDTO">
+    <select id="getMonthRanks" resultType="com.catlovers.carbon_credits.model.RankingDTO">
         SELECT t.nickname, t.user_image_path, t.carbon_credits_month, @user_rank := @user_rank + 1 AS user_rank
         FROM
             (SELECT @user_rank := 0) r,
             (SELECT * FROM user_basic
-                WHERE city_id = #{cityId} AND user_id = #{userId}
                 ORDER BY carbon_credits_month DESC ) AS t
     </select>
     <select id="getMonthlyReport" resultType="com.catlovers.carbon_credits.model.MonthlyReportVO">
-        SELECT * FROM report_monthly WHERE user_id = #{userId} AND `month` = #{month} AND `year` = #{year};
+        SELECT * FROM report_monthly WHERE user_id = #{userId}
+            AND DATE_FORMAT(update_month, '%Y-%m') &gt;= #{startMonth}
+            AND DATE_FORMAT(update_month, '%Y-%m') &lt;= #{endMonth}
     </select>
     <select id="getTeamInfoVO" resultType="com.catlovers.carbon_credits.model.TeamInfoVO">
         SELECT b.* FROM (
@@ -63,36 +64,37 @@
     <select id="getTeamUsers" resultType="com.catlovers.carbon_credits.model.UserOfTeam">
         SELECT user_id, nickname, carbon_credits_month, user_level,
             rank_highest_this_month AS user_rank
-        FROM  user_basic where team_id = #{teamId};
+        FROM  user_basic where team_id = #{teamId}
     </select>
     <select id="getUserCouponBag" resultType="com.catlovers.carbon_credits.model.CouponBagDTO">
-        SELECT c.* FROM coupon_bag as b
-        INNER JOIN coupon_info as c
-        on c.coupon_id = b.coupon_id where b.user_id = #{userId}
-        LIMIT #{pageNo}, #{pageSize};
+        SELECT * FROM coupon_bag
+        where user_id = #{userId}
+        LIMIT #{pageNo}, #{pageSize}
     </select>
     <select id="getUserCouponCountTotal" resultType="java.lang.Integer">
-        select count(*)  from coupon_bag as b
-        INNER JOIN coupon_info as c
-        on c.coupon_id = b.coupon_id where b.user_id = #{userId}
-        LIMIT #{pageNo}, #{pageSize};
+        SELECT COUNT(*) FROM coupon_bag
+        where user_id = #{userId}
+        LIMIT #{pageNo}, #{pageSize}
     </select>
-
-    <select id="getUserCommodityRecord" resultType="com.catlovers.carbon_credits.model.CommodityRecordDTO">
-        SELECT c.* FROM commodity_record as b
-        INNER JOIN commodity_info as c
-        on c.commodity_id = b.commodity_id where b.user_id = #{userId}
-        LIMIT #{pageNo}, #{pageSize};
-    </select>
-    <select id="getUserCommodityRecordCountTotal" resultType="java.lang.Integer">
-        select count(*)  from commodity_record as b
-        INNER JOIN commodity_info as c
-        on c.commodity_id = b.commodity_id where b.user_id = #{userId}
-        LIMIT #{pageNo}, #{pageSize};
-    </select>
-
     <select id="getUserDelivery" resultType="com.catlovers.carbon_credits.model.UserDelivery">
-        select * from user_delivery where user_id = #{userId};
+        select * from user_delivery where user_id = #{userId}
+    </select>
+    <select id="searchUserCarbonCreditsUseful" resultType="java.lang.Integer">
+        SELECT carbon_credits_useful FROM carbon_credits WHERE user_id = #{userId}
+    </select>
+    <select id="getCarbonCredits" resultType="java.lang.Integer">
+        SELECT carbon_credits_total FROM carbon_credits WHERE user_id = #{user_id}
+    </select>
+    <select id="getRanks" resultType="com.catlovers.carbon_credits.model.RankingDTO">
+        SELECT t.*, @user_rank := @user_rank + 1 AS user_rank
+        FROM
+            (SELECT @user_rank := 0) r,
+            (SELECT u.nickname, u.user_image_path, c.carbon_credits_total
+            FROM user_basic u
+            INNER JOIN carbon_credits_basic c
+            on u.user_id = c.user_id
+            ORDER BY carbon_credits_total DESC) AS t;
+
     </select>
     <update id="updateUserDelivery" parameterType="com.catlovers.carbon_credits.model.UserDelivery">
         update user_delivery set
@@ -100,9 +102,18 @@
         user_phone_number = #{userPhoneNumber},
         user_address = #{userAddress} where user_id = #{userId}
     </update>
+    <update id="signIn">
+        UPDATE user_basic SET
+        sign_in_today = 1 where user_id = #{userId}
+    </update>
+    <update id="updateUserCarbonCreditsUseful">
+        UPDATE carbon_credits_basic SET
+        carbon_credits_useful = #{carbonCredits}
+        WHERE user_id = #{userId}
+    </update>
     <insert id="addUserDelivery" parameterType="com.catlovers.carbon_credits.model.UserDelivery">
         insert into user_delivery(delivery_id,user_id, user_name, user_phone_number, user_address)
-        values(0,#{userId},#{userName},#{userPhoneNumber},#{userAddress});
+        values(0,#{userId},#{userName},#{userPhoneNumber},#{userAddress})
     </insert>
 
 </mapper>

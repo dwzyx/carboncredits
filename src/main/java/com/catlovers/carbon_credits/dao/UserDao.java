@@ -17,11 +17,12 @@ public interface UserDao {
 
     UserVO getUserBasicByRank(int userId);
 
-    List<RankingDTO> getRanks(@Param("userId") int userId, @Param("cityId") int cityId);
+    List<RankingDTO> getMonthRanks(@Param("userId") int userId, @Param("cityId") int cityId);
 
     void updateUserRankThisMonth(@Param("userRank") int userRank, @Param("userId") int userId);
 
-    MonthlyReportVO getMonthlyReport(@Param("userId") int userId, @Param("year") int year, @Param("month") int month);
+    List<MonthlyReportVO> getMonthlyReport(@Param("userId") int userId, @Param("startMonth") String startMonth,
+                                           @Param("endMonth") String endMonth);
 
     TeamInfoVO getTeamInfoVO(int teamId);
 
@@ -35,16 +36,19 @@ public interface UserDao {
 
     int getUserCouponCountTotal(@Param("userId") int userId, @Param("pageNo") int pageNo, @Param("pageSize")int pageSize);
 
-    List<CommodityRecordDTO> getUserCommodityRecord(@Param("userId") int userId, @Param("pageNo") int pageNo, @Param("pageSize") int pageSize);
-
-    int getUserCommodityRecordCountTotal(@Param("userId") int userId, @Param("pageNo") int pageNo, @Param("pageSize")int pageSize);
-
-
     List<UserDelivery> getUserDelivery(int userId);
 
     void updateUserDelivery(UserDelivery userDelivery);
 
     void addUserDelivery(UserDelivery userDelivery);
 
+    void signIn(int userId);
 
+    void updateUserCarbonCreditsUseful(@Param("userId") int userId, @Param("carbonCredits") int carbonCredits);
+
+    int searchUserCarbonCreditsUseful(int userId);
+
+    int getCarbonCredits(int userId);
+
+    List<RankingDTO> getRanks(int userId, int cityId);
 }

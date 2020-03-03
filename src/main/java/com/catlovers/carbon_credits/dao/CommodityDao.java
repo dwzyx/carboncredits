@@ -18,7 +18,7 @@ public interface CommodityDao {
 
     int getCouponCountTotal(@Param("i") int i, @Param("pageSize") int pageSize, @Param("goodType") int goodType);
 
-    int getCouponCountTotalById(@Param("i") int i, @Param("pageSize") int pageSize, @Param("goodType") int goodType,int merchantId);
+    int getCouponCountTotalById(@Param("i") int i, @Param("pageSize") int pageSize, @Param("goodType") int goodType, @Param("merchantId") int merchantId);
 
     List<CommodityDTO> searchCommodity(@Param("i") int i, @Param("pageSize") int pageSize,
                                        @Param("commodityName") String commodityName, @Param("commodityType") int commodityType);
@@ -69,16 +69,6 @@ public interface CommodityDao {
     int addSecondHandGood(SecondHandGoodDTO secondHandGoodDTO);
 
     SecondHandGoodDTO getSecondHandGood(int goodId);
-
-    List<SecondHandGoodDTO> getSecondHandGoodInfoFromSeller(@Param("i") int i, @Param("pageSize") int pageSize,int sellerId);
-
-    int getSecondHandGoodCountTotalFromSeller(@Param("i") int i, @Param("pageSize") int pageSize,int sellerId);
-
-    List<SecondHandGoodDTO> getSecondHandGoodInfoFromBuyer(@Param("i") int i, @Param("pageSize") int pageSize,int buyerId);
-
-    int getSecondHandGoodCountTotalFromBuyer(@Param("i") int i, @Param("pageSize") int pageSize,int buyerId);
-
-    void deleteSecondHandGood(int goodId);
 
     int updateSecondHandGood(int buyerId,int deliveryId,int goodId);
 

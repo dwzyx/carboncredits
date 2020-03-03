@@ -96,7 +96,7 @@
     </select>
     <select id="getCouponCountTotal" resultType="java.lang.Integer">
         SELECT COUNT(*) FROM coupon_info
-        WHERE coupon_type = #{goodType} and use_store_id = #{merchantId}
+        WHERE coupon_type = #{goodType}
         LIMIT #{i}, #{pageSize}
     </select>
     <select id="searchCommodity" resultType="com.catlovers.carbon_credits.model.CommodityDTO">
@@ -195,27 +195,13 @@
         VALUES(0,0,#{sellerId},#{goodName},#{goodCash},#{goodCarbonCredits},#{goodCity},#{goodIntroduce},0)
     </insert>
     <select id="getSecondHandGood" resultType="com.catlovers.carbon_credits.model.SecondHandGoodDTO">
-        select * from second_hand_good_info where good_id = #{goodId}
+        select * from second_hand_good_info where good_id = #{goodId};
     </select>
-
-    <select id="getSecondHandGoodInfoFromSeller" resultType="com.catlovers.carbon_credits.model.SecondHandGoodDTO">
-        select * from second_hand_good_info where seller_id = #{sellerId}
-        LIMIT #{i}, #{pageSize};
-    </select>
-    <select id="getSecondHandGoodCountTotalFromSeller" resultType="java.lang.Integer">
-        SELECT COUNT(*) FROM second_hand_good_info where seller_id = #{sellerId}
+    <select id="getCouponCountTotalById" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM coupon_info
+        WHERE coupon_type = #{goodType} and use_store_id = #{merchantId}
         LIMIT #{i}, #{pageSize}
     </select>
-
-    <select id="getSecondHandGoodInfoFromBuyer" resultType="com.catlovers.carbon_credits.model.SecondHandGoodDTO">
-        select * from second_hand_good_info where buyer_id = #{buyerId}
-        LIMIT #{i}, #{pageSize};
-    </select>
-    <select id="getSecondHandGoodCountTotalFromBuyer" resultType="java.lang.Integer">
-        SELECT COUNT(*) FROM second_hand_good_info where buyer_id = #{buyerId}
-        LIMIT #{i}, #{pageSize}
-    </select>
-
     <update id="updateSecondHandGood">
         update second_hand_good_info set
         buyer_id = #{buyerId} and

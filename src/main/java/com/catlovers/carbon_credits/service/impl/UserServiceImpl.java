@@ -1,7 +1,6 @@
 package com.catlovers.carbon_credits.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.catlovers.carbon_credits.dao.CarbonCreditsDao;
 import com.catlovers.carbon_credits.dao.CommodityDao;
 import com.catlovers.carbon_credits.dao.UserDao;
 import com.catlovers.carbon_credits.enumeration.CityIdEnum;
@@ -12,10 +11,8 @@ import com.catlovers.carbon_credits.model.client.UserClientDTO;
 import com.catlovers.carbon_credits.model.client.UserPortraitClientDTO;
 import com.catlovers.carbon_credits.service.UserService;
 import com.catlovers.carbon_credits.util.ClientUtil;
-import com.sun.org.apache.xpath.internal.objects.XNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -27,10 +24,9 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.sql.Date;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.time.ZoneId;
+import java.util.*;
 
 @Service
 @Transactional(rollbackFor=Exception.class)
@@ -84,34 +80,29 @@ public class UserServiceImpl implements UserService {
             userDTO = updateUserInfo(userClientDTO, userPortraitClientDTO);
 
             //返回成功信息
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS, jsonObject);
         } catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             userDTO = null;
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
         }
         jsonObject.put("result", userDTO);
         return jsonObject;
     }
 
     @Override
-    public JSONObject getRankingList(int userId, int cityId) {
+    public JSONObject getMonthRankingList(int userId, int cityId) {
         JSONObject jsonObject = new JSONObject();
         List<RankingDTO> rankingDTOS;
 
         try{
-            rankingDTOS = userDao.getRanks(userId, cityId);
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            rankingDTOS = userDao.getMonthRanks(userId, cityId);
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS, jsonObject);
         }catch (Exception e){
-            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             rankingDTOS = null;
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
         }
         Map<String, Object> usersMap = new HashMap<>();
         usersMap.put("user_list", rankingDTOS);
@@ -120,48 +111,72 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public JSONObject getMonthlyReport(int userId) {
-        MonthlyReportDTO monthlyReportDTO = new MonthlyReportDTO();
+    public JSONObject getTotalRankingList(int userId, int cityId) {
         JSONObject jsonObject = new JSONObject();
-        Calendar cal = Calendar.getInstance();
-        MonthlyReportVO monthlyReportVO;
-        Map<String, Integer> dateMap;//储存用户月排名与二氧化碳减排量
+        List<RankingDTO> rankingDTOS;
 
         try{
-            //得到当前年月
-            int month = cal.get(Calendar.MONTH);
-            int year = cal.get(Calendar.YEAR);
-            Map<String, Integer> timeMap = new HashMap<>();
-            timeMap.put("month", month);
-            timeMap.put("year", year);
-
-            //获取上个月的月度报告
-            monthlyReportVO = getMonthlyReportVO(userId, timeMap);
-            //处理月度报告
-            dateMap = getCO2Reduction(monthlyReportVO, monthlyReportDTO);
-            monthlyReportDTO.setCO2ReductionThisMonth(dateMap.get("CO2Reduction"));
-            monthlyReportDTO.setUserRankThisMonth(dateMap.get("userRank"));
-            //获取上上个月的月度报告
-            timeMap.replace("month", timeMap.get("month")-1);
-            monthlyReportVO = getMonthlyReportVO(userId, timeMap);
-            //处理月度报告
-            dateMap = getCO2Reduction(monthlyReportVO, monthlyReportDTO);
-            monthlyReportDTO.setCO2ReductionLastMonth(dateMap.get("CO2Reduction"));
-            monthlyReportDTO.setUserRankLastMonth(dateMap.get("userRank"));
-
-
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            rankingDTOS = userDao.getRanks(userId, cityId);
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS, jsonObject);
         }catch (Exception e){
-            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
-            monthlyReportDTO = null;
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            rankingDTOS = null;
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
+        }
+        Map<String, Object> usersMap = new HashMap<>();
+        usersMap.put("user_list", rankingDTOS);
+        jsonObject.put("result", usersMap);
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject getMonthlyReport(int userId, int cityId, String startMonth, String endMonth) {
+        List<MonthlyReportDTO> monthlyReportDTOS = null;
+        JSONObject jsonObject = new JSONObject();
+
+        try{
+            List<MonthlyReportVO> monthlyReports = userDao.getMonthlyReport(userId, startMonth, endMonth);
+            monthlyReportDTOS = getMonthlyReportDTOs(monthlyReports);
+
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS, jsonObject);
+        }catch (Exception e){
+            e.printStackTrace();
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚
         }
 
-        jsonObject.put("result", monthlyReportDTO);
+        jsonObject.put("result", monthlyReportDTOS);
         return jsonObject;
+    }
+
+    private List<MonthlyReportDTO> getMonthlyReportDTOs(List<MonthlyReportVO> monthlyReports) {
+        List<MonthlyReportDTO> monthlyReportDTOS = new ArrayList<>();
+
+        for (MonthlyReportVO monthlyReportVO: monthlyReports){
+
+            //处理时间
+            Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone(ZoneId.of("+8")));//
+            calendar.setTime(monthlyReportVO.getUpdateMonth());
+            int month = calendar.get(Calendar.MONTH)+1;
+            int year = calendar.get(Calendar.YEAR);
+
+            //得到行程信息
+            int mileageWalk = monthlyReportVO.getMileageWalk();
+            int mileageSubway = monthlyReportVO.getMileageSubway();
+            int mileageBus = monthlyReportVO.getMileageBus();
+            int mileageBike = monthlyReportVO.getMileageBike();
+            int mileageTotal = mileageBike+mileageBus+mileageWalk+mileageSubway;
+
+            //计算得到CO2减排量
+            int CO2Reduction = mileageTotal*1000-(mileageWalk+mileageBike)*100-mileageBus*300-mileageSubway*200;
+
+            //将所有数据封装
+            MonthlyReportDTO monthlyReportDTO = new MonthlyReportDTO(CO2Reduction, monthlyReportVO.getUserRank(), mileageTotal,
+                    mileageBus, mileageSubway, mileageBike, mileageWalk, month, year);
+            monthlyReportDTOS.add(monthlyReportDTO);
+        }
+
+        return monthlyReportDTOS;
     }
 
     @Override
@@ -180,7 +195,7 @@ public class UserServiceImpl implements UserService {
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
             teamInfoDTO = null;
-            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR, jsonObject);
         } catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
@@ -203,12 +218,11 @@ public class UserServiceImpl implements UserService {
         } catch (NullPointerException e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
-            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR, jsonObject);
         } catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
         }
         return jsonObject;
     }
@@ -219,17 +233,16 @@ public class UserServiceImpl implements UserService {
 
         try{
             userDao.deleteUserFromTeam(userId);
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS, jsonObject);
         } catch (NullPointerException e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
-            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR, jsonObject);
         } catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
         }
         return jsonObject;
     }
@@ -267,52 +280,19 @@ public class UserServiceImpl implements UserService {
             }
             pageTotal = (userDao.getUserCouponCountTotal(userId, (pageNo-1)*pageSize, pageSize) + pageSize-1)/pageSize;
 
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS, jsonObject);
         } catch (NullPointerException e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
-            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR, jsonObject);
         } catch (Exception e){
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
             e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
         }
 
         HashMap<String, Object> resultMap = new HashMap<>();
         resultMap.put("coupon_bag", couponBagDTOList);
-        resultMap.put("page_total", pageTotal);
-        jsonObject.put("result", resultMap);
-
-        return jsonObject;
-    }
-
-    @Override
-    public JSONObject getUserCommodityRecord(int userId, int pageNo, int pageSize) {
-        JSONObject jsonObject = new JSONObject();
-        List<CommodityRecordDTO> commodityRecordDTOS = null;
-        int pageTotal = -1;
-
-        try{
-            commodityRecordDTOS = userDao.getUserCommodityRecord(userId, (pageNo-1)*pageSize, pageSize);
-            pageTotal = (userDao.getUserCommodityRecordCountTotal(userId, (pageNo-1)*pageSize, pageSize) + pageSize-1)/pageSize;
-
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
-        } catch (NullPointerException e){
-            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
-            e.printStackTrace();
-            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
-        } catch (Exception e){
-            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
-            e.printStackTrace();
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
-        }
-
-        HashMap<String, Object> resultMap = new HashMap<>();
-        resultMap.put("commodity_record", commodityRecordDTOS);
         resultMap.put("page_total", pageTotal);
         jsonObject.put("result", resultMap);
 
@@ -337,7 +317,8 @@ public class UserServiceImpl implements UserService {
             }
 
         }catch(Exception e){
-            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
         }
         return jsonObject;
     }
@@ -350,7 +331,8 @@ public class UserServiceImpl implements UserService {
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         }catch(Exception e){
-            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
         }
 
         return jsonObject;
@@ -359,12 +341,43 @@ public class UserServiceImpl implements UserService {
     @Override
     public JSONObject addUserDelivery(UserDelivery userDelivery) {
         JSONObject jsonObject = new JSONObject();
-        try {
+        try{
             userDao.addUserDelivery(userDelivery);
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         }catch(Exception e){
-            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
+        }
+
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject signIn(int userId) {
+        JSONObject jsonObject = new JSONObject();
+
+        try{
+            userDao.signIn(userId);
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS, jsonObject);
+        } catch (Exception e){
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
+        }
+
+        return jsonObject;
+    }
+
+    @Override
+    public JSONObject giveAway(int userId, int granteeId, int carbonCredits) {
+        JSONObject jsonObject = new JSONObject();
+
+        try{
+            int userCarbonCreditsUseful = userDao.searchUserCarbonCreditsUseful(userId);
+            int granteeCarbonCreditsUseful = userDao.searchUserCarbonCreditsUseful(granteeId);
+            userDao.updateUserCarbonCreditsUseful(userId, userCarbonCreditsUseful-carbonCredits);
+            userDao.updateUserCarbonCreditsUseful(granteeId, granteeCarbonCreditsUseful+carbonCredits);
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS, jsonObject);
+        } catch (Exception e){
+            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
         }
 
         return jsonObject;
@@ -376,40 +389,9 @@ public class UserServiceImpl implements UserService {
                 teamInfoVO.getTeamCarbonCredits(), userOfTeamList);
     }
 
-    private Map<String, Integer> getCO2Reduction(MonthlyReportVO monthlyReportVO, MonthlyReportDTO monthlyReportDTO) {
-        Map<String, Integer> map = new HashMap<>();
-        int mileageBike = monthlyReportVO.getMileageBike();
-        int mileageBus = monthlyReportVO.getMileageBus();
-        int mileageSubway = monthlyReportVO.getMileageSubway();
-        int mileageWalk = monthlyReportVO.getMileageWalk();
-        int mileageTotal = mileageBike+mileageBus+mileageSubway+mileageWalk;
-        int CO2Reduction = mileageTotal*1000-(mileageWalk+mileageBike)*50-mileageBus*200-mileageSubway*100;
 
-        map.put("CO2Reduction", CO2Reduction);
-        map.put("userRank", monthlyReportVO.getUserRank());
 
-        monthlyReportDTO.setMileageBike(mileageBike);
-        monthlyReportDTO.setMileageBus(mileageBus);
-        monthlyReportDTO.setMileageSubway(mileageSubway);
-        monthlyReportDTO.setMileageWalk(mileageWalk);
-        monthlyReportDTO.setMileageTotal(mileageTotal);
-        return map;
-
-    }
-
-    private MonthlyReportVO getMonthlyReportVO(int userId, Map<String, Integer> timeMap) {
-        MonthlyReportVO monthlyReportVO;
-        if(timeMap.get("month")==0){
-            timeMap.replace("year", timeMap.get("year")-1);
-            timeMap.replace("month", 12);
-        }
-        System.out.println(timeMap.get("month"));
-        System.out.println(timeMap.get("year"));
-        //获取上上个月的月度报告
-        monthlyReportVO = userDao.getMonthlyReport(userId, timeMap.get("year"), timeMap.get("month"));
-        return  monthlyReportVO;
-    }
-
+    //@TODO 更新用户信息
     private UserDTO updateUserInfo(UserClientDTO userClientDTO, UserPortraitClientDTO userPortraitClientDTO) {
 
         //计算用户等级
