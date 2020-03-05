@@ -28,12 +28,16 @@ com\catlovers\carbon_credits\model\MonthlyReportVO.class
 com\catlovers\carbon_credits\model\MonthlyReportDTO.class
 com\catlovers\carbon_credits\config\FastJson2JsonRedisSerializer.class
 com\catlovers\carbon_credits\service\CodeService.class
+com\catlovers\carbon_credits\service\GameService.class
 com\catlovers\carbon_credits\enumeration\GoodTypeEnum.class
 com\catlovers\carbon_credits\model\RankingDTO.class
 com\catlovers\carbon_credits\model\TeamInfoVO.class
+com\catlovers\carbon_credits\model\SecondHandGoodDTO.class
 com\catlovers\carbon_credits\model\TeamInfoDTO.class
 com\catlovers\carbon_credits\model\MerchantVO.class
+com\catlovers\carbon_credits\model\CommodityRecordDTO.class
 com\catlovers\carbon_credits\model\CodeDTO.class
+com\catlovers\carbon_credits\config\DelayRabbitConfig.class
 com\catlovers\carbon_credits\enumeration\StatusEnum.class
 com\catlovers\carbon_credits\service\impl\CarBonCreditsServiceImpl.class
 com\catlovers\carbon_credits\model\client\UserPortraitClientDTO.class
@@ -41,6 +45,7 @@ com\catlovers\carbon_credits\service\CarbonCreditsService.class
 com\catlovers\carbon_credits\model\CouponInfoDTO.class
 com\catlovers\carbon_credits\util\ClientUtil.class
 com\catlovers\carbon_credits\enumeration\CityIdEnum.class
+com\catlovers\carbon_credits\service\impl\GameServiceImpl.class
 com\catlovers\carbon_credits\dao\CarbonCreditsDao.class
 com\catlovers\carbon_credits\model\CommodityDTO.class
 com\catlovers\carbon_credits\controller\CommodityController.class
@@ -51,9 +56,11 @@ com\catlovers\carbon_credits\config\ShiroConfig.class
 com\catlovers\carbon_credits\controller\CarbonCreditsController.class
 com\catlovers\carbon_credits\dao\UserDao.class
 com\catlovers\carbon_credits\model\CommodityVO.class
+com\catlovers\carbon_credits\controller\GameController.class
 com\catlovers\carbon_credits\service\impl\CodeServiceImpl.class
 com\catlovers\carbon_credits\service\impl\EmailServiceImpl.class
 com\catlovers\carbon_credits\service\UserService.class
+com\catlovers\carbon_credits\model\UserDelivery.class
 com\catlovers\carbon_credits\dao\CommodityDao.class
 com\catlovers\carbon_credits\model\MerchantDTO.class
 com\catlovers\carbon_credits\model\UserVO.class

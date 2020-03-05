@@ -118,12 +118,10 @@ public class MerchantServiceImpl implements MerchantService {
         JSONObject jsonObject = new JSONObject();
         int i = merchantDao.modify(merchantDTO);
         if(i!=0){
-            jsonObject.put("modify_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("modify_message", StatusEnum.SUCCESS.getMessage());
+            jsonObject.put("modifyResult", "true");
         }
         else{
-            jsonObject.put("modify_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("modify_message", StatusEnum.FAILED.getMessage());
+            jsonObject.put("modifyResult", "false");
         }
         return jsonObject;
     }
@@ -134,19 +132,18 @@ public class MerchantServiceImpl implements MerchantService {
         String password = new Md5Hash(merchantPassword, String.valueOf(userId), 3).toString();
         int i = merchantDao.modifyPassword(userId,password);
         if(i!=0){
-            jsonObject.put("modify_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("modify_message", StatusEnum.SUCCESS.getMessage());
+            jsonObject.put("modifyResult","true");
         }
         else{
-            jsonObject.put("modify_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("modify_message", StatusEnum.FAILED.getMessage());
+            jsonObject.put("modifyResult","false");
         }
         return jsonObject;
     }
 
     @Override
     public String getName(int userId) {
-        return merchantDao.getName(userId);
+        String name = merchantDao.getName(userId);
+        return name;
     }
 
     @Override
@@ -154,12 +151,13 @@ public class MerchantServiceImpl implements MerchantService {
         JSONObject jsonObject = new JSONObject();
         try {
             commodityDao.useCoupon(couponBagId,couponId,userId);
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
-        } catch (IndexOutOfBoundsException | NullPointerException e) {
-            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR, jsonObject);
-        } catch(Exception e){
-            jsonObject.put("exchangeResult","false");
+            StatusEnum.getMessageJson(StatusEnum.SUCCESS,jsonObject);
+        }catch (NullPointerException e){
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
+        } catch (IndexOutOfBoundsException e) {
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
+        }catch(Exception e){
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
         return jsonObject;
     }

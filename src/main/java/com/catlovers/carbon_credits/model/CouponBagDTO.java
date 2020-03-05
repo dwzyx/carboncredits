@@ -12,10 +12,15 @@ import java.sql.Date;
 @ToString @AllArgsConstructor
 public class CouponBagDTO {
 
+    @JSONField(name = "coupon_bag_id")
     private int couponBagId;
+    @JSONField(name = "user_id")
     private int userId;
+    @JSONField(name = "coupon_id")
     private int couponId;
+    @JSONField(name = "coupon_name")
     private String couponName;
+    @JSONField(name = "coupon_type")
     private int couponType;
     @JSONField(name = "use_type")
     private int useType;
@@ -23,9 +28,13 @@ public class CouponBagDTO {
     private int couponCost;
     @JSONField(name = "exchange_time", format="yyyy/MM/dd HH:mm:ss")
     private Date exchangeTime;
+    @JSONField(name = "expiration_time")
     private int expirationTime;
+    @JSONField(name = "sill")
     private int sill;
+    @JSONField(name = "coupon_value")
     private int couponValue;
+    @JSONField(name = "coupon_used")
     private int couponUsed;
 
 }

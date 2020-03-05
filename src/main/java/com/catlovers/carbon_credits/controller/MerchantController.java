@@ -59,20 +59,18 @@ public class MerchantController {
 
     @PostMapping(value = "/Merchant/emailCode", produces = "application/json;charset=UTF-8")
     public String getEmailCode(@RequestParam("merchantEmail") String merchantEmail,@RequestParam("merchantName") String merchantName){
-//        System.out.println("email:"+merchantEmail);
-//        System.out.println("name:"+merchantName);
+        //        System.out.println("email:"+merchantEmail);
+        //        System.out.println("name:"+merchantName);
         String code;
         JSONObject jsonObject = new JSONObject();
         emailService.deleteEmailVerification(merchantName);
         code = emailService.emailVerification(merchantEmail,merchantName,"*的注册验证,15分钟有效。");
         if(code!=null){
-//            System.out.println(code);
-            jsonObject.put("email_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("email_message", StatusEnum.SUCCESS.getMessage());
+            //            System.out.println(code);
+            jsonObject.put("emailCode", "true");
         }
         else{
-            jsonObject.put("email_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("email_message", StatusEnum.FAILED.getMessage());
+            jsonObject.put("emailCode", "false");
         }
         return jsonObject.toString();
     }
@@ -83,42 +81,42 @@ public class MerchantController {
         JwtUtil jwtUtil = new JwtUtil();
         int userId = merchantLoginDTO.getUserId();
         int i = merchantService.firstLogin(merchantLoginDTO.getUserId(),merchantLoginDTO.getMerchantPassword());
-            if(i == 1) {
-//                System.out.println(1);
-                if(codeService.getCode(merchantLoginDTO.getUserId()).equals(merchantLoginDTO.getImageCode())){
-                    jsonObject.put("imageResult","true");
-                    int merchantId = merchantService.findMerchantIdByUserId(userId);
-                    jsonObject = commodityService.getCouponInfoById(pageNo,pageSize,goodTypes,merchantId);
-                    jsonObject.put("merchantResult","自动登录成功");
-                    if(rememberMe) {
-                        UUID uuid = UUID.randomUUID();
-                        String token = jwtUtil.createJwt(merchantLoginDTO.getUserId(), uuid);
-//                        System.out.println("create token");
-                        jsonObject.put("token", token);
-                        jsonObject.put("merchantResult","已记住登陆");
-                        //还要将token放到redis里面储存
-//                        System.out.println("uuid:" + uuid.toString());
-                        String s = uuid.toString();
-                        String uu = merchantService.login(merchantLoginDTO.getUserId(), s);
-//                        System.out.println("uu:" + uu);
-                        //如果已经有登陆信息，更新登录信息
-                        if(s != uu) {
-                            System.out.println(merchantService.loginAnyway(merchantLoginDTO.getUserId(), s));
-                        }
-                    }
-                    else{
-                        jsonObject.put("merchantResult","已本次登陆");
+        if(i == 1) {
+            //                System.out.println(1);
+            if(codeService.getCode(merchantLoginDTO.getUserId()).equals(merchantLoginDTO.getImageCode())){
+                jsonObject.put("imageResult","true");
+                int merchantId = merchantService.findMerchantIdByUserId(userId);
+                jsonObject = commodityService.getCouponInfoById(pageNo,pageSize,goodTypes,merchantId);
+                jsonObject.put("merchantResult","自动登录成功");
+                if(rememberMe) {
+                    UUID uuid = UUID.randomUUID();
+                    String token = jwtUtil.createJwt(merchantLoginDTO.getUserId(), uuid);
+                    //                        System.out.println("create token");
+                    jsonObject.put("token", token);
+                    jsonObject.put("merchantResult","已记住登陆");
+                    //还要将token放到redis里面储存
+                    //                        System.out.println("uuid:" + uuid.toString());
+                    String s = uuid.toString();
+                    String uu = merchantService.login(merchantLoginDTO.getUserId(), s);
+                    //                        System.out.println("uu:" + uu);
+                    //如果已经有登陆信息，更新登录信息
+                    if(s != uu) {
+                        System.out.println(merchantService.loginAnyway(merchantLoginDTO.getUserId(), s));
                     }
                 }
-                else {
-                    jsonObject.put("merchantResult","登陆失败，验证码错误");
-                    jsonObject.put("imageResult","false");
+                else{
+                    jsonObject.put("merchantResult","已本次登陆");
                 }
             }
-            else{
-                    jsonObject.put("merchantResult","登陆失败，密码错误");
+            else {
+                jsonObject.put("merchantResult","登陆失败，验证码错误");
+                jsonObject.put("imageResult","false");
             }
-            return jsonObject.toString();
+        }
+        else{
+            jsonObject.put("merchantResult","登陆失败，密码错误");
+        }
+        return jsonObject.toString();
 
     }
 
@@ -173,14 +171,11 @@ public class MerchantController {
         if(i==1){
 
             jsonObject = merchantService.modifyPassword(userId,merchantPassword);
-            jsonObject.put("verify_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("verify_message", StatusEnum.SUCCESS.getMessage());
+            jsonObject.put("verifyResult", "true");
         }
         else {
-            jsonObject.put("modify_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("modify_message", StatusEnum.FAILED.getMessage());
-            jsonObject.put("verify_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("verify_message", StatusEnum.FAILED.getMessage());
+            jsonObject.put("modifyResult", "false");
+            jsonObject.put("verifyResult", "false");
         }
 
         return jsonObject.toString();
@@ -193,12 +188,10 @@ public class MerchantController {
         String code = emailService.emailVerification(email,name,"*的密码修改验证,15分钟有效。");
         if(code!=null){
             //            System.out.println(code);
-            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+            jsonObject.put("emailCode", "true");
         }
         else{
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            jsonObject.put("emailCode", "false");
         }
         return jsonObject.toString();
     }
@@ -208,22 +201,19 @@ public class MerchantController {
         JSONObject jsonObject = new JSONObject();
         String name = merchantService.getName(userId);
         if(emailService.emailVerification(email,name,null).equals(code)){
-            jsonObject.put("email_code", StatusEnum.SUCCESS.getCoding());
-            jsonObject.put("email_message", StatusEnum.SUCCESS.getMessage());
+            jsonObject.put("emailCode", "true");
             jsonObject = merchantService.modifyPassword(userId,merchantPassword);
         }
         else {
-            jsonObject.put("modify_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("modify_message", StatusEnum.FAILED.getMessage());
-            jsonObject.put("email_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("email_message", StatusEnum.FAILED.getMessage());
+            jsonObject.put("modifyResult","false");
+            jsonObject.put("emailCode", "false");
         }
         return jsonObject.toString();
     }
 
     @PostMapping(value = "/Merchant/addCoupon",produces = "application/json;charset=UTF-8")
     public String addCoupon(@RequestBody CouponInfoDTO couponInfoDTO){
-        JSONObject jsonObject = new JSONObject();
+        JSONObject jsonObject;
         jsonObject = commodityService.addCoupon(couponInfoDTO);
         return jsonObject.toString();
     }

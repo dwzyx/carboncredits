@@ -300,6 +300,37 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public JSONObject getUserCommodityRecord(int userId, int pageNo, int pageSize) {
+        JSONObject jsonObject = new JSONObject();
+        List<CommodityRecordDTO> commodityRecordDTOS = null;
+        int pageTotal = -1;
+
+        try{
+            commodityRecordDTOS = userDao.getUserCommodityRecord(userId, (pageNo-1)*pageSize, pageSize);
+            pageTotal = (userDao.getUserCommodityRecordCountTotal(userId, (pageNo-1)*pageSize, pageSize) + pageSize-1)/pageSize;
+
+            jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
+            jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
+        } catch (NullPointerException e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
+            e.printStackTrace();
+            StatusEnum.getMessageJson(StatusEnum.PARAMETER_ERROR,jsonObject);
+        } catch (Exception e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly(); //手动回滚失误
+            e.printStackTrace();
+            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
+            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+        }
+
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("commodity_record", commodityRecordDTOS);
+        resultMap.put("page_total", pageTotal);
+        jsonObject.put("result", resultMap);
+
+        return jsonObject;
+    }
+
+    @Override
     public JSONObject getUserDelivery(int userId) {
         JSONObject jsonObject = new JSONObject();
         try {
@@ -317,8 +348,7 @@ public class UserServiceImpl implements UserService {
             }
 
         }catch(Exception e){
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
         return jsonObject;
     }
@@ -331,8 +361,7 @@ public class UserServiceImpl implements UserService {
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         }catch(Exception e){
-            jsonObject.put("msg_code", StatusEnum.FAILED.getCoding());
-            jsonObject.put("msg_message", StatusEnum.FAILED.getMessage());
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         return jsonObject;
@@ -341,17 +370,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public JSONObject addUserDelivery(UserDelivery userDelivery) {
         JSONObject jsonObject = new JSONObject();
-        try{
+        try {
             userDao.addUserDelivery(userDelivery);
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());
             jsonObject.put("msg_message", StatusEnum.SUCCESS.getMessage());
         }catch(Exception e){
-            StatusEnum.getMessageJson(StatusEnum.FAILED, jsonObject);
+            StatusEnum.getMessageJson(StatusEnum.FAILED,jsonObject);
         }
 
         return jsonObject;
     }
-
     @Override
     public JSONObject signIn(int userId) {
         JSONObject jsonObject = new JSONObject();

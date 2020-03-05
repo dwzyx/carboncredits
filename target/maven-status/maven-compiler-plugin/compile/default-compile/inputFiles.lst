@@ -1,12 +1,16 @@
+C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\CommodityRecordDTO.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\MerchantVO.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\UserOfTeam.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\CarbonCreditsApplication.java
+C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\service\GameService.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\controller\CarbonCreditsController.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\CommodityVO.java
+C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\config\DelayRabbitConfig.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\controller\UserController.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\dao\CommodityDao.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\CouponInfoVO.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\client\UserClientDTO.java
+C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\service\impl\GameServiceImpl.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\service\impl\UserServiceImpl.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\client\UserPortraitClientDTO.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\filter\JWTFilter.java
@@ -16,6 +20,7 @@ C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_cre
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\service\MerchantService.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\UserDTO.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\util\ClientUtil.java
+C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\UserDelivery.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\config\RestTemplateConfig.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\enumeration\URLEnum.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\MonthlyReportDTO.java
@@ -34,6 +39,7 @@ C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_cre
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\enumeration\ServiceIDEnum.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\MerchantDTO.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\util\JwtUtil.java
+C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\SecondHandGoodDTO.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\filter\JWTToken.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\service\impl\MerchantServiceImpl.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\MerchantLoginDTO.java
@@ -58,4 +64,5 @@ C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_cre
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\TeamInfoVO.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\service\impl\CommodityServiceImpl.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\model\CouponBagDTO.java
+C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\controller\GameController.java
 C:\Users\73866\IdeaProjects\carboncredits\src\main\java\com\catlovers\carbon_credits\service\VerificationService.java

@@ -70,6 +70,16 @@ public interface CommodityDao {
 
     SecondHandGoodDTO getSecondHandGood(int goodId);
 
+    List<SecondHandGoodDTO> getSecondHandGoodInfoFromSeller(@Param("i") int i, @Param("pageSize") int pageSize,int sellerId);
+
+    int getSecondHandGoodCountTotalFromSeller(@Param("i") int i, @Param("pageSize") int pageSize,int sellerId);
+
+    List<SecondHandGoodDTO> getSecondHandGoodInfoFromBuyer(@Param("i") int i, @Param("pageSize") int pageSize,int buyerId);
+
+    int getSecondHandGoodCountTotalFromBuyer(@Param("i") int i, @Param("pageSize") int pageSize,int buyerId);
+
+    void deleteSecondHandGood(int goodId);
+
     int updateSecondHandGood(int buyerId,int deliveryId,int goodId);
 
 }
