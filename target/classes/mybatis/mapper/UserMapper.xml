@@ -76,8 +76,21 @@
         where user_id = #{userId}
         LIMIT #{pageNo}, #{pageSize}
     </select>
+    <select id="getUserCommodityRecord" resultType="com.catlovers.carbon_credits.model.CommodityRecordDTO">
+        SELECT c.* FROM commodity_record as b
+        INNER JOIN commodity_info as c
+        on c.commodity_id = b.commodity_id where b.user_id = #{userId}
+        LIMIT #{pageNo}, #{pageSize};
+    </select>
+    <select id="getUserCommodityRecordCountTotal" resultType="java.lang.Integer">
+        select count(*)  from commodity_record as b
+        INNER JOIN commodity_info as c
+        on c.commodity_id = b.commodity_id where b.user_id = #{userId}
+        LIMIT #{pageNo}, #{pageSize};
+    </select>
+
     <select id="getUserDelivery" resultType="com.catlovers.carbon_credits.model.UserDelivery">
-        select * from user_delivery where user_id = #{userId}
+        select * from user_delivery where user_id = #{userId};
     </select>
     <select id="searchUserCarbonCreditsUseful" resultType="java.lang.Integer">
         SELECT carbon_credits_useful FROM carbon_credits WHERE user_id = #{userId}
@@ -101,10 +114,6 @@
         user_name = #{userName},
         user_phone_number = #{userPhoneNumber},
         user_address = #{userAddress} where user_id = #{userId}
-    </update>
-    <update id="signIn">
-        UPDATE user_basic SET
-        sign_in_today = 1 where user_id = #{userId}
     </update>
     <update id="updateUserCarbonCreditsUseful">
         UPDATE carbon_credits_basic SET

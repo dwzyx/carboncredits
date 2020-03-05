@@ -116,13 +116,19 @@ public class MerchantServiceImpl implements MerchantService {
     @Override
     public JSONObject modify(MerchantDTO merchantDTO) {
         JSONObject jsonObject = new JSONObject();
-        int i = merchantDao.modify(merchantDTO);
-        if(i!=0){
-            jsonObject.put("modifyResult", "true");
-        }
-        else{
+        try{
+
+            int i = merchantDao.modify(merchantDTO);
+            if(i!=0){
+                jsonObject.put("modifyResult", "true");
+            }
+            else{
+                jsonObject.put("modifyResult", "false");
+            }
+        }catch(Exception e){
             jsonObject.put("modifyResult", "false");
         }
+
         return jsonObject;
     }
 

@@ -64,7 +64,7 @@ public class MerchantController {
         String code;
         JSONObject jsonObject = new JSONObject();
         emailService.deleteEmailVerification(merchantName);
-        code = emailService.emailVerification(merchantEmail,merchantName,"*的注册验证,15分钟有效。");
+        code = emailService.emailVerification(merchantEmail,merchantName,"*的注册验证,5分钟有效。");
         if(code!=null){
             //            System.out.println(code);
             jsonObject.put("emailCode", "true");
@@ -185,7 +185,7 @@ public class MerchantController {
     public String emailForPassword(@RequestParam("userId") int userId ,@RequestParam("email") String email){
         JSONObject jsonObject = new JSONObject();
         String name = merchantService.getName(userId);
-        String code = emailService.emailVerification(email,name,"*的密码修改验证,15分钟有效。");
+        String code = emailService.emailVerification(email,name,"*的密码修改验证,5分钟有效。");
         if(code!=null){
             //            System.out.println(code);
             jsonObject.put("emailCode", "true");

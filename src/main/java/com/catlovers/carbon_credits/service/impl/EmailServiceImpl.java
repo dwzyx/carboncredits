@@ -18,8 +18,10 @@ import java.util.Random;
 @CacheConfig(cacheNames = "emaiVeri")
 public class EmailServiceImpl implements EmailService {
 
+    @Autowired
     private final RestTemplate restTemplate;
 
+    @Autowired
     private JavaMailSender mailSender;
 
     public EmailServiceImpl(RestTemplate restTemplate){
@@ -30,14 +32,16 @@ public class EmailServiceImpl implements EmailService {
     @Cacheable(value = "emailVeri",key = "#root.methodName+':'+#merchantName")
     public String emailVerification(String merchantEmail,String merchantName,String context) {
 
+        String code="";
         Random random=new Random();
-        int ran = (int)(random.nextDouble()*(99999-10000 + 1))+ 10000;
-        String ranNum = String.valueOf(ran);
+        for(int i=1;i<=5;i++){
+            code+=random.nextInt(9);
+        }
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setSubject("‘低碳出行小程序’需要验证您的邮箱");
         mailMessage.setFrom("738667591@qq.com");
         mailMessage.setTo(merchantEmail);
-        mailMessage.setText("您的邮箱验证码为"+ranNum+",用于用户："+merchantName.charAt(0)+context);
+        mailMessage.setText("您的邮箱验证码为"+code+",用于用户："+merchantName.charAt(0)+context);
 
         try{
             mailSender.send(mailMessage);
@@ -45,7 +49,7 @@ public class EmailServiceImpl implements EmailService {
         }catch (Exception e){
             return null;
         }
-        return ranNum.toString();
+        return code;
     }
 
     @Override

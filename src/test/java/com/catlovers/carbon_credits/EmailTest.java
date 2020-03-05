@@ -16,9 +16,14 @@ public class EmailTest {
     @Autowired
     private EmailService emailService;
 
+    @Test
+    void ETest(){
+        String s= emailService.emailVerification("1455127695@qq.com","鸭鸭","*lalallatest");
+        System.out.println(s);
+    }
+
 //    @Test
-//    void ETest(){
-//        JSONObject jsonObject = emailService.emailVerification("1972576148@qq.com","唐瑄");
-//        System.out.println(jsonObject.toString());
+//    void ETest2(){
+//        String
 //    }
 }

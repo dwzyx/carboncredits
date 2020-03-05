@@ -33,7 +33,7 @@
         (0,#{userId},#{merchantPassword},#{merchantPhoneNumber},#{merchantEmail},#{merchantName},#{merchantAddress},#{merchantIntroduce},#{merchantImage})
     </insert>
 
-    <update id="modify" parameterType="com.catlovers.carbon_credits.model.MerchantDTO">
+    <update id="modify" parameterType="com.catlovers.carbon_credits.model.MerchantDTO" >
         update merchant_basic set merchant_address = #{merchantAddress},merchant_image = #{merchantImage},merchant_introduce = #{merchantIntroduce},merchant_name = #{merchantName},merchant_phone_number = #{merchantPhoneNumber} where user_id = #{userId}
     </update>
 
