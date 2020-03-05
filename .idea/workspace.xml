@@ -2,49 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="131872fc-43e1-4e21-8834-f46eef103c75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/MerchantTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.EmailTest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.EmailTest.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/catlovers/carbon_credits/MerchantTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/config/RedisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/MerchantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/controller/MerchantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/EmailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/MerchantMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/MerchantMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/EmailTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/EmailTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/carbon_credits_system-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/carbon_credits_system-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/carbon_credits_system-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/carbon_credits_system-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/config/RedisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/config/RedisConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/CommodityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/CommodityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/MerchantController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/MerchantController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/CommodityDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/CommodityDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/MerchantDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/MerchantDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CommodityRecordDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CommodityRecordDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CouponBagDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/CouponBagDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/SecondHandGoodDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/SecondHandGoodDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/UserDelivery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/UserDelivery.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/CommodityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/CommodityService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/CommodityServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/EmailServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/EmailServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/CommodityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/CommodityMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/MerchantMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/MerchantMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.CarbonCreditsApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.CarbonCreditsApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.SecondHandGoodTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.SecondHandGoodTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.UserTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.UserTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.exchangeGoodTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.exchangeGoodTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.CarbonCreditsApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.CarbonCreditsApplicationTests.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.SecondHandGoodTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.SecondHandGoodTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.UserTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.UserTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.exchangeGoodTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.exchangeGoodTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/catlovers/carbon_credits/EmailTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/catlovers/carbon_credits/EmailTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MerchantDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MerchantDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/MerchantTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/MerchantTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/carbon_credits_system-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/carbon_credits_system-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/MerchantDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/catlovers/carbon_credits/model/MerchantDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.CarbonCreditsApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.EmailTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.SecondHandGoodTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.UserTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.catlovers.carbon_credits.exchangeGoodTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.CarbonCreditsApplicationTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.EmailTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.SecondHandGoodTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.UserTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.catlovers.carbon_credits.exchangeGoodTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/catlovers/carbon_credits/CarbonCreditsApplicationTests$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/catlovers/carbon_credits/CarbonCreditsApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/catlovers/carbon_credits/EmailTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/catlovers/carbon_credits/MerchantTest.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -164,11 +144,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/MerchantTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-41">
-              <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+            <state relative-caret-position="132">
+              <caret line="20" column="101" selection-start-line="20" selection-start-column="101" selection-end-line="20" selection-end-column="101" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -180,16 +160,16 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/MerchantMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="182">
-              <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+              <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MerchantDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="292">
+              <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -225,7 +205,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/realm/MerchantRealm.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/filter/JWTFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/EmailService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MerchantDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CouponInfoVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/CouponInfoDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/secondHandGoodDTO.java" />
@@ -260,6 +239,7 @@
         <option value="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/EmailTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/MerchantMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/service/impl/MerchantServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MerchantDTO.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/MerchantTest.java" />
       </list>
     </option>
@@ -818,7 +798,7 @@
       <workItem from="1582108324023" duration="593000" />
       <workItem from="1582168547980" duration="2594000" />
       <workItem from="1582271070126" duration="13252000" />
-      <workItem from="1583408537035" duration="11490000" />
+      <workItem from="1583408537035" duration="12647000" />
     </task>
     <task id="LOCAL-00001" summary="碳积分系统">
       <created>1579187121820</created>
@@ -932,13 +912,17 @@
       <option name="project" value="LOCAL" />
       <updated>1583415272720</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="修改email的bug">
+      <created>1583421034988</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1583421034988</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SecondHandGoodTest_test1 - 2020.02.16 at 11h 18m 44s.xml">
-      <configuration name="SecondHandGoodTest.test1" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SecondHandGoodTest_test1 - 2020.02.16 at 11h 21m 03s.xml">
       <configuration name="SecondHandGoodTest.test1" configurationId="JUnit" />
     </history-entry>
@@ -966,9 +950,12 @@
     <history-entry file="MerchantTest_test - 2020.03.05 at 22h 57m 03s.xml">
       <configuration name="MerchantTest.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MerchantTest_test - 2020.03.05 at 23h 29m 08s.xml">
+      <configuration name="MerchantTest.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162941000" />
+    <option name="totallyTimeSpent" value="164098000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -982,7 +969,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29359287" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29359287" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -993,7 +980,7 @@
       <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49959448" weight="0.32656828" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" visible="true" weight="0.13468635" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49553934" visible="true" weight="0.35793358" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49553934" visible="true" weight="0.5590406" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.8579336" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1011,10 +998,10 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" weight="0.16463909" />
+      <window_info anchor="right" id="Maven" order="5" visible="true" weight="0.16463909" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" visible="true" weight="0.04217356" />
+      <window_info anchor="right" id="Database" order="8" weight="0.04217356" />
       <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
   </component>
@@ -1062,7 +1049,8 @@
     <MESSAGE value="添加删除二手商品功能，修改statusEnum" />
     <MESSAGE value="更新了几个方法，加上@JSONField" />
     <MESSAGE value="添加了一个用户id转商家id" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加了一个用户id转商家id" />
+    <MESSAGE value="修改email的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改email的bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="91" key="#Inspections" />
@@ -1488,7 +1476,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/MerchantMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
-          <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b500ef26-2d9d-469a-a1a6-68ad9a4ba62e/schema/com_carbon_credits/table/merchant_basic">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1502,6 +1497,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MerchantDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/EmailTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-40">
@@ -1509,27 +1511,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://b500ef26-2d9d-469a-a1a6-68ad9a4ba62e/schema/com_carbon_credits/table/merchant_basic">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/catlovers/carbon_credits/MerchantTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+        <state relative-caret-position="132">
+          <caret line="20" column="101" selection-start-line="20" selection-start-column="101" selection-end-line="20" selection-end-column="101" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/catlovers/carbon_credits/model/MerchantDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>

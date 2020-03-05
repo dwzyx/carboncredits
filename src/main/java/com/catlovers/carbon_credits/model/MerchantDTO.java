@@ -8,11 +8,17 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MerchantDTO {
-    private int userId;
-    private String merchantPhoneNumber;
-    private String merchantEmail;
-    private String merchantName;
     private String merchantAddress;
-    private String merchantIntroduce;
+    private String merchantEmail;
     private String merchantImage;
+    private String merchantIntroduce;
+    private String merchantName;
+    private String merchantPhoneNumber;
+    private int userId;
+
+
+
+
+
+
 }
