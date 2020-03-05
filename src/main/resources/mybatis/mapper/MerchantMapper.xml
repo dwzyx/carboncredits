@@ -46,4 +46,8 @@
         from merchant_basic where user_id = #{userId};
     </select>
 
+    <select id="getMerchantId" resultType="java.lang.Integer">
+        select merchant_id
+        from merchant_basic where user_id = #{userId}
+    </select>
 </mapper>

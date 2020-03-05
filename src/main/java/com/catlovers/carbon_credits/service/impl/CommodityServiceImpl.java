@@ -3,6 +3,7 @@ package com.catlovers.carbon_credits.service.impl;
         import com.alibaba.fastjson.JSONObject;
         import com.catlovers.carbon_credits.dao.CarbonCreditsDao;
         import com.catlovers.carbon_credits.dao.CommodityDao;
+        import com.catlovers.carbon_credits.dao.MerchantDao;
         import com.catlovers.carbon_credits.dao.UserDao;
         import com.catlovers.carbon_credits.enumeration.StatusEnum;
         import com.catlovers.carbon_credits.model.*;
@@ -22,11 +23,13 @@ public class CommodityServiceImpl implements CommodityService {
     private final CommodityDao commodityDao;
     private final UserDao userDao;
     private final CarbonCreditsDao carbonCreditsDao;
+    private final MerchantDao merchantDao;
 
-    public CommodityServiceImpl(CommodityDao commodityDao,UserDao userDao,CarbonCreditsDao carbonCreditsDao) {
+    public CommodityServiceImpl(CommodityDao commodityDao,UserDao userDao,CarbonCreditsDao carbonCreditsDao,MerchantDao merchantDao) {
         this.commodityDao = commodityDao;
         this.userDao = userDao;
         this.carbonCreditsDao = carbonCreditsDao;
+        this.merchantDao = merchantDao;
     }
 
     @Override
@@ -212,6 +215,8 @@ public class CommodityServiceImpl implements CommodityService {
         JSONObject jsonObject = new JSONObject();
 
         try{
+            int id = coupon.getUserStoreId();
+            coupon.setUserStoreId(merchantDao.getMerchantId(id));
             commodityDao.addCoupon(coupon);
 
             jsonObject.put("msg_code", StatusEnum.SUCCESS.getCoding());

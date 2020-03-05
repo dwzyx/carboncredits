@@ -17,5 +17,6 @@ public interface MerchantDao {
     int modify(MerchantDTO merchantDTO);
     int modifyPassword(int userId,String merchantPassword);
     String getName(int userId);
+    int getMerchantId(int userId);
 
 }
